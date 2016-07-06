@@ -1,0 +1,116 @@
+/**flowstate  css**/
+$bh-flowState-num-circle-width: 32px;
+$bh-flowState-num-line-width: 32px;
+$bh-flowState-box-width: $bh-flowState-num-circle-width + $bh-flowState-num-line-width * 2;
+$bh-flowState-num-circle-left:$bh-flowState-num-line-width;
+$bh-flowState-num-line-left: $bh-flowState-num-circle-width + $bh-flowState-num-line-width;
+.bh-flowState-box{
+    display: inline-block;
+    width: $bh-flowState-box-width;
+    position: relative;
+    float:left;
+}
+.bh-flowState-num-circle{
+    border-radius: 100%;
+    text-align: center;
+    width: $bh-flowState-num-circle-width;
+    height: 32px;
+    color: $white-base;
+    font-size: 16px;
+    padding-top: 7px;
+    background-color:$gray-lv4;
+    margin-left:$bh-flowState-num-circle-left;
+}
+.bh-flowState-word{
+    width: 100%;
+    text-align: center;
+    height: 44px;
+    font-size: 12px;
+    margin-top: 8px;
+    color:$gray-lv4;
+}
+.bh-flowState-num-circle.bh-flowState-success,
+.bh-flowState-status.bh-flowState-success{
+    background-color:$success-lv2;
+}
+.bh-flowState-prev-success .bh-flowState-num-circle:before{
+    background-color:$success-lv1;
+}
+.bh-flowState-num-circle.bh-flowState-fail,
+.bh-flowState-status.bh-flowState-fail{
+    background-color:$danger-lv2;
+}
+.bh-flowState-num-circle.bh-flowState-operation,
+.bh-flowState-status.bh-flowState-operation{
+    background-color:$warning-lv2;
+}
+.bh-flowState-status{
+    color: $white-base;
+    padding: 2px 8px 2px 8px;
+    border-radius: 2px;
+    border:1px solid transparent;
+    background-color:$gray-lv4;
+}
+.bh-flowState-line{
+    background-color: $gray-lv4;
+    height:2px;
+    position: relative;
+    float:left;
+    margin-top:16px;
+}
+.bh-flowState-line.bh-flowState-success{
+    background-color: $success-lv1;
+}
+.bh-flowState-num-circle:after{
+    content: "";
+    height: 2px;
+    width: $bh-flowState-num-line-width;
+    background-color: $gray-lv4;
+    display: inline-block;
+    top: 16px;
+    position: absolute;
+    left: $bh-flowState-num-line-left;
+}
+.bh-flowState-num-circle:before{
+    content: "";
+    height: 2px;
+    width: $bh-flowState-num-line-width;
+    background-color: $gray-lv4;
+    display: inline-block;
+    top: 16px;
+    position: absolute;
+    left:0px;
+}
+.bh-flowState-success:after{
+    content: "";
+    height: 2px;
+    width: $bh-flowState-num-line-width;
+    background-color: $success-lv1;
+    display: inline-block;
+    top: 16px;
+    position: absolute;
+    left: $bh-flowState-num-line-left; 
+}
+.bh-flowState-line-succes{
+    background-color: $success-lv1;
+}
+
+.bh-flowState-hideLeft .bh-flowState-num-circle:before,
+.bh-flowState-hideRight .bh-flowState-num-circle:after,
+.bh-flowState-hideRight .bh-flowState-status:after{
+    display: none;
+}
+.bh-flowState-detail{
+    margin-bottom:8px;
+    color:$gray-lv3;
+}
+.bh-flowState-box:hover .bh-flowState-success{
+    background-color:$success-lv1;
+}
+.bh-flowState-box:hover .bh-flowState-fail{
+    background-color:$danger-lv1;
+}
+.bh-flowState-box:hover .bh-flowState-operation{
+    background-color:$warning-lv1;
+}
+

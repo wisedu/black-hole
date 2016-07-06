@@ -1,0 +1,143 @@
+.bh-tip {
+    top: -40px;
+    z-index: 9999;
+    min-width: 240px;
+
+    & .bh-card {
+        padding: 8px 16px;
+        height: 36px;
+        text-align: center;
+    }   
+}
+
+.bh-tip-top-bar {
+    height: 4px;
+    width: 100%;
+}
+
+.bh-tip-content {
+    height: 20px;
+    position: relative;
+    padding-left: 24px;    
+
+    & .iconfont { 
+        position: absolute;
+        margin-left: -24px;
+    }
+    & .iconfont.icon-checkcircle{
+        color: $success-lv1;
+    }
+    & .iconfont.icon-erroroutline{
+        color: $warning-lv1;
+    }
+    & .iconfont.icon-error{
+        color: $danger-lv1;
+    }
+}
+
+.bh-tip-closeIcon {
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    position: absolute;
+    top: 13px;
+    right: 8px;
+    text-align: center;
+    color: $theme-lv3;
+    cursor: pointer;
+    z-index: 10000;
+    
+    &:hover {
+        color: $white-base;
+        background-color: $theme-lv3;
+    }
+}
+
+.bh-tip-btn-group {
+    display: inline-block;
+}
+
+.bh-tip-btn {
+    margin-left: 8px;
+
+    &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
+.bh-tip-success {
+    background-color: $success-lv1;
+}
+
+.bh-tip-warning {
+    background-color: $warning-lv1;
+}
+
+.bh-tip-danger {
+    background-color: $danger-lv1;
+}
+
+.bh-tip-animated {
+    -webkit-animation-duration: 0.45s;
+    animation-duration: 0.45s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes bh-tip-outDown {
+    0% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    100% {
+        -webkit-transform: translate(0, 56px);
+        transform: translate(0, 56px);
+    }
+}
+
+@keyframes bh-tip-outDown {
+    0% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    100% {
+        -webkit-transform: translate(0, 56px);
+        transform: translate(0, 56px);
+    }
+}
+
+.bh-tip-outDown {
+    -webkit-animation-name: bh-tip-outDown;
+    animation-name: bh-tip-outDown;
+}
+
+@-webkit-keyframes bh-tip-inUp {
+    0% {
+        -webkit-transform: translate(0, 56px);
+        transform: translate(0, 56px);
+    }
+    100% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes bh-tip-inUp {
+    0% {
+        -webkit-transform: translate(0, 56px);
+        transform: translate(0, 56px);
+    }
+    100% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+.bh-tip-inUp {
+    -webkit-animation-name: bh-tip-inUp;
+    animation-name: bh-tip-inUp;
+}
+

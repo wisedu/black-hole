@@ -1,0 +1,17 @@
+.bh-footer{
+  min-width: $container-min-width;
+  max-width: $container-max-width;
+  color: $white-base;
+  padding: $container-pardding;
+  margin: 0 auto;
+  position: relative;
+  z-index: 5900;
+}
+
+.bh-footer-content{
+  background-color: $theme-lv1;
+  height: 32px;
+  text-align: center;
+  width: 100%;
+  padding: 6px 0;
+}

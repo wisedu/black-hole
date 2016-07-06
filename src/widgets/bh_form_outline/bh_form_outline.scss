@@ -1,0 +1,136 @@
+$form-outline-width: 200px;
+$form-outline-border-width: 2px;
+$form-outline-padding-left: 16px;
+$form-outline-active-border-left: $form-outline-padding-left + $form-outline-border-width;
+
+
+.bh-form-outline{
+  position: absolute;
+  z-index: 200;
+  width: $form-outline-width;
+  border-left: $form-outline-border-width solid $gray-lv5;
+  font-size: 14px;
+  font-weight: bold;
+  opacity: 0;
+  //overflow:hidden;
+}
+
+.bh-form-outline-item{
+  height: 28px;
+  padding: 5px 8px 5px $form-outline-padding-left;
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+
+  & > div{
+    float: left;
+  }
+
+  &.bh-active{
+    &:before{
+      content: "";
+      position: absolute;
+      height: 100%;
+      border-left: 4px solid $primary-lv1;
+      left: -$form-outline-border-width;
+      top: 0;
+    }
+
+    & .bh-form-outline-itemText{
+      color: $primary-lv1;
+    }
+  }
+
+  &:hover{
+    background-color: $primary-lv4;
+  }
+}
+
+.bh-form-outline-itemIndex{
+  color: $gray-lv3;
+  padding-right: 4px;
+  width:22px;
+}
+
+.bh-form-outline-itemText{
+  color: $gray-lv2;
+  margin-right: 8px;
+  max-width: calc(100% - 26px - 42px);
+}
+
+.bh-form-outline-itemCount{
+  font-size: 12px;
+  font-weight: normal;
+  color: $gray-lv3;
+
+  &.bh-success{
+    color: $success-lv1;
+  }
+}
+
+
+.bh-animated-doubleTime {
+  -webkit-animation-duration: $animate-time * 2;
+  animation-duration: $animate-time * 2;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+
+@-webkit-keyframes bh-fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes bh-fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.bh-fadeIn {
+  -webkit-animation-name: bh-fadeIn;
+  animation-name: bh-fadeIn;
+}
+
+
+
+@-webkit-keyframes bh-fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    z-index: -1;
+  }
+}
+
+@keyframes bh-fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    z-index: -1;
+  }
+}
+
+.bh-fadeOut {
+  -webkit-animation-name: bh-fadeOut;
+  animation-name: bh-fadeOut;
+}
+
+.bh-form-outline-left-content{
+    width: calc(100% - 232px)!important;
+}

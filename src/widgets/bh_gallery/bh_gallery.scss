@@ -1,0 +1,52 @@
+.bh-gallery {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .bh-gallery__backdrop {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background: $gray-base;
+    opacity: 0.8;
+  }
+  .bh-gallery__main {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 2;
+    overflow: auto;
+  }
+  .bh-gallery__gallery {
+    margin: 0 auto;
+  }
+  .bh-gallery__close {
+    position: fixed;
+    z-index: 2;
+    top: 10px;
+    right: 10px;
+
+    width: 40px;
+    height: 40px;
+
+    text-align: center;
+    line-height: 40px;
+    font-size: 30px;
+    color: $white-base;
+    cursor: pointer;
+    &:hover {
+      background: $theme-lv3;
+      border-radius: 3px;
+    }
+  }
+}

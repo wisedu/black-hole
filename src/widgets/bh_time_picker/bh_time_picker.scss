@@ -1,0 +1,249 @@
+//选择框，输入框等的高度
+$bh-timePicker-icon-input-height: 26px;
+//弹出时间选择框的宽度和高度
+$bh-timePick-selectBox-width: 400px;
+$bh-timePick-selectBox-height: 148px;
+
+.bh-timePicker-rangeBox{
+  position: relative;
+  border: 1px solid $theme-lv3;
+}
+
+.bh-timePicker-rangeBox-selectIcon{
+  position: absolute;
+  top: 0;
+  height: $bh-timePicker-icon-input-height;
+  width: 28px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 2px;
+  cursor: pointer;
+  z-index: 100;
+  background-color: $white-base;
+  &:hover{
+    background-color: $primary-lv4;
+  }
+
+  &.bh-left{
+    left: 0;
+  }
+  &.bh-right{
+    right: 0;
+  }
+}
+
+.bh-timePicker-rangeBox-time{
+  position: relative;
+  float: left;
+  padding: 3px 32px;
+  height: $bh-timePicker-icon-input-height;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+
+  &:after{
+    content: "";
+    position: relative;
+    top: 12px;
+    margin-left: 8px;
+    border-top: 8px solid $gray-lv1;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+  }
+
+  &:hover{
+    background-color: $primary-lv4;
+  }
+}
+
+.bh-timePick-selectBoxCont{
+  z-index: 9999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: $bh-timePick-selectBox-width + 16;
+  height: $bh-timePick-selectBox-height + 16;
+  overflow: hidden;
+  display: none;
+}
+
+.bh-timePick-selectBox{
+  position: absolute;
+  top: -$bh-timePick-selectBox-height - 16;
+  left: 8px;
+  width: $bh-timePick-selectBox-width;
+  height: $bh-timePick-selectBox-height;
+  background-color: #fff;
+  transition: top $animate-time;
+
+  &.bh-active{
+    top: 4px;
+  }
+}
+
+.bh-timePick-tab{
+  height: 36px;
+  border-bottom: 2px solid $theme-lv4;
+  font-size: 14px;
+  text-align: center;
+}
+
+.bh-timePick-tabItem{
+  cursor: pointer;
+  display: inline-block;
+  width: 35%;
+  height: 36px;
+  padding: 8px 0;
+  position: relative;
+  margin: 0 7%;
+
+  &.bh-active{
+    color: $theme-lv1;
+    &:after{
+      height: 4px;
+      background-color: $theme-lv1;
+    }
+  }
+
+  &:after{
+    content: "";
+    height: 2px;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    -webkit-transition: all;
+    -o-transition: all;
+    transition: all;
+    -webkit-transition-duration: 250ms;
+    transition-duration: 250ms;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+    background-color: $theme-lv2;
+  }
+
+  &.bh-active,
+  &:hover{
+    &:after{
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+      -o-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+}
+
+.bh-timePick-tabContent{
+  padding: 16px 24px;
+  overflow: hidden;
+  position: relative;
+  & > div{
+    position: relative;
+    transition: left $animate-time;
+  }
+}
+
+.bh-timePick-custom{
+  left: -$bh-timePick-selectBox-width;
+  & > .bh-btn-block{
+    margin-left: 0;
+    margin-top: 16px;
+  }
+  &.bh-active{
+    left: 0;
+  }
+}
+
+.bh-timePick-customTime{
+  & > div{
+    float: left;
+  }
+}
+
+.bh-timePick-selectType{
+  position: relative;
+  margin-right: 8px;
+}
+
+.bh-timePick-selectConnect{
+  position: relative;
+  width: 16px;
+  height: 28px;
+  &:after{
+    content: "";
+    position: absolute;
+    top: 13px;
+    left: 4px;
+    width: 8px;
+    height: 1px;
+    background-color: $gray-lv1;
+  }
+}
+
+.bh-timePick-monthItem{
+  float: left;
+  width: 30px;
+  height: 28px;
+  border-width: 1px 1px 1px 0;
+  border-color: $theme-lv3;
+  border-style: solid;
+  text-align: center;
+  padding-top: 3px;
+  background-color: $theme-lv4;
+  color: $gray-lv2;
+
+  &:first-child{
+    border-left-width: 1px;
+  }
+
+  &.bh-pre{
+    background-color: $white-base;
+    color: $gray-lv1;
+    cursor: pointer;
+    &:hover{
+      background-color: $primary-lv1;
+      color: $white-base
+    }
+  }
+}
+
+.bh-timePick-selectMonthCont{
+  left: $bh-timePick-selectBox-width;
+  top: -76px;
+  &.bh-active{
+    left: 0;
+  }
+}
+
+.bh-timePick-selectMonth{
+  width: 138px;
+  margin: 0 auto 16px auto;
+  & .bh-timePicker-rangeBox-time{
+    cursor: default;
+    &:after{
+      content: initial;
+    }
+    &:hover{
+      background-color: $white-base;
+    }
+  }
+}
+
+.bh-timePicker-selectMonthList{
+  width: 360px;
+  margin: auto;
+}
+
+.bh-timePick-disable{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: $gray-lv5;
+  opacity: 0.5;
+}

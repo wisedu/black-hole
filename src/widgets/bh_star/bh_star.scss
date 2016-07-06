@@ -1,0 +1,34 @@
+.bh-star{
+  color: $warning-lv1;
+}
+
+.bh-star-item{
+  display: inline-block;
+
+  & i{
+    cursor: pointer;
+  }
+
+  & .icon-star{
+    display: none;
+  }
+
+  &.bh-active{
+    & .icon-staroutline{
+      display: none;
+    }
+    & .icon-star{
+      display: block;
+    }
+  }
+}
+
+.bh-star-num{
+  display: inline-block;
+  font-size: 14px;
+}
+
+.bh-star-list{
+  display: inline-block;
+  margin-right: 4px;
+}

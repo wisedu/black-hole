@@ -1,0 +1,12 @@
+{
+  "source": {
+    "include": ["core/src/elements/bh"],
+    "includePattern": "\\.(js)$"
+  },
+  "opts": {
+    "encoding": "utf8",
+    "destination": "static/docs/",
+    "recurse": true
+  },
+  "allowUnknownTags": true
+}

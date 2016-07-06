@@ -1,0 +1,13 @@
+.bh-cutStr-popBox{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: $white-base;
+  z-index: 9999;
+  padding: 8px;
+  overflow: auto;
+}
+
+.bh-cut-str-more{
+  float: right;
+}

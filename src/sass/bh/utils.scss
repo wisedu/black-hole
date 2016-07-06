@@ -1,0 +1,102 @@
+//
+// Utility classes
+// --------------------------------------------------
+
+
+// Floats
+// -------------------------
+.bh-clearfix {
+  clear: both;
+  &:after{
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+.bh-clearfix-child {
+  &:after{
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.bh-pull-right {
+  float: right !important;
+}
+.bh-pull-left {
+  float: left !important;
+}
+
+.bh-l-inline{
+  display: inline-block;
+}
+
+
+.bh-border{
+  border: 1px solid $gray-lv5;
+}
+.bh-border-h{
+  border-left: 1px solid $gray-lv5;
+  border-right: 1px solid $gray-lv5;
+}
+.bh-border-v{
+  border-top: 1px solid $gray-lv5;
+  border-bottom: 1px solid $gray-lv5;
+}
+.bh-border-t{
+  border-top: 1px solid $gray-lv5;
+}
+.bh-border-b{
+  border-bottom: 1px solid $gray-lv5;
+}
+.bh-border-l{
+  border-left: 1px solid $gray-lv5;
+}
+.bh-border-r{
+  border-right: 1px solid $gray-lv5;
+}
+
+
+
+.bh-hide {
+  display: none;
+}
+.bh-show {
+  display: block;
+}
+
+
+.bh-str-cut{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+
+
+//margin padding
+@include make-m-p(margin, m, 2, 2px);
+@include make-m-p(margin, m, 4, 4px);
+@include make-m-p(margin, m, 8, 8px);
+@include make-m-p(margin, m, 10, 10px);
+@include make-m-p(margin, m, 16, 16px);
+@include make-m-p(margin, m, 24, 24px);
+@include make-m-p(margin, m, 32, 32px);
+@include make-m-p(margin, m, 40, 40px);
+
+
+@include make-m-p(padding, p, 2, 2px);
+@include make-m-p(padding, p, 4, 4px);
+@include make-m-p(padding, p, 8, 8px);
+@include make-m-p(padding, p, 10, 10px);
+@include make-m-p(padding, p, 16, 16px);
+@include make-m-p(padding, p, 24, 24px);
+@include make-m-p(padding, p, 32, 32px);
+@include make-m-p(padding, p, 40, 40px);
+
+
+
+@include make-width(8, 8px);
+@include make-width(12, 12px);
+

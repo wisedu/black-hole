@@ -1,0 +1,47 @@
+.bh-collapsible-panel{
+  padding: 15px 16px;
+  border:1px solid $transparent;
+  position: relative;
+  zoom: 1;
+  overflow: hidden;
+
+  &:hover,&.has-border{
+    cursor: pointer;
+    border:1px solid $theme-lv3;
+    .bh-collapsible-panel-toolbar{
+      display: block;
+    }
+  }
+  &.bh-card,&.bh-card:hover{
+    border: 1px solid $transparent;
+    .bh-collapsible-panel-toolbar{
+      display: block;
+    }
+  }
+}
+.bh-collapsible-panel-title{
+  display: inline-block;
+  margin-right: 17px;
+}
+
+.bh-collapsible-panel-toolbar{
+  position: absolute;
+  top:26px;
+  right: 16px;
+  display: none;
+}
+.bh-collapsible-panel-content{
+  overflow: hidden;
+  &:after{
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+.bh-collapsible-panel-animate{
+  -webkit-transition: height $animate-time cubic-bezier(1,.32,.3,.71);
+  -moz-transition: height $animate-time cubic-bezier(1,.32,.3,.71);
+  -ms-transition: height $animate-time cubic-bezier(1,.32,.3,.71);
+  -o-transition: height $animate-time cubic-bezier(1,.32,.3,.71);
+  transition: height $animate-time cubic-bezier(1,.32,.3,.71);
+}

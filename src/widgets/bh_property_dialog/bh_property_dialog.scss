@@ -1,0 +1,230 @@
+$bh-property-dialog-container-width: 384px;
+$bh-property-dialog-container-padding: 24px 16px 0 16px;
+$bh-property-dialog-container-z-index: 5000;
+$bh-property-dialog-cover-opacity: 0.5;
+
+.bh-property-dialog{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: $bh-property-dialog-container-z-index;
+}
+
+.bh-property-dialog-container{
+    position: absolute;
+    right: 1px;
+    top: 0;
+    width: $bh-property-dialog-container-width;
+    padding: $bh-property-dialog-container-padding;
+    background-color: $white-base;
+    z-index: $bh-property-dialog-container-z-index !important;
+    height: 100%;
+}
+
+.bh-property-dialog-footer{
+    position: absolute;
+    bottom: 0;
+    padding: 8px 50px;
+    display: none;
+
+    &:after{
+        content: "";
+        width: $bh-property-dialog-container-width;
+        border-top: 1px solid $gray-lv5;
+        position: absolute;
+        top: 0;
+        left: -16px;
+    }
+}
+
+.bh-property-dialog-cover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: $bh-property-dialog-container-z-index - 1;
+    opacity: $bh-property-dialog-cover-opacity;
+}
+
+
+.bh-animated {
+    -webkit-animation-duration: $animate-time;
+    animation-duration: $animate-time;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes bh-property-dialog-cover-fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: $bh-property-dialog-cover-opacity;
+    }
+}
+
+@keyframes bh-property-dialog-cover-fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: $bh-property-dialog-cover-opacity;
+    }
+}
+
+.bh-property-dialog-cover-fadeIn {
+    -webkit-animation-name: bh-property-dialog-cover-fadeIn;
+    animation-name: bh-property-dialog-cover-fadeIn;
+}
+
+
+@-webkit-keyframes bh-property-dialog-cover-fadeOut {
+    0% {
+        opacity: $bh-property-dialog-cover-opacity;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes bh-property-dialog-cover-fadeOut {
+    0% {
+        opacity: $bh-property-dialog-cover-opacity;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.bh-property-dialog-cover-fadeOut {
+    -webkit-animation-name: bh-property-dialog-cover-fadeOut;
+    animation-name: bh-property-dialog-cover-fadeOut;
+}
+
+
+@-webkit-keyframes bh-outRight {
+    0% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+}
+
+@keyframes bh-outRight {
+    0% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+}
+
+.bh-outRight {
+    -webkit-animation-name: bh-outRight;
+    animation-name: bh-outRight;
+}
+
+
+@-webkit-keyframes bh-outDown {
+    0% {
+    }
+
+    100% {
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+}
+
+@keyframes bh-outDown {
+    0% {
+    }
+
+    100% {
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+}
+
+.bh-outDown {
+    -webkit-animation-name: bh-outDown;
+    animation-name: bh-outDown;
+}
+
+
+@-webkit-keyframes bh-intoRight {
+    0% {
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+
+    100% {
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes bh-intoRight {
+    0% {
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+
+    100% {
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.bh-intoRight {
+    -webkit-animation-name: bh-intoRight;
+    animation-name: bh-intoRight;
+}
+
+
+@-webkit-keyframes bh-intoUp {
+    0% {
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+
+    100% {
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes bh-intoUp {
+    0% {
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+
+    100% {
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.bh-intoUp {
+    -webkit-animation-name: bh-intoUp;
+    animation-name: bh-intoUp;
+}
+
+[bh-property-dialog-role=body] {
+    outline: none;
+}

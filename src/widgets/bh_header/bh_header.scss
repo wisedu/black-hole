@@ -1,0 +1,797 @@
+$header-bg-height: 320px;
+$header-bar-height: 44px;
+$header-mini-bar-height: 24px;
+$header-icon-hover-bg-color: fade($gray-base, 16%);
+
+$header-img-width: 28px;
+$header-img-height: 28px;
+$header-logo-height: 40px;
+$header-mini-img-width: 20px;
+$header-mini-img-height: 20px;
+$header-mini-logo-height: 20px;
+
+
+$header-bar-nav-bg-color: fade($gray-base, 16%);
+
+$header-icon-height: 28px;
+$header-icon-width: 28px;
+
+
+.bh-header-bg{
+  height: $header-bg-height;
+  background-color: $theme-lv1;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.bh-header,
+.bh-header-mini{
+  background-color: $theme-lv1;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 6000;
+  overflow: hidden;
+}
+.bh-header{
+  position: absolute;
+  opacity: 1;
+}
+
+.bh-headerBar-asideMenu{
+  display: none;
+  float: left;
+  color: $white-base;
+  background-color: $header-bar-nav-bg-color;
+  width: 68px;
+  height: $header-bar-height;
+  margin: -8px 12px 0 0;
+  text-align: center;
+  padding: 12px 0;
+  cursor: pointer;
+
+  & i{
+    font-size: 32px;
+  }
+}
+
+.bh-header-mini{
+  position: fixed;
+  top: -$header-mini-bar-height;
+  box-shadow: $box-shadow-lv2;
+
+  & .bh-headerBar{
+    height: $header-mini-bar-height;
+    padding: 0;
+  }
+  & .bh-headerBar-title{
+    font-size: 16px;
+    padding: 0px 0;
+    line-height: $header-mini-bar-height;
+    margin-top:0;
+  }
+  & .bh-headerBar-iconBlock{
+    cursor: pointer;
+    & .iconfont{
+      font-size: 16px;
+    }
+  }
+  & .bh-headerBar-imgBlock{
+    margin-top: 0;
+    & img{
+      width: $header-mini-img-width;
+      height: $header-mini-img-height;
+    }
+  }
+
+  & .bh-headerBar-logo{
+    height: $header-mini-logo-height;
+    margin-top: 2px;
+    & img{
+      height: $header-mini-logo-height;
+    }
+  }
+
+  & .bh-headerBar-asideMenu{
+    width: 54px;
+    height: $header-mini-bar-height;
+    margin: 0 12px 0 0;
+    padding: 2px 0;
+
+    & i{
+      font-size: 24px;
+    }
+  }
+
+  & .bh-headerBar-nav-item{
+    padding: 7px 16px;
+  }
+  & .bh-headerBar-nav-bar{
+    bottom: 4px;
+  }
+
+  & .bh-headerBar-nav-more{
+    height: 28px;
+    margin-top: -4px;
+    padding: 7px 8px;
+    &.bh-active{
+      &:after{
+        border-bottom: 8px solid $warning-lv1;
+        border-left: 8px solid transparent;
+      }
+    }
+  }
+}
+
+.bh-headerBar-navBar-cover{
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: $theme-lv1;
+}
+.bh-nav-hide{
+  & .bh-headerBar-navBar-cover{
+    display: block;
+  }
+}
+
+.bh-headerBar{
+  height: $header-bar-height;
+  padding: 8px 0;
+  overflow: hidden;
+}
+.bh-headerBar-content{
+  min-width: $container-min-width;
+  max-width: $container-max-width;
+  padding: $container-pardding;
+  margin: $container-margin;
+}
+.bh-headerBar-logo{
+  float: left;
+  height: $header-logo-height;
+  margin: -6px 8px 0 0;
+  & img{
+    height: $header-logo-height;
+  }
+}
+.bh-headerBar-menu{
+  float: right;
+}
+.bh-headerBar-menu:after{
+  content: "";
+  clear: both;
+  display: table;
+}
+.bh-headerBar-iconBlock{
+  float: right;
+  color: $white-base;
+  padding: 3px 5px;
+  border-radius: 4px;
+  width: $header-icon-height;
+  height: $header-icon-width;
+
+  & a{
+    color: $white-base;
+  }
+
+  & .iconfont{
+    font-size: 18px;
+  }
+  &:hover{
+    background-color: $header-icon-hover-bg-color;
+  }
+}
+
+.bh-headerBar-navigate{
+  float: right;
+  color: fade($white-base, 80%);
+  font-weight: bold;
+  font-size: 14px;
+  margin: -6px 0 0 0;
+  position: relative;
+  overflow: hidden;
+
+  & > a{
+    float: right;
+    background-color: $header-bar-nav-bg-color;
+  }
+
+  &.bh-unActive{
+    & .bh-headerBar-nav-item{
+      &.bh-active{
+        color: fade($white-base, 68%);
+      }
+    }
+
+    & .bh-headerBar-nav-bar{
+      display: none;
+    }
+  }
+}
+
+.bh-headerBar-nav-item{
+  padding: 11px 16px;
+  cursor: pointer;
+  color: fade($white-base, 68%);
+
+  &:hover,
+  &.bh-active{
+    color: $white-base;
+  }
+}
+
+.bh-headerBar-nav-bar{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 4px;
+  background-color: $warning-lv1;
+}
+
+.bh-headerBar-imgBlock{
+  padding: 0 4px 0 0;
+  float: right;
+  & img{
+    width: $header-img-width;
+    height: $header-img-height;
+  }
+}
+
+.bh-headerBar-title{
+  font-size: 24px;
+  font-weight: bold;
+  color: $white-base;
+  float: left;
+  line-height: $header-bar-height;
+  margin-top:-8px;
+}
+
+/**角色切换**/
+.bh-headerBar-roleSwitch{
+  position: relative;
+  float: right;
+  background-color: $header-bar-nav-bg-color;
+  color: $white-base;
+  height: $header-img-height;
+  padding: 4px 28px 4px 8px;
+  cursor: pointer;
+  margin-left: 4px;
+
+  &:after{
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: 8px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #fff;
+  }
+}
+
+.bh-headerBar-userIfon{
+  position: absolute;
+  z-index: 1000;
+  width: 200px;
+  padding: 24px 16px;
+  top: 0;
+
+  &.bh-card{
+    z-index: 9000;
+  }
+
+  &.bh-active{
+    transform: scale(1);
+  }
+
+  & .bh-btn{
+    width: 100%;
+    margin-left: 0;
+    margin-top: 8px;
+  }
+}
+
+.bh-headerBar-userInfo-img{
+  width: 60px;
+  height: 60px;
+  float: left;
+  margin-right: 8px;
+  & img{
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.bh-headerBar-userInfo-detail{
+  color: $gray-lv3;
+}
+.bh-headerBar-userIfon-name{
+  color: $gray-lv1;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.bh-headerBar-roleBox{
+  font-size: 14px;
+  top: 0;
+  position: absolute;
+  /* display: none; */
+  z-index: 1000;
+  background-color: $white-base;
+  min-width: 176px;
+  padding: 4px 0;
+  &.bh-card{
+    z-index: 9000;
+  }
+
+  &.bh-active{
+    transform: scale(1);
+  }
+}
+
+.bh-headerBar-roleBox-explain{
+  color: $gray-lv3;
+  &.bh-headerBar-roleBox-title{
+    padding: 6px 8px;
+    &:hover{
+      background-color: $transparent;
+    }
+  }
+}
+
+.bh-headerBar-roleBox-title{
+  height: 32px;
+  padding: 6px 16px;
+  & a{
+    color: $gray-lv1;
+  }
+  &:hover{
+    background-color: $primary-lv4;
+  }
+  & i{
+    float: left;
+    margin-right: 8px;
+  }
+}
+
+.bh-headerBar-nav-more{
+  display: none;
+  float: right;
+  width: 44px;
+  height: 42px;
+  position: relative;
+  padding: 10px 8px;
+  margin: -6px 8px 0 0;
+  text-align: center;
+  background-color: $header-bar-nav-bg-color;
+  color: fade($white-base, 80%);
+  cursor: pointer;
+  & i{
+    font-size: 20px;
+  }
+
+  &:hover{
+    color: $white-base;
+  }
+
+  &.bh-active{
+    color: $white-base;
+    &:after{
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      border-bottom: 14px solid $warning-lv1;
+      border-left: 14px solid transparent;
+    }
+  }
+}
+
+.bh-header-navMoreBox{
+  //display: none;
+  position: absolute;
+  overflow: hidden;
+  z-index: 9999;
+  background-color: $theme-lv1;
+  font-weight: bold;
+  font-size: 14px;
+  -webkit-transition:height $animate-time;
+  -moz-transition:height $animate-time;
+  -ms-transition:height $animate-time;
+  -o-transition:height $animate-time;
+  transition:height $animate-time;
+
+  & .bh-headerBar-nav-item {
+    border-top: 1px solid $white-base;
+  }
+
+  & > a{
+    &:hover,
+    &.bh-active{
+      & > .bh-headerBar-nav-item{
+        color: $white-base;
+      }
+    }
+  }
+
+  &.bh-header-navMoreBox-mini{
+    & .bh-headerBar-nav-item{
+      height: 24px;
+      padding: 2px 16px;
+    }
+
+    & .bh-header-navMoreBox-bar{
+      top: -24px;
+      height: 23px;
+    }
+  }
+}
+
+.bh-header-navMoreBox-bar{
+  position: absolute;
+  top: -43px;
+  left: 0;
+  width: 4px;
+  height: 42px;
+  background-color: $warning-lv1;
+}
+
+
+/** 头部动画 start **/
+.bh-header-animate{
+  -webkit-transition: height 0.5s;
+  -moz-transition: height 0.5s;
+  -ms-transition: height 0.5s;
+  -o-transition: height 0.5s;
+  transition: height 0.5s;
+}
+
+
+.bh-single-animate{
+  -webkit-transition: all $animate-time-fast;
+  -moz-transition: all $animate-time-fast;
+  -ms-transition: all $animate-time-fast;
+  -o-transition: all $animate-time-fast;
+  transition: all $animate-time-fast;
+}
+
+//角色选择框动画
+.bh-headerBar-popupBox-animate{
+  -webkit-transition: transform;
+  -o-transition: transform;
+  transition: transform;
+  -webkit-transition-duration: $animate-time-fast;
+  transition-duration: $animate-time-fast;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform-origin: top right;
+  -moz-transform-origin: top right;
+  -ms-transform-origin: top right;
+  transform-origin: top right;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+}
+
+//header bg hide
+@-webkit-keyframes bh-headerBg-hide {
+  0%{
+    height: $header-bg-height;
+  }
+  50%{
+    height: 0;
+  }
+  100%{
+    height: 0;
+  }
+}
+@keyframes bh-headerBg-hide {
+  0%{
+    height: $header-bg-height;
+  }
+  50%{
+    height: 0;
+  }
+  100%{
+    height: 0;
+  }
+}
+.bh-headerBg-hide {
+  -webkit-animation-name: bh-headerBg-hide;
+  animation-name: bh-headerBg-hide;
+}
+
+//header bg show
+@-webkit-keyframes bh-headerBg-show {
+  0%{
+    height: 0;
+  }
+  50%{
+    height: $header-bg-height;
+  }
+  100%{
+    height: $header-bg-height;
+  }
+}
+@keyframes bh-headerBg-show {
+  0%{
+    height: 0;
+  }
+  50%{
+    height: $header-bg-height;
+  }
+  100%{
+    height: $header-bg-height;
+  }
+}
+.bh-headerBg-show {
+  -webkit-animation-name: bh-headerBg-show;
+  animation-name: bh-headerBg-show;
+}
+
+//mini header show
+@-webkit-keyframes bh-miniHeader-show {
+  0%{
+    top: -$header-mini-bar-height;
+  }
+  50%{
+    top: -$header-mini-bar-height;
+  }
+  75%{
+    top: 0;
+  }
+  100%{
+    top: 0;
+  }
+}
+@keyframes bh-miniHeader-show {
+  0%{
+    top: -$header-mini-bar-height;
+  }
+  50%{
+    top: -$header-mini-bar-height;
+  }
+  75%{
+    top: 0;
+  }
+  100%{
+    top: 0;
+  }
+}
+.bh-miniHeader-show {
+  -webkit-animation-name: bh-miniHeader-show;
+  animation-name: bh-miniHeader-show;
+}
+
+//mini header hide
+@-webkit-keyframes bh-miniHeader-hide {
+  0%{
+    top: 0;
+  }
+  50%{
+    top: -$header-mini-bar-height;
+  }
+  100%{
+    top: -$header-mini-bar-height;
+  }
+}
+@keyframes bh-miniHeader-hide {
+  0%{
+    top: 0;
+  }
+  50%{
+    top: -$header-mini-bar-height;
+  }
+  100%{
+    top: -$header-mini-bar-height;
+  }
+}
+.bh-miniHeader-hide {
+  -webkit-animation-name: bh-miniHeader-hide;
+  animation-name: bh-miniHeader-hide;
+}
+
+//normal header hide
+@-webkit-keyframes bh-normalHeader-hide {
+  0%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+@keyframes bh-normalHeader-hide {
+  0%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+.bh-normalHeader-hide {
+  -webkit-animation-name: bh-normalHeader-hide;
+  animation-name: bh-normalHeader-hide;
+}
+
+//normal header show
+@-webkit-keyframes bh-normalHeader-show {
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+@keyframes bh-normalHeader-show {
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.bh-normalHeader-show {
+  -webkit-animation-name: bh-normalHeader-show;
+  animation-name: bh-normalHeader-show;
+}
+/** 头部动画 end **/
+
+/** 头部换肤 begin**/
+$bh-header-colorCard-blueTheme:#3E50B4;
+$bh-header-colorCard-bluePrimary:#2196F3;
+$bh-header-colorCard-blueSuccess:#60BE29;
+$bh-header-colorCard-blueWarning:#EF971C;
+$bh-header-colorCard-blueDanger:#E24034;
+
+$bh-header-colorCard-purpleTheme:#734184;
+$bh-header-colorCard-purplePrimary:#7986CB;
+$bh-header-colorCard-purpleSuccess:#51B8AE;
+$bh-header-colorCard-purpleWarning:#FFC106;
+$bh-header-colorCard-purpleDanger:#EC407A;
+
+$bh-header-colorCard-lightBlueTheme:#5677FC;
+$bh-header-colorCard-lightBluePrimary:#00BCD4;
+$bh-header-colorCard-lightBlueSuccess:#42BD41;
+$bh-header-colorCard-lightBlueWarning:#FF9800;
+$bh-header-colorCard-lightBlueDanger:#FF5721;
+
+$bh-header-colorCard-greenTheme:#009688;
+$bh-header-colorCard-greenPrimary:#00BCD4;
+$bh-header-colorCard-greenSuccess:#8BC34A;
+$bh-header-colorCard-greenWarning:#FFB300;
+$bh-header-colorCard-greenDanger:#E84E40;
+
+.bh-header-themelist{
+  position: absolute;
+  top:0;
+  z-index: 9999;
+  display: none;
+}
+.bh-header-themelist ul{
+  list-style: none;
+}
+.bh-header-themelist li{
+  padding-left: 12px;
+  padding-right: 12px;
+  height: 32px;
+  line-height: 32px;
+  cursor: pointer;
+  color: $gray-lv1;
+}
+.bh-header-themelist li.bh-active,
+.bh-header-themelist li.bh-selected{
+  background: $primary-lv4;
+  color: $primary-lv1;
+  font-weight: bold;
+}
+.bh-header-colorCard-blueTheme,
+.bh-header-colorCard-bluePrimary,
+.bh-header-colorCard-blueSuccess,
+.bh-header-colorCard-blueWarning,
+.bh-header-colorCard-blueDanger,
+.bh-header-colorCard-purpleTheme,
+.bh-header-colorCard-purplePrimary,
+.bh-header-colorCard-purpleSuccess,
+.bh-header-colorCard-purpleWarning,
+.bh-header-colorCard-purpleDanger,
+.bh-header-colorCard-lightBlueTheme,
+.bh-header-colorCard-lightBluePrimary,
+.bh-header-colorCard-lightBlueSuccess,
+.bh-header-colorCard-lightBlueWarning,
+.bh-header-colorCard-lightBlueDanger,
+.bh-header-colorCard-greenTheme,
+.bh-header-colorCard-greenPrimary,
+.bh-header-colorCard-greenSuccess,
+.bh-header-colorCard-greenWarning,
+.bh-header-colorCard-greenDanger{
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-color: $bh-header-colorCard-blueTheme;
+  margin-right:2px;
+  float: left;
+  margin-top: 10px;
+}
+.bh-header-colorCard-bluePrimary{
+  background-color: $bh-header-colorCard-bluePrimary;
+}
+.bh-header-colorCard-blueSuccess{
+  background-color: $bh-header-colorCard-blueSuccess;
+}
+.bh-header-colorCard-blueWarning{
+  background-color: $bh-header-colorCard-blueWarning;
+}
+.bh-header-colorCard-blueDanger{
+  background-color: $bh-header-colorCard-blueDanger;
+}
+.bh-header-colorCard-purpleTheme{
+  background-color: $bh-header-colorCard-purpleTheme;
+}
+.bh-header-colorCard-purplePrimary{
+  background-color: $bh-header-colorCard-purplePrimary;
+}
+.bh-header-colorCard-purpleSuccess{
+  background-color: $bh-header-colorCard-purpleSuccess;
+}
+.bh-header-colorCard-purpleWarning{
+  background-color: $bh-header-colorCard-purpleWarning;
+}
+.bh-header-colorCard-purpleDanger{
+  background-color: $bh-header-colorCard-purpleDanger;
+}
+
+.bh-header-colorCard-lightBluePrimary{
+  background-color: $bh-header-colorCard-lightBluePrimary;
+}
+.bh-header-colorCard-lightBlueSuccess{
+  background-color: $bh-header-colorCard-lightBlueSuccess;
+}
+.bh-header-colorCard-lightBlueWarning{
+  background-color: $bh-header-colorCard-lightBlueWarning;
+}
+.bh-header-colorCard-lightBlueDanger{
+  background-color: $bh-header-colorCard-lightBlueDanger;
+}
+.bh-header-colorCard-greenTheme{
+  background-color: $bh-header-colorCard-greenTheme;
+}
+.bh-header-colorCard-greenPrimary{
+  background-color: $bh-header-colorCard-greenPrimary;
+}
+.bh-header-colorCard-greenSuccess{
+  background-color: $bh-header-colorCard-greenSuccess;
+}
+.bh-header-colorCard-greenWarning{
+  background-color: $bh-header-colorCard-greenWarning;
+}
+.bh-header-colorCard-greenDanger{
+  background-color: $bh-header-colorCard-greenDanger;
+}
+
+.bh-header-colorCard-text{
+  float:left;
+  margin-right:8px;
+}
+/** 头部换肤 end**/

@@ -1,0 +1,143 @@
+.rightgrid-container:before {
+    border: 44px solid transparent;
+    border-left: 14px solid $theme-lv3;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 128px;
+    left: 0;
+    content: ' ';
+}
+
+.rightgrid-container {
+    border-left: 1px solid $theme-lv3;
+}
+
+.leftgrid-container .jqx-grid-pager-detail {
+    display: none;
+}
+
+.leftgrid-container .jqx-grid-pager-button {
+    float: none!important;
+    display: inline-block;
+}
+
+.leftgrid-container .jqx-grid-pager-number-group {
+    float: none!important;
+    display: inline-block;
+}
+
+.leftgrid-container .jqx-grid-pager {
+    text-align: center;
+    background: rgba(63, 81, 181, .04);
+}
+
+.leftgrid-container .select-all-text {
+    display: inline-block;
+    top: -3px;
+    color: $gray-lv1;
+    vertical-align: text-bottom;
+}
+
+.leftgrid-container .select-all-wrap {
+    position: absolute;
+    top: 7px;
+    right: 11px;
+    z-index: 10000;
+}
+
+.transparentGrid .jqx-grid-cell:hover {
+    background-color: #DBEEFD;
+}
+
+.rightgrid-container:after {
+    border: 44px solid transparent;
+    border-left: 14px solid #fff;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 128px;
+    left: -1px;
+    content: ' ';
+}
+
+.leftgrid-container td {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.bh-display-table {
+    display: table;
+}
+
+.bh-display-table-cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.bh-cursor-pointer {
+    cursor: pointer;
+}
+
+.bh-caption-tip {
+    font-size: 12px;
+    line-height: 20px;
+    margin-bottom: 8px;
+}
+
+.bh-caption-tip .bh-caption-key{
+    font-weight: 700;
+    color: $gray-lv2;
+}
+
+.bh-switch-card-view {
+    position: absolute;
+    right: 10px;
+    top: -32px;
+    cursor: pointer;
+    z-index:400;
+}
+
+.bh-switch-item span{
+    vertical-align: top;
+}
+
+.bh-switch-item .iconfont{
+    font-size: 20px;
+}
+
+.bh-switch-item:hover {
+    color: $primary-lv1;
+}
+
+.bh-switch-item.bh-active {
+    color: $primary-lv1;
+}
+
+.bh-grid-container{
+    position: relative;
+}
+
+.leftgrid-container .bh-pull-left>*{
+    display:none;
+}
+
+.leftgrid-container .bh-pull-left>.bh-pager-btn{
+    display:inline-block;
+}
+.leftgrid-container .bh-pull-left>.bh-pager-num{
+    display: inline-block;
+}
+
+.leftgrid-container  .bh-pager .bh-pull-right{
+    display:none;
+}
+
+.leftgrid-container .gm-member-user{
+    padding-left: 0px;
+    margin-left: -4px;
+}
+
+.leftgrid-container .jqx-checkbox-default {
+    margin-right:8px;
+}

@@ -1,0 +1,61 @@
+.bh-pager-simpleBtn {
+    display: block;
+    margin-right: 5px;
+    width: 26px;
+    height: 26px;
+    padding-top: 1px;
+    color: $gray-lv1;
+    float: left;
+    text-align: center;
+}
+
+.bh-pageNum-con,
+.bh-pager-simple-numHtml {
+    float: left;
+}
+
+.bh-pager-simple-left {
+    display: none;
+    float: left;
+}
+
+.bh-pager-gray {
+    color: $gray-lv1;
+}
+
+.bh-pager-simpleBtn:hover {
+    border-color: #999;
+    background: #e8e8e8;
+}
+
+.bh-pager-right-text,
+.bh-pager-left-arrow,
+.bh-pager-right-arrow {
+    line-height: 26px;
+}
+
+.bh-pager-simpleBtn.bh-simplePager-active {
+    color: $primary-lv1;
+}
+
+.bh-pager-simplePrev,
+.bh-pager-simpleNext {
+    float: left;
+    margin-top: 3px;
+    color: $gray-lv1;
+}
+
+.bh-btn-disabled {
+    color: $white-base;
+    background-color: $gray-lv4;
+    border: none;
+    cursor: not-allowed;
+    opacity: .65;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: 0 0 0 transparent;
+    box-shadow: 0 0 0 transparent;
+}
+.bh-pull-right .jqx-disableselect {
+    padding: 0 0 0 4px;
+    line-height: 24px;
+}

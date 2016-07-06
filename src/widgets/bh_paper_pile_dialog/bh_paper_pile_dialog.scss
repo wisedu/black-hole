@@ -1,0 +1,501 @@
+$animate-time: 0.45s;
+$bh-paper-pile-dialog-zIndex: 1000;
+$bh-paper-pile-dialog-parent-bar-hover-color: #5D6CC0;
+
+
+
+/*****  头部动画基础样式 start ******/
+$bh-paper-pile-dialog-change-title-font-size: 20px;
+$bh-paper-pile-dialog-change-title-font-weight: bold;
+$bh-paper-pile-dialog-change-title-color: $gray-lv2;
+$bh-paper-pile-dialog-change-title-bg-color: $white-base;
+$bh-paper-pile-dialog-change-title-padding: 24px 16px;
+$bh-paper-pile-dialog-change-title-box-shadow: none;
+$bh-paper-pile-dialog-change-title-height: 68px;
+
+
+
+$bh-paper-pile-dialog-scaleX: 0.96;
+$bh-paper-pile-dialog-change-title-animate-font-size: 16px;
+$bh-paper-pile-dialog-change-title-animate-font-weight: normal;
+$bh-paper-pile-dialog-change-title-animate-color: $theme-lv4;
+$bh-paper-pile-dialog-change-title-animate-bg-color: $theme-lv2;
+$bh-paper-pile-dialog-change-title-animate-padding: 6px 16px;
+$bh-paper-pile-dialog-change-title-animate-box-shadow: $box-shadow-lv1;
+$bh-paper-pile-dialog-change-title-animate-height: 32px;
+$bh-paper-pile-dialog-change-title-animate-border-color: transparent;
+/*****  头部动画基础样式 end ******/
+
+.bh-border-none{
+  border: none !important;
+}
+
+.bh-bg-transparent{
+  background-color: $transparent !important;
+}
+
+.bh-border-transparent{
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.bh-paper-pile-dialog{
+  position: absolute;
+  z-index: $bh-paper-pile-dialog-zIndex;
+  width: 100%;
+  height: 100%;
+  //overflow: hidden;
+
+  &.navLeft{
+    & .bh-paper-pile-body{
+      margin-top: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+.bh-paper-pile-closeIcon{
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 500;
+  cursor: pointer;
+}
+
+.bh-paper-pile-dialog-container{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $white-base;
+}
+
+.bh-paper-pile-body{
+  margin-top: $bh-paper-pile-dialog-change-title-height;
+  background: $white-base;
+  padding: 0 16px;
+  border-bottom: 1px solid $gray-lv5;
+  position: relative;
+
+  &:before{
+    content: "";
+    width: 100%;
+    position: absolute;
+    height: 2px;
+    top: -2px;
+    left: 0;
+    background: #fff;
+  }
+
+  & > section{
+    padding: 0;
+    &:after{
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+}
+
+.bh-paper-pile-dialog-footer{
+  display: none;
+  position: absolute;
+  z-index: $bh-paper-pile-dialog-zIndex;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px 0;
+  background-color: $white-base;
+
+  &.bh-paper-pile-dialog-footer-relative{
+    border: none;
+    background: transparent;
+  }
+}
+
+.bh-paper-pile-dialog-headerTitle,
+.bh-paper-pile-dialog-parentTitle,
+body > main > article > h2,
+body > main > article > hgroup{
+  position: absolute;
+  width: 100%;
+  height: $bh-paper-pile-dialog-change-title-height;
+  color: $bh-paper-pile-dialog-change-title-color;
+  font-size: $bh-paper-pile-dialog-change-title-font-size;
+  font-weight: $bh-paper-pile-dialog-change-title-font-weight;
+  background-color: $bh-paper-pile-dialog-change-title-bg-color;
+  padding: $bh-paper-pile-dialog-change-title-padding;
+  -webkit-box-shadow: $bh-paper-pile-dialog-change-title-box-shadow;
+  box-shadow: $bh-paper-pile-dialog-change-title-box-shadow;
+
+  &.bh-paper-pile-dialog-parentTitle-change{
+    cursor: pointer;
+    -webkit-box-shadow: $bh-paper-pile-dialog-change-title-animate-box-shadow;
+    box-shadow: $bh-paper-pile-dialog-change-title-animate-box-shadow;
+
+    //& > h2{
+    //  font-size: inherit;
+    //  color: inherit;
+    //  font-weight: inherit;
+    //}
+
+    &:hover{
+      background-color: $bh-paper-pile-dialog-parent-bar-hover-color;
+      color: $white-base;
+      font-weight: bold;
+    }
+  }
+}
+
+body > main > article > h2,
+body > main > article > hgroup > h2{
+  margin-bottom: 0;
+}
+
+body > main > article > hgroup > h2{
+  float: left;
+}
+body > main > article > hgroup > a{
+  margin-left: 8px;
+  font-size: 12px;
+  font-weight: normal;
+  float: left;
+}
+
+
+.bh-negative-zIndex{
+  z-index: -1000 !important;
+}
+
+.bh-cursor-point{
+  cursor: pointer;
+}
+
+
+
+.bh-animated-doubleTime {
+  -webkit-animation-duration: $animate-time * 2;
+  animation-duration: $animate-time * 2;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+
+@-webkit-keyframes bh-paper-pile-dialog-parentTitle-toSmall {
+  0% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+
+  38% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    height: $bh-paper-pile-dialog-change-title-height;
+    font-size: $bh-paper-pile-dialog-change-title-font-size;
+    font-weight: $bh-paper-pile-dialog-change-title-font-weight;
+    color: $bh-paper-pile-dialog-change-title-color;
+    padding: $bh-paper-pile-dialog-change-title-padding;
+    background-color: $bh-paper-pile-dialog-change-title-bg-color;
+  }
+
+  80%{
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    height: $bh-paper-pile-dialog-change-title-animate-height;
+    background-color: $bh-paper-pile-dialog-change-title-animate-bg-color;
+    font-size: $bh-paper-pile-dialog-change-title-animate-font-size;
+    font-weight: $bh-paper-pile-dialog-change-title-animate-font-weight;
+    color: $bh-paper-pile-dialog-change-title-animate-color;
+    padding: $bh-paper-pile-dialog-change-title-animate-padding;
+    border-color: $bh-paper-pile-dialog-change-title-animate-border-color;
+  }
+
+  100% {
+    -webkit-transform: scaleX($bh-paper-pile-dialog-scaleX);
+    transform: scaleX($bh-paper-pile-dialog-scaleX);
+    height: $bh-paper-pile-dialog-change-title-animate-height;
+    background-color: $bh-paper-pile-dialog-change-title-animate-bg-color;
+    font-size: $bh-paper-pile-dialog-change-title-animate-font-size;
+    font-weight: $bh-paper-pile-dialog-change-title-animate-font-weight;
+    color: $bh-paper-pile-dialog-change-title-animate-color;
+    padding: $bh-paper-pile-dialog-change-title-animate-padding;
+    border-color: $bh-paper-pile-dialog-change-title-animate-border-color;
+  }
+}
+
+@keyframes bh-paper-pile-dialog-parentTitle-toSmall {
+  0% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+
+  38% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    height: $bh-paper-pile-dialog-change-title-height;
+    font-size: $bh-paper-pile-dialog-change-title-font-size;
+    font-weight: $bh-paper-pile-dialog-change-title-font-weight;
+    color: $bh-paper-pile-dialog-change-title-color;
+    padding: $bh-paper-pile-dialog-change-title-padding;
+    background-color: $bh-paper-pile-dialog-change-title-bg-color;
+  }
+
+  80%{
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    height: $bh-paper-pile-dialog-change-title-animate-height;
+    background-color: $bh-paper-pile-dialog-change-title-animate-bg-color;
+    font-size: $bh-paper-pile-dialog-change-title-animate-font-size;
+    font-weight: $bh-paper-pile-dialog-change-title-animate-font-weight;
+    color: $bh-paper-pile-dialog-change-title-animate-color;
+    padding: $bh-paper-pile-dialog-change-title-animate-padding;
+    border-color: $bh-paper-pile-dialog-change-title-animate-border-color;
+  }
+
+  100% {
+    -webkit-transform: scaleX($bh-paper-pile-dialog-scaleX);
+    transform: scaleX($bh-paper-pile-dialog-scaleX);
+    height: $bh-paper-pile-dialog-change-title-animate-height;
+    background-color: $bh-paper-pile-dialog-change-title-animate-bg-color;
+    font-size: $bh-paper-pile-dialog-change-title-animate-font-size;
+    font-weight: $bh-paper-pile-dialog-change-title-animate-font-weight;
+    color: $bh-paper-pile-dialog-change-title-animate-color;
+    padding: $bh-paper-pile-dialog-change-title-animate-padding;
+    border-color: $bh-paper-pile-dialog-change-title-animate-border-color;
+  }
+}
+
+.bh-paper-pile-dialog-parentTitle-toSmall {
+  -webkit-animation-name: bh-paper-pile-dialog-parentTitle-toSmall;
+  animation-name: bh-paper-pile-dialog-parentTitle-toSmall;
+
+  & > h2{
+    font-size: inherit;
+    color: inherit;
+    font-weight: inherit;
+  }
+  & > :not(h2){
+    display: none;
+  }
+}
+
+@-webkit-keyframes bh-paper-pile-dialog-parentTitle-toRestore {
+  0% {
+    -webkit-transform: scaleX($bh-paper-pile-dialog-scaleX);
+    transform: scaleX($bh-paper-pile-dialog-scaleX);
+    height: $bh-paper-pile-dialog-change-title-animate-height;
+    background-color: $bh-paper-pile-dialog-change-title-animate-bg-color;
+    font-size: $bh-paper-pile-dialog-change-title-animate-font-size;
+    font-weight: $bh-paper-pile-dialog-change-title-animate-font-weight;
+    color: $bh-paper-pile-dialog-change-title-animate-color;
+    padding: $bh-paper-pile-dialog-change-title-animate-padding;
+    border-color: $bh-paper-pile-dialog-change-title-animate-border-color;
+  }
+
+  32% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    height: $bh-paper-pile-dialog-change-title-animate-height;
+    background-color: $bh-paper-pile-dialog-change-title-animate-bg-color;
+    font-size: $bh-paper-pile-dialog-change-title-animate-font-size;
+    font-weight: $bh-paper-pile-dialog-change-title-animate-font-weight;
+    color: $bh-paper-pile-dialog-change-title-animate-color;
+    padding: $bh-paper-pile-dialog-change-title-animate-padding;
+    border-color: $bh-paper-pile-dialog-change-title-animate-border-color;
+  }
+
+  58% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    height: $bh-paper-pile-dialog-change-title-height;
+    font-size: $bh-paper-pile-dialog-change-title-font-size;
+    font-weight: $bh-paper-pile-dialog-change-title-font-weight;
+    color: $bh-paper-pile-dialog-change-title-color;
+    padding: $bh-paper-pile-dialog-change-title-padding;
+    background-color: $bh-paper-pile-dialog-change-title-bg-color;
+  }
+
+  100% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    height: $bh-paper-pile-dialog-change-title-height;
+    font-size: $bh-paper-pile-dialog-change-title-font-size;
+    font-weight: $bh-paper-pile-dialog-change-title-font-weight;
+    color: $bh-paper-pile-dialog-change-title-color;
+    padding: $bh-paper-pile-dialog-change-title-padding;
+    background-color: $bh-paper-pile-dialog-change-title-bg-color;
+  }
+}
+
+@keyframes bh-paper-pile-dialog-parentTitle-toRestore {
+  0% {
+    -webkit-transform: scaleX($bh-paper-pile-dialog-scaleX);
+    transform: scaleX($bh-paper-pile-dialog-scaleX);
+    height: $bh-paper-pile-dialog-change-title-animate-height;
+    background-color: $bh-paper-pile-dialog-change-title-animate-bg-color;
+    font-size: $bh-paper-pile-dialog-change-title-animate-font-size;
+    font-weight: $bh-paper-pile-dialog-change-title-animate-font-weight;
+    color: $bh-paper-pile-dialog-change-title-animate-color;
+    padding: $bh-paper-pile-dialog-change-title-animate-padding;
+    border-color: $bh-paper-pile-dialog-change-title-animate-border-color;
+  }
+
+  32% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    height: $bh-paper-pile-dialog-change-title-animate-height;
+    background-color: $bh-paper-pile-dialog-change-title-animate-bg-color;
+    font-size: $bh-paper-pile-dialog-change-title-animate-font-size;
+    font-weight: $bh-paper-pile-dialog-change-title-animate-font-weight;
+    color: $bh-paper-pile-dialog-change-title-animate-color;
+    padding: $bh-paper-pile-dialog-change-title-animate-padding;
+    border-color: $bh-paper-pile-dialog-change-title-animate-border-color;
+  }
+
+  58% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    height: $bh-paper-pile-dialog-change-title-height;
+    font-size: $bh-paper-pile-dialog-change-title-font-size;
+    font-weight: $bh-paper-pile-dialog-change-title-font-weight;
+    color: $bh-paper-pile-dialog-change-title-color;
+    padding: $bh-paper-pile-dialog-change-title-padding;
+    background-color: $bh-paper-pile-dialog-change-title-bg-color;
+  }
+
+  100% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    height: $bh-paper-pile-dialog-change-title-height;
+    font-size: $bh-paper-pile-dialog-change-title-font-size;
+    font-weight: $bh-paper-pile-dialog-change-title-font-weight;
+    color: $bh-paper-pile-dialog-change-title-color;
+    padding: $bh-paper-pile-dialog-change-title-padding;
+    background-color: $bh-paper-pile-dialog-change-title-bg-color;
+  }
+}
+
+.bh-paper-pile-dialog-parentTitle-toRestore {
+  -webkit-animation-name: bh-paper-pile-dialog-parentTitle-toRestore;
+  animation-name: bh-paper-pile-dialog-parentTitle-toRestore;
+}
+
+@-webkit-keyframes bh-paper-pile-dialog-outDown {
+  0% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  32% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  62%{
+    opacity: 1;
+    -webkit-transform: translate3d(0, $bh-paper-pile-dialog-change-title-height, 0);
+    transform: translate3d(0, $bh-paper-pile-dialog-change-title-height, 0);
+  }
+
+  70%{
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes bh-paper-pile-dialog-outDown {
+  0% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  32% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  62%{
+    opacity: 1;
+    -webkit-transform: translate3d(0, $bh-paper-pile-dialog-change-title-height, 0);
+    transform: translate3d(0, $bh-paper-pile-dialog-change-title-height, 0);
+  }
+
+  70%{
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+.bh-paper-pile-dialog-outDown {
+  -webkit-animation-name: bh-paper-pile-dialog-outDown;
+  animation-name: bh-paper-pile-dialog-outDown;
+  animation-timing-function: ease-in;
+  -webkit-animation-timing-function: ease-in;
+}
+
+@-webkit-keyframes bh-paper-pile-dialog-intoUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  25%{
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes bh-paper-pile-dialog-intoUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  25%{
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.bh-paper-pile-dialog-intoUp {
+  -webkit-animation-name: bh-paper-pile-dialog-intoUp;
+  animation-name: bh-paper-pile-dialog-intoUp;
+}

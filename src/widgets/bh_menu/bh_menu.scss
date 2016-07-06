@@ -1,0 +1,45 @@
+.bh-menu-link{
+  font-size: 14px;
+}
+
+.bh-menu-link-item{
+  position: relative;
+  padding: 8px 0 8px 16px;
+
+  &:hover{
+    box-shadow: $box-shadow-lv1;
+    background-color: $white-base;
+    color: $theme-lv1;
+    cursor: pointer;
+    &:after{
+      content: "";
+      width: 6px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: -6px;
+      background-color: $white-base;
+    }
+  }
+
+  &.bh-active{
+    color: $theme-lv1;
+    font-weight: bold;
+    box-shadow: $box-shadow-lv2;
+    background-color: $white-base;
+    z-index: 1;
+
+    &:after{
+      content: "";
+      width: 6px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: -6px;
+      background-color: $white-base;
+    }
+  }
+}
+.bh-menu-content{
+  display: none;
+}

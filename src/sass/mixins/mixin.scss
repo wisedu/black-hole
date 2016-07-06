@@ -1,0 +1,59 @@
+@mixin m-p-all($type, $abbr, $num, $pixel) {
+  .bh-#{$abbr}-#{$num} {
+    #{$type}: $pixel !important;
+  }
+}
+
+@mixin m-p-horizontal($type, $abbr, $num, $pixel) {
+  .bh-#{$abbr}-#{$num} {
+    #{$type}-left: $pixel !important;
+    #{$type}-right: $pixel !important;
+  }
+}
+
+@mixin m-p-vertical($type, $abbr, $num, $pixel) {
+  .bh-#{$abbr}-#{$num} {
+    #{$type}-top: $pixel !important;
+    #{$type}-bottom: $pixel !important;
+  }
+}
+
+@mixin m-p-right($type, $abbr, $num, $pixel) {
+  .bh-#{$abbr}-#{$num} {
+    #{$type}-right: $pixel !important;
+  }
+}
+
+@mixin m-p-bottom($type, $abbr, $num, $pixel) {
+  .bh-#{$abbr}-#{$num} {
+    #{$type}-bottom: $pixel !important;
+  }
+}
+
+@mixin m-p-top($type, $abbr, $num, $pixel) {
+  .bh-#{$abbr}-#{$num} {
+    #{$type}-top: $pixel !important;
+  }
+}
+
+@mixin m-p-left($type, $abbr, $num, $pixel) {
+  .bh-#{$abbr}-#{$num} {
+    #{$type}-top: $pixel !important;
+  }
+}
+
+@mixin make-m-p($type, $abbr, $num, $pixel) {
+  @include m-p-all($type, $abbr, $num, $pixel);
+  @include m-p-horizontal($type, #{$abbr}h, $num, $pixel);
+  @include m-p-vertical($type, #{$abbr}v, $num, $pixel);
+  @include m-p-top($type, #{$abbr}t, $num, $pixel);
+  @include m-p-bottom($type, #{$abbr}b, $num, $pixel);
+  @include m-p-left($type, #{$abbr}l, $num, $pixel);
+  @include m-p-right($type, #{$abbr}r, $num, $pixel);
+}
+
+@mixin make-width($num, $pixel) {
+  .bh-w-#{$num} {
+    width: #{$pixel} !important;
+  }
+}
