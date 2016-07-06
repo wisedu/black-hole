@@ -1,0 +1,14 @@
+@include make-color(gray);
+@include make-color(theme);
+@include make-color(primary);
+@include make-color(success);
+@include make-color(warning);
+@include make-color(danger);
+
+
+.bh-color-white{
+  color: $white-base !important;
+}
+.bh-bg-white{
+  background-color: $white-base !important;
+}

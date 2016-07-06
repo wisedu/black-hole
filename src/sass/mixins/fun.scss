@@ -1,0 +1,75 @@
+@function getColorByType($type, $level){
+  @if $type == primary{
+    @if $level == 1{
+      @return $primary-lv1;
+    }@else if $level == 2{
+      @return $primary-lv2;
+    }@else if $level == 3{
+      @return $primary-lv3;
+    }@else if $level == 4{
+      @return $primary-lv4;
+    }@else{
+      @return $primary-lv5;
+    }
+  }@else if $type == theme{
+    @if $level == 1{
+      @return $theme-lv1;
+    }@else if $level == 2{
+      @return $theme-lv2;
+    }@else if $level == 3{
+      @return $theme-lv3;
+    }@else if $level == 4{
+      @return $theme-lv4;
+    }@else{
+      @return $theme-lv5;
+    }
+  }@else if $type == success{
+    @if $level == 1{
+      @return $success-lv1;
+    }@else if $level == 2{
+      @return $success-lv2;
+    }@else if $level == 3{
+      @return $success-lv3;
+    }@else if $level == 4{
+      @return $success-lv4;
+    }@else{
+      @return $success-lv5;
+    }
+  }@else if $type == warning{
+    @if $level == 1{
+      @return $warning-lv1;
+    }@else if $level == 2{
+      @return $warning-lv2;
+    }@else if $level == 3{
+      @return $warning-lv3;
+    }@else if $level == 4{
+      @return $warning-lv4;
+    }@else{
+      @return $warning-lv5;
+    }
+  }@else if $type == danger{
+    @if $level == 1{
+      @return $danger-lv1;
+    }@else if $level == 2{
+      @return $danger-lv2;
+    }@else if $level == 3{
+      @return $danger-lv3;
+    }@else if $level == 4{
+      @return $danger-lv4;
+    }@else{
+      @return $danger-lv5;
+    }
+  }@else{
+    @if $level == 1{
+      @return $gray-lv1;
+    }@else if $level == 2{
+      @return $gray-lv2;
+    }@else if $level == 3{
+      @return $gray-lv3;
+    }@else if $level == 4{
+      @return $gray-lv4;
+    }@else{
+      @return $gray-lv5;
+    }
+  }
+}

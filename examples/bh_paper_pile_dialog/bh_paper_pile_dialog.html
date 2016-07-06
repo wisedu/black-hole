@@ -85,4 +85,178 @@
 </script>
 <script src="http://res.wisedu.com/fe_components/prism/prism.js"></script>
 </body>
+</html><!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="http://res.wisedu.com/fe_components/iconfont/iconfont.css">
+    <link type="text/css" rel="stylesheet" href="http://res.wisedu.com/fe_components/jqwidget/blue/bh.min.css">
+    <link type="text/css" rel="stylesheet" href="http://res.wisedu.com/fe_components/jqwidget/blue/bh-scenes.min.css">
+    <link type="text/css" rel="stylesheet" href="http://res.wisedu.com/fe_components/prism/prism.css">
+    <script src="http://res.wisedu.com/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="http://res.wisedu.com/fe_components/bh_utils.js"></script>
+    <script src="http://res.wisedu.com/fe_components/bh.map.js"></script>
+</head>
+<body>
+<header></header>
+<main>
+
+    <article bh-layout-role="single">
+    <!--标题-->
+    <h2>纸质弹框</h2>
+    <!--内容-->
+    <section>
+        <h3>主页面html结构示例</h3>
+        <div class="bh-text-caption-large bh-color-danger">
+            纸质弹框要求主页面布局结构上必须有h2标题
+        </div>
+            <textarea style="width: 100%;height: 330px;">
+                <body>
+                    <!--页头-->
+                    <header></header>
+                    <!--内容区-->
+                    <main>
+                        <article bh-layout-role="single">
+                            <!--标题-->
+                            <h2>标题</h2>
+                            <!--内容-->
+                            <section>内容</section>
+                        </article>
+                    </main>
+                    <!--页脚-->
+                    <footer></footer>
+                </body>
+            </textarea>
+
+        <h3>纸质弹框html结构示例</h3>
+            <textarea style="width: 100%;height: 200px;">
+                <article bh-layout-role="single">
+                    <!--标题-->
+                    <h2>标题</h2>
+                    <!--内容-->
+                    <section>内容</section>
+                    <!--弹框页脚  没有页脚将该标签去掉-->
+                    <footer></footer>
+                </article>
+            </textarea>
+
+
+        <div class="e2e-opt">
+            <button data-action="openNoFooter">没有页脚的弹框</button>
+            <button data-action="openHasFooter">有页脚的弹框</button>
+            <button data-action="noCloseIcon">右上角没有关闭按钮的弹框</button>
+            <button data-action="openCallback">弹框DOM加载执行的回调</button>
+            <button data-action="closeCallback">弹框关闭执行的回调</button>
+            <button data-action="dialogHeightChange">弹框高度变化手动执行页脚自适应</button>
+        </div>
+
+        <pre data-src="bh_paper_pile_dialog.js"></pre>
+    </section>
+</article>
+
+<script src="bh_paper_pile_dialog.js"></script>
+
+</main>
+<script>
+    BH_UTILS.setContentMinHeight($("body").children("main").children("article"));
+    $('header').bhHeader({
+        "logo": "http://res.wisedu.com/scenes/public/images/demo/logo.png"
+    });
+    $("footer").bhFooter({
+        text: "版权信息：© 2015 江苏金智教育信息股份有限公司 苏ICP备10204514号"
+    });
+</script>
+<script src="http://res.wisedu.com/fe_components/prism/prism.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="http://res.wisedu.com/fe_components/iconfont/iconfont.css">
+    <link type="text/css" rel="stylesheet" href="http://res.wisedu.com/fe_components/jqwidget/blue/bh.min.css">
+    <link type="text/css" rel="stylesheet" href="http://res.wisedu.com/fe_components/jqwidget/blue/bh-scenes.min.css">
+    <link type="text/css" rel="stylesheet" href="http://res.wisedu.com/fe_components/prism/prism.css">
+    <script src="http://res.wisedu.com/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="http://res.wisedu.com/fe_components/bh_utils.js"></script>
+    <script src="http://res.wisedu.com/fe_components/bh.map.js"></script>
+</head>
+<body>
+<header></header>
+<main>
+
+    <article bh-layout-role="single">
+    <!--标题-->
+    <h2>纸质弹框</h2>
+    <!--内容-->
+    <section>
+        <h3>主页面html结构示例</h3>
+        <div class="bh-text-caption-large bh-color-danger">
+            纸质弹框要求主页面布局结构上必须有h2标题
+        </div>
+            <textarea style="width: 100%;height: 330px;">
+                <body>
+                    <!--页头-->
+                    <header></header>
+                    <!--内容区-->
+                    <main>
+                        <article bh-layout-role="single">
+                            <!--标题-->
+                            <h2>标题</h2>
+                            <!--内容-->
+                            <section>内容</section>
+                        </article>
+                    </main>
+                    <!--页脚-->
+                    <footer></footer>
+                </body>
+            </textarea>
+
+        <h3>纸质弹框html结构示例</h3>
+            <textarea style="width: 100%;height: 200px;">
+                <article bh-layout-role="single">
+                    <!--标题-->
+                    <h2>标题</h2>
+                    <!--内容-->
+                    <section>内容</section>
+                    <!--弹框页脚  没有页脚将该标签去掉-->
+                    <footer></footer>
+                </article>
+            </textarea>
+
+
+        <div class="e2e-opt">
+            <button data-action="openNoFooter">没有页脚的弹框</button>
+            <button data-action="openHasFooter">有页脚的弹框</button>
+            <button data-action="noCloseIcon">右上角没有关闭按钮的弹框</button>
+            <button data-action="openCallback">弹框DOM加载执行的回调</button>
+            <button data-action="closeCallback">弹框关闭执行的回调</button>
+            <button data-action="dialogHeightChange">弹框高度变化手动执行页脚自适应</button>
+        </div>
+
+        <pre data-src="bh_paper_pile_dialog.js"></pre>
+    </section>
+</article>
+
+<script src="bh_paper_pile_dialog.js"></script>
+
+</main>
+<script>
+    BH_UTILS.setContentMinHeight($("body").children("main").children("article"));
+    $('header').bhHeader({
+        "logo": "http://res.wisedu.com/scenes/public/images/demo/logo.png"
+    });
+    $("footer").bhFooter({
+        text: "版权信息：© 2015 江苏金智教育信息股份有限公司 苏ICP备10204514号"
+    });
+</script>
+<script src="http://res.wisedu.com/fe_components/prism/prism.js"></script>
+</body>
 </html>

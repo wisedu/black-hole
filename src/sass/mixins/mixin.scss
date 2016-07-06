@@ -38,10 +38,11 @@
 
 @mixin m-p-left($type, $abbr, $num, $pixel) {
   .bh-#{$abbr}-#{$num} {
-    #{$type}-top: $pixel !important;
+    #{$type}-left: $pixel !important;
   }
 }
 
+//创建内外边距
 @mixin make-m-p($type, $abbr, $num, $pixel) {
   @include m-p-all($type, $abbr, $num, $pixel);
   @include m-p-horizontal($type, #{$abbr}h, $num, $pixel);
@@ -52,8 +53,67 @@
   @include m-p-right($type, #{$abbr}r, $num, $pixel);
 }
 
+
+//创建宽度
 @mixin make-width($num, $pixel) {
   .bh-w-#{$num} {
     width: #{$pixel} !important;
+  }
+}
+
+
+
+
+
+//创建颜色
+@mixin color-font($color, $colorType, $level){
+  @if $level{
+    .bh-color-#{$colorType}-#{$level}{
+      color: $color !important;
+    }
+  }@else {
+    .bh-color-#{$colorType}{
+      color: $color !important;
+    }
+  }
+
+}
+
+@mixin color-bg($color, $colorType, $level){
+  @if $level{
+    .bh-bgColor-#{$colorType}-#{$level}{
+      background-color: $color !important;
+    }
+  }@else {
+    .bh-bgColor-#{$colorType}{
+      background-color: $color !important;
+    }
+  }
+}
+
+@mixin color-border($color, $colorType, $level){
+  @if $level{
+    .bh-bColor-#{$colorType}-#{$level}{
+      border-color: $color !important;
+    }
+  }@else {
+    .bh-bColor-#{$colorType}{
+      border-color: $color !important;
+    }
+  }
+}
+
+
+@mixin make-color($colorType){
+  @for $i from 1 through 5 {
+    @if $i == 1{
+      @include color-font(getColorByType($colorType, 1), $colorType, false);
+      @include color-bg(getColorByType($colorType, 1), $colorType, false);
+      @include color-border(getColorByType($colorType, 1), $colorType, false);
+    }@else {
+      @include color-font(getColorByType($colorType, $i), $colorType, $i);
+      @include color-bg(getColorByType($colorType, $i), $colorType, $i);
+      @include color-border(getColorByType($colorType, $i), $colorType, $i);
+    }
   }
 }

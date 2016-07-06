@@ -70,10 +70,10 @@ gulp.task('css-all', function () {
         var writePath = gulpConfig.cssWritePath + skin;
         gulp.src([
             './src/sass/skins/'+skin+'/*.scss',
-            './src/sass/variable/*.scss',
+            './src/sass/base/global.scss',
             './src/sass/mixins/*.scss',
-            './src/sass/bh/reset.scss',
-            './src/sass/bh/utils.scss',
+            './src/sass/base/reset.scss',
+            './src/sass/base/utils.scss',
             './src/sass/bh/*.scss'
         ])
             .pipe(concat('bh-2.0.scss'))
@@ -109,7 +109,7 @@ gulp.task('css-widget', function () {
             }
             var srcList = [
                 './src/sass/skins/'+skin+'/*.scss',
-                './src/sass/variable/*.scss',
+                './src/sass/base/global.scss',
                 './src/sass/mixins/*.scss',
                 fileItem
             ];
