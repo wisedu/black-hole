@@ -8,6 +8,7 @@ import autoprefixer from 'gulp-autoprefixer';
 import sass from 'gulp-sass';
 import fs from 'fs';
 import uglify from 'gulp-uglify';
+var exec = require('child_process').exec;
 
 var gulpConfig = {
     prefixerScheme: ['> 1%', 'last 2 versions', 'Android >= 4.0', 'iOS >= 8'],
@@ -195,14 +196,25 @@ gulp.task('js_widget', function () {
 });
 
 
-gulp.task('watch-script', function () {
+gulp.task('watch', function () {
     //监听js文件,并编译
     gulp.watch(['./src/js/**/*.js', './src/widgets/**/*.js'], ['script']);
+    gulp.watch(['./src/widgets/**/*.js'], ['jsdoc']);
     gulp.watch(['./src/sass/**/*.scss', './src/widgets/**/*.scss'], ['style']);
 });
 
 
-gulp.task('default',['style', 'script', 'watch-script', 'browser-sync'], function () {
+gulp.task('jsdoc', function () {
+    exec("./node_modules/.bin/jsdoc -c jsdoc-config.json -r", function(err,stdout,stderr) {
+        if(err) {
+            console.log('jsdoc 出错了:'+stderr);
+        } else {
+            console.log('jsdoc 创建完成了 !');
+        }
+    });
+});
+
+gulp.task('default',['style', 'script', 'jsdoc', 'watch', 'browser-sync'], function () {
     gulp.watch([
         './build/**/*.{js,css,html}',
         './examples/**/*.{js,css,html}',

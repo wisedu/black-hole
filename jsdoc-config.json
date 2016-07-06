@@ -1,11 +1,11 @@
 {
   "source": {
-    "include": ["core/src/elements/bh"],
+    "include": ["./src/widgets/"],
     "includePattern": "\\.(js)$"
   },
   "opts": {
     "encoding": "utf8",
-    "destination": "static/docs/",
+    "destination": "./docs/",
     "recurse": true
   },
   "allowUnknownTags": true

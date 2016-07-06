@@ -1,4 +1,32 @@
-(function($) {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: bh_choose/bh_choose.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: bh_choose/bh_choose.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>(function($) {
 
     $.bh_choose = function(options) {
         return new chooseWidget(options);
@@ -113,15 +141,15 @@
          */
         bindSearchEvent: function() {
             var self = this;
-            var debounced = window._ && _.debounce(function() {
+            var debounced = window._ &amp;&amp; _.debounce(function() {
                 self.reloadLeftTable();
             }, 500);
             this.$element.find('.leftSearch').on('keyup', function(e) {
                 if (e.keyCode == 13) {
                     self.reloadLeftTable();
-                    window._ && debounced.cancel();
+                    window._ &amp;&amp; debounced.cancel();
                 } else {
-                    window._ && debounced();
+                    window._ &amp;&amp; debounced();
                 }
             });
         },
@@ -236,7 +264,7 @@
             if (leftPager.find('.leftgrid-select-all').length > 0) {
                 return;
             }
-            leftPager.append('<div class="select-all-wrap"><div class="leftgrid-select-all" style="display:inline-block"></div><div class="select-all-text">全选</div></div>');
+            leftPager.append('&lt;div class="select-all-wrap">&lt;div class="leftgrid-select-all" style="display:inline-block">&lt;/div>&lt;div class="select-all-text">全选&lt;/div>&lt;/div>');
             leftPager.find('.leftgrid-select-all').jqxCheckBox().on('change', function(e) {
                 var val = e.args.checked;
                 var obj = self.$element.find('.leftGrid .gm-member-user');
@@ -291,7 +319,7 @@
                             self.$element.find('.rightgrid-delete').trigger('click');
                             //selected.pop();
                         }
-                        if (self.options.maxSelect !== null && self.options.maxSelect <= selected.length) {
+                        if (self.options.maxSelect !== null &amp;&amp; self.options.maxSelect &lt;= selected.length) {
                             $.bhTip({
                                 content: '最多只能选中' + self.options.maxSelect + "条记录"
                             });
@@ -321,11 +349,11 @@
 
                         self.resetSelectALLStatus();
                     }
-                    self.options.showSelectedTip && $rightGrid.prev().html("已选中 " + selected.length);
+                    self.options.showSelectedTip &amp;&amp; $rightGrid.prev().html("已选中 " + selected.length);
                 });
             }
-            for (var j = 0; j < selected.length; j++) {
-                for (var i = 0; i < this.leftGridRows.length; i++) {
+            for (var j = 0; j &lt; selected.length; j++) {
+                for (var i = 0; i &lt; this.leftGridRows.length; i++) {
                     if (self.selectedRecords[j][id] + '' == this.leftGridRows[i][id] + '') {
                         $(obj[i]).jqxCheckBox("check");
                     }
@@ -401,9 +429,9 @@
                     dataField: 'onlineDate',
                     cellsRenderer: function(row, column, value, rowData) {
                         var html = $(self.options.rightcellsRenderer(row, column, value, rowData));
-                        var orderhtml = self.options.showOrder ? '<i class="iconfont icon-keyboardarrowup rightgrid-up"></i><i class="iconfont icon-keyboardarrowdown rightgrid-down"></i>' : '';
+                        var orderhtml = self.options.showOrder ? '&lt;i class="iconfont icon-keyboardarrowup rightgrid-up">&lt;/i>&lt;i class="iconfont icon-keyboardarrowdown rightgrid-down">&lt;/i>' : '';
 
-                        var deleteHtml = html.append('<a class="gm-member-delete" data-x-id="' + rowData[id] + '" href="javascript:void(0)">' + orderhtml + '<i class="iconfont icon-delete rightgrid-delete"></i></a>');
+                        var deleteHtml = html.append('&lt;a class="gm-member-delete" data-x-id="' + rowData[id] + '" href="javascript:void(0)">' + orderhtml + '&lt;i class="iconfont icon-delete rightgrid-delete">&lt;/i>&lt;/a>');
                         return deleteHtml.prop('outerHTML');
                     }
                 }],
@@ -423,9 +451,9 @@
             self.$element.find('.rightgrid-down').on('click', function() {
                 var row = $(this).parent();
                 var currentId = row.attr('data-x-id');
-                for (var i = 0; i < self.selectedRecords.length; i++) {
+                for (var i = 0; i &lt; self.selectedRecords.length; i++) {
                     if (self.selectedRecords[i][id] + '' == currentId + '') {
-                        if (i < self.selectedRecords.length - 1) {
+                        if (i &lt; self.selectedRecords.length - 1) {
                             var temp = self.selectedRecords[i];
                             self.selectedRecords[i] = self.selectedRecords[i + 1];
                             self.selectedRecords[i + 1] = temp;
@@ -438,7 +466,7 @@
             self.$element.find('.rightgrid-up').on('click', function() {
                 var row = $(this).parent();
                 var currentId = row.attr('data-x-id');
-                for (var i = 0; i < self.selectedRecords.length; i++) {
+                for (var i = 0; i &lt; self.selectedRecords.length; i++) {
                     if (self.selectedRecords[i][id] + '' == currentId + '') {
                         if (i > 0) {
                             var temp = self.selectedRecords[i];
@@ -458,11 +486,11 @@
                 var existInLeft = false;
                 var selected = self.selectedRecords;
                 var obj = $leftGrid.find('.gm-member-user');
-                for (var i = 0; i < obj.length; i++) {
+                for (var i = 0; i &lt; obj.length; i++) {
                     var val = $(obj[i]).jqxCheckBox('val');
-                    if (val && memberRows[i][id] + '' == currentId + '') {
+                    if (val &amp;&amp; memberRows[i][id] + '' == currentId + '') {
                         self.options.afterDelete(memberRows[i]);
-                        for (var j = 0; j < self.selectedRecords.length; j++) {
+                        for (var j = 0; j &lt; self.selectedRecords.length; j++) {
                             if (self.selectedRecords[j][id] + '' == currentId) {
                                 $(obj[i]).jqxCheckBox('uncheck');
                                 self.resetSelectALLStatus();
@@ -481,7 +509,7 @@
                     });
 
                     self.refreshTable(self.$rightGrid);
-                    self.options.showSelectedTip && $rightGrid.prev().html("已选中 " + selected.length);
+                    self.options.showSelectedTip &amp;&amp; $rightGrid.prev().html("已选中 " + selected.length);
                 }
             });
         },
@@ -495,13 +523,13 @@
             var obj = $leftGrid.find('.gm-member-user');
 
             var selectedLength = 0;
-            for (var i = 0; i < obj.length; i++) {
+            for (var i = 0; i &lt; obj.length; i++) {
                 if ($(obj[i]).jqxCheckBox("val")) {
                     selectedLength++;
                 }
             }
 
-            if (selectedLength == 0 && leftPager.find('.leftgrid-select-all').jqxCheckBox('val') !== false) {
+            if (selectedLength == 0 &amp;&amp; leftPager.find('.leftgrid-select-all').jqxCheckBox('val') !== false) {
                 leftPager.find('.leftgrid-select-all').jqxCheckBox('uncheck');
             } else if (selectedLength == obj.length) {
                 leftPager.find('.leftgrid-select-all').jqxCheckBox('check');
@@ -522,8 +550,8 @@
 
             if (localData) {
                 var newArray = [];
-                for (var i = 0; i < localData.length; i++) {
-                    for (var j = 0; j < localSearchField.length; j++) {
+                for (var i = 0; i &lt; localData.length; i++) {
+                    for (var j = 0; j &lt; localSearchField.length; j++) {
                         var field = localData[i][localSearchField[j]];
                         if (!field) {
                             continue;
@@ -555,33 +583,33 @@
         getChooseLayout: function() {
             var self = this;
             var selectedLength = this.options.rightLocalData ? this.options.rightLocalData.length : 0;
-            var $dom = $('<div style="padding-bottom:72px;">' +
-                '<div class="head"></div>' +
-                '<div>' +
-                '<div class="content">' +
-                '   <div class="content-top">' + this.options.topHtml + '</div>' +
-                '   <div class="gm-add-block bh-clearfix">' +
-                '        <div class="bh-col-md-6" style="background: #fff;padding-left:0px;padding-right:0px;">' +
-                '            <div class="gm-add-search bh-mb-8" style="margin:7px 8px 0 8px">' +
-                '                <input class="leftSearch" type="text" placeholder="' + this.options.placeholder + '">' +
-                '              <a href="javascript:void(0)"><i class="iconfont">&#xe895;</i></a>' +
-                '          </div>' +
-                '         <div class="noBorderGrid leftGrid leftgrid-container"></div>' +
-                '      </div>' +
-                '     <div class="bh-col-md-6 rightgrid-container">' +
-                (this.options.showSelectedTip === false ? '<h3>已选择字段</h3>' : ('<h3>已选中 ' + selectedLength + '</h3>')) +
-                '           <div class="noBorderGrid transparentGrid rightGrid"></div>' +
-                '      </div>' +
-                '</div>' +
-                '<div class="content-bottom"></div>' +
-                '<div id="buttons" style="position: absolute;bottom:32px;width: 100%;left: 0;float: right;padding: 0 24px;">' +
-                '</div>' +
-                '</div>' +
-                '</div>' +
-                '</div>');
+            var $dom = $('&lt;div style="padding-bottom:72px;">' +
+                '&lt;div class="head">&lt;/div>' +
+                '&lt;div>' +
+                '&lt;div class="content">' +
+                '   &lt;div class="content-top">' + this.options.topHtml + '&lt;/div>' +
+                '   &lt;div class="gm-add-block bh-clearfix">' +
+                '        &lt;div class="bh-col-md-6" style="background: #fff;padding-left:0px;padding-right:0px;">' +
+                '            &lt;div class="gm-add-search bh-mb-8" style="margin:7px 8px 0 8px">' +
+                '                &lt;input class="leftSearch" type="text" placeholder="' + this.options.placeholder + '">' +
+                '              &lt;a href="javascript:void(0)">&lt;i class="iconfont">&amp;#xe895;&lt;/i>&lt;/a>' +
+                '          &lt;/div>' +
+                '         &lt;div class="noBorderGrid leftGrid leftgrid-container">&lt;/div>' +
+                '      &lt;/div>' +
+                '     &lt;div class="bh-col-md-6 rightgrid-container">' +
+                (this.options.showSelectedTip === false ? '&lt;h3>已选择字段&lt;/h3>' : ('&lt;h3>已选中 ' + selectedLength + '&lt;/h3>')) +
+                '           &lt;div class="noBorderGrid transparentGrid rightGrid">&lt;/div>' +
+                '      &lt;/div>' +
+                '&lt;/div>' +
+                '&lt;div class="content-bottom">&lt;/div>' +
+                '&lt;div id="buttons" style="position: absolute;bottom:32px;width: 100%;left: 0;float: right;padding: 0 24px;">' +
+                '&lt;/div>' +
+                '&lt;/div>' +
+                '&lt;/div>' +
+                '&lt;/div>');
 
 
-            $(".head", $dom).append($("<h2></h2>").append(this.options.title));
+            $(".head", $dom).append($("&lt;h2>&lt;/h2>").append(this.options.title));
 
             var btns = [{
                 text: '确定',
@@ -599,7 +627,7 @@
             }];
 
             for (var i = btns.length - 1; i >= 0; i--) {
-                var btn = $('<button class="bh-btn ' + btns[i].className + ' bh-pull-right">' + btns[i].text + '</button>');
+                var btn = $('&lt;button class="bh-btn ' + btns[i].className + ' bh-pull-right">' + btns[i].text + '&lt;/button>');
                 if (btns[i].callback) {
                     var cb = btns[i].callback;
                     btn.data("callback", cb);
@@ -617,4 +645,26 @@
         }
     };
 
-})(jQuery);
+})(jQuery);</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="$.fn.bhHeader.html">bhHeader</a></li></ul><h3>Global</h3><ul><li><a href="global.html#resizeGallery">resizeGallery</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jul 06 2016 16:08:45 GMT+0800 (CST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

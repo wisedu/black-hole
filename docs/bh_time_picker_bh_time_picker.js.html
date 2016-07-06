@@ -1,4 +1,32 @@
-(function ($) {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: bh_time_picker/bh_time_picker.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: bh_time_picker/bh_time_picker.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>(function ($) {
     'use strict';
 
     /**
@@ -45,7 +73,7 @@
 
         //外部设置组件禁用
         Plugin.prototype.setDisable = function() {
-            this.$rootElement.children('div[bh-time-picker-role="rangeBox"]').append('<div class="bh-timePick-disable" bh-time-picker-role="disableBlock"></div>');
+            this.$rootElement.children('div[bh-time-picker-role="rangeBox"]').append('&lt;div class="bh-timePick-disable" bh-time-picker-role="disableBlock">&lt;/div>');
         };
         //外部设置组件启用
         Plugin.prototype.setEnable = function() {
@@ -133,17 +161,17 @@
 
         var disableHtml = '';
         if(options.settings.isDisable){
-            disableHtml = '<div class="bh-timePick-disable" bh-time-picker-role="disableBlock"></div>';
+            disableHtml = '&lt;div class="bh-timePick-disable" bh-time-picker-role="disableBlock">&lt;/div>';
         }
 
         var html =
-            '<div class="bh-timePicker-rangeBox bh-clearfix" bh-time-picker-role="rangeBox" style="'+_style+'">' +
-                '<div class="bh-timePicker-rangeBox-selectIcon bh-left" bh-time-picker-role="rangeBoxPre">&lt;</div>'+
-                '<div class="bh-timePicker-rangeBox-time" bh-time-picker-role="rangeBoxSelectTime">'+timeStr+'</div>'+
-                '<div class="bh-timePicker-rangeBox-selectIcon bh-right" bh-time-picker-role="rangeBoxNext">&gt;</div>'+
+            '&lt;div class="bh-timePicker-rangeBox bh-clearfix" bh-time-picker-role="rangeBox" style="'+_style+'">' +
+                '&lt;div class="bh-timePicker-rangeBox-selectIcon bh-left" bh-time-picker-role="rangeBoxPre">&amp;lt;&lt;/div>'+
+                '&lt;div class="bh-timePicker-rangeBox-time" bh-time-picker-role="rangeBoxSelectTime">'+timeStr+'&lt;/div>'+
+                '&lt;div class="bh-timePicker-rangeBox-selectIcon bh-right" bh-time-picker-role="rangeBoxNext">&amp;gt;&lt;/div>'+
                 disableHtml +
-            '</div>' +
-            '<div class="bh-clearfix"></div>';
+            '&lt;/div>' +
+            '&lt;div class="bh-clearfix">&lt;/div>';
 
         return html;
     }
@@ -174,35 +202,35 @@
             }
         }
         var html =
-                '<div class="bh-timePick-selectBoxCont" bh-time-picker-role="selectBoxCont">' +
-                    '<div class="bh-timePick-selectBox bh-card bh-card-lv2" bh-time-picker-role="selectBox">' +
-                        '<ul class="bh-timePick-tab" bh-time-picker-role="selectTab">' +
-                            '<li class="bh-timePick-tabItem bh-active">自定义选择</li>' +
-                            '<li class="bh-timePick-tabItem">按月选择</li>' +
-                        '</ul>' +
-                        '<div class="bh-timePick-tabContent" bh-time-picker-role="selectTabContent">' +
-                            '<div class="bh-timePick-custom bh-active">' +
-                                '<div class="bh-timePick-customTime bh-clearfix" bh-time-picker-role="selectCustom">' +
-                                    '<div class="bh-timePick-selectType" bh-time-picker-role="selectType"></div>' +
-                                    '<div class="bh-timePick-selectStart" bh-time-picker-role="selectStart"></div>' +
-                                    '<div class="bh-timePick-selectConnect"></div>' +
-                                    '<div class="bh-timePick-selectEnd" bh-time-picker-role="selectEnd"></div>' +
-                                '</div>' +
-                                '<a class="bh-btn bh-btn-primary bh-btn-block" bh-time-picker-role="selectOk" href="javascript:void(0);">确定</a>' +
-                            '</div>' +
-                            '<div class="bh-timePick-selectMonthCont" bh-time-picker-role="selectMonthBlock">' +
-                                '<div class="bh-timePick-selectMonth bh-timePicker-rangeBox bh-clearfix">' +
-                                    '<div class="bh-timePicker-rangeBox-selectIcon bh-left" bh-time-picker-role="selectMonthPre">&lt;</div>'+
-                                    '<div class="bh-timePicker-rangeBox-time" bh-time-picker-role="selectMonthYear">'+year+'年</div>'+
-                                    '<div class="bh-timePicker-rangeBox-selectIcon bh-right" bh-time-picker-role="selectMonthNext">&gt;</div>'+
-                                '</div>' +
-                                '<div class="bh-timePicker-selectMonthList bh-clearfix" bh-time-picker-role="selectMonthList">' +
+                '&lt;div class="bh-timePick-selectBoxCont" bh-time-picker-role="selectBoxCont">' +
+                    '&lt;div class="bh-timePick-selectBox bh-card bh-card-lv2" bh-time-picker-role="selectBox">' +
+                        '&lt;ul class="bh-timePick-tab" bh-time-picker-role="selectTab">' +
+                            '&lt;li class="bh-timePick-tabItem bh-active">自定义选择&lt;/li>' +
+                            '&lt;li class="bh-timePick-tabItem">按月选择&lt;/li>' +
+                        '&lt;/ul>' +
+                        '&lt;div class="bh-timePick-tabContent" bh-time-picker-role="selectTabContent">' +
+                            '&lt;div class="bh-timePick-custom bh-active">' +
+                                '&lt;div class="bh-timePick-customTime bh-clearfix" bh-time-picker-role="selectCustom">' +
+                                    '&lt;div class="bh-timePick-selectType" bh-time-picker-role="selectType">&lt;/div>' +
+                                    '&lt;div class="bh-timePick-selectStart" bh-time-picker-role="selectStart">&lt;/div>' +
+                                    '&lt;div class="bh-timePick-selectConnect">&lt;/div>' +
+                                    '&lt;div class="bh-timePick-selectEnd" bh-time-picker-role="selectEnd">&lt;/div>' +
+                                '&lt;/div>' +
+                                '&lt;a class="bh-btn bh-btn-primary bh-btn-block" bh-time-picker-role="selectOk" href="javascript:void(0);">确定&lt;/a>' +
+                            '&lt;/div>' +
+                            '&lt;div class="bh-timePick-selectMonthCont" bh-time-picker-role="selectMonthBlock">' +
+                                '&lt;div class="bh-timePick-selectMonth bh-timePicker-rangeBox bh-clearfix">' +
+                                    '&lt;div class="bh-timePicker-rangeBox-selectIcon bh-left" bh-time-picker-role="selectMonthPre">&amp;lt;&lt;/div>'+
+                                    '&lt;div class="bh-timePicker-rangeBox-time" bh-time-picker-role="selectMonthYear">'+year+'年&lt;/div>'+
+                                    '&lt;div class="bh-timePicker-rangeBox-selectIcon bh-right" bh-time-picker-role="selectMonthNext">&amp;gt;&lt;/div>'+
+                                '&lt;/div>' +
+                                '&lt;div class="bh-timePicker-selectMonthList bh-clearfix" bh-time-picker-role="selectMonthList">' +
                                     monthHtml +
-                                '</div>' +
-                            '</div>' +
-                        '</div>' +
-                    '</div>' +
-                '</div>';
+                                '&lt;/div>' +
+                            '&lt;/div>' +
+                        '&lt;/div>' +
+                    '&lt;/div>' +
+                '&lt;/div>';
 
         return html;
     }
@@ -243,25 +271,25 @@
             }
         }
 
-        for(var i=0; i<12; i++){
+        for(var i=0; i&lt;12; i++){
             var month = i + 1;
             var typeClass = '';
             //当没有设置最大范围，则设置所有月份可点击
-            if(maxYear && minYear){
+            if(maxYear &amp;&amp; minYear){
                 if(minYear !== maxYear){
-                    if(minYear < nowYear && nowYear < maxYear){
+                    if(minYear &lt; nowYear &amp;&amp; nowYear &lt; maxYear){
                         typeClass = 'bh-pre';
                     }else if(minYear === nowYear){
                         if(i >= minMonth){
                             typeClass = 'bh-pre';
                         }
                     }else if(nowYear === maxYear){
-                        if(i <= maxMonth){
+                        if(i &lt;= maxMonth){
                             typeClass = 'bh-pre';
                         }
                     }
                 }else{
-                    if(minMonth <= i && i <= maxMonth){
+                    if(minMonth &lt;= i &amp;&amp; i &lt;= maxMonth){
                         typeClass = 'bh-pre';
                     }
                 }
@@ -274,12 +302,12 @@
                 if(maxYear > nowYear){
                     typeClass = 'bh-pre';
                 }else{
-                    if(i <= maxMonth){
+                    if(i &lt;= maxMonth){
                         typeClass = 'bh-pre';
                     }
                 }
             }else if(minYear){
-                if(minYear < nowYear){
+                if(minYear &lt; nowYear){
                     typeClass = 'bh-pre';
                 }else{
                     if(i >= minMonth){
@@ -290,7 +318,7 @@
                 typeClass = 'bh-pre';
             }
 
-            html += '<div class="bh-timePick-monthItem '+typeClass+'" data-month="'+month+'" bh-time-picker-role="selectMonthItem">'+month+'月</div>';
+            html += '&lt;div class="bh-timePick-monthItem '+typeClass+'" data-month="'+month+'" bh-time-picker-role="selectMonthItem">'+month+'月&lt;/div>';
         }
         return html;
     }
@@ -439,7 +467,7 @@
 
             //事件回调
             options.$rootElement.trigger("selectedTime", [startTimeStr, endTimeStr]);
-            if(typeof options.settings.selectedTime !='undefined' && options.settings.selectedTime instanceof Function){
+            if(typeof options.settings.selectedTime !='undefined' &amp;&amp; options.settings.selectedTime instanceof Function){
                 options.settings.selectedTime(startTimeStr, endTimeStr);
             }
         });
@@ -627,7 +655,7 @@
             }else{
                 $endTime.jqxDateTimeInput({disabled: false});
             }
-            if(!startTime && !endTime){
+            if(!startTime &amp;&amp; !endTime){
                 var $rangeBoxSelectTime = options.$rootElement.find('div[bh-time-picker-role="rangeBoxSelectTime"]');
                 var $selectType = options.popupBoxDom.find('div[bh-time-picker-role="selectCustom"] div[bh-time-picker-role="selectType"]');
                 var selected = $selectType.jqxDropDownList('getSelectedItem');
@@ -661,7 +689,7 @@
         if(isCallback){
             //事件回调
             options.$rootElement.trigger("selectedTime", [startTimeStr, endTimeStr]);
-            if(typeof options.settings.selectedTime !='undefined' && options.settings.selectedTime instanceof Function){
+            if(typeof options.settings.selectedTime !='undefined' &amp;&amp; options.settings.selectedTime instanceof Function){
                 options.settings.selectedTime(startTimeStr, endTimeStr);
             }
         }
@@ -684,7 +712,7 @@
 
     //判断是否闰年
     function isLeapYear(year){
-        return (0 == year % 4 && ((year % 100 != 0) || (year % 400 == 0)));
+        return (0 == year % 4 &amp;&amp; ((year % 100 != 0) || (year % 400 == 0)));
     }
 
     //获取上个月的数据
@@ -837,7 +865,7 @@
 
     //将小于10的数字前面加上0，如01
     function numberLessThan10AddPre0(num){
-        return num < 10 ? '0' + num : num;
+        return num &lt; 10 ? '0' + num : num;
     }
 
     /**
@@ -847,7 +875,7 @@
      */
     function changeFixedSelectType(options, $selectCustom){
         var selectType = options.$rootElement.data('selectType');
-        if(typeof selectType !== 'undefined' && selectType === 'fixed'){
+        if(typeof selectType !== 'undefined' &amp;&amp; selectType === 'fixed'){
             return;
         }
         $selectCustom.find('div[bh-time-picker-role="selectType"]').jqxDropDownList('selectIndex', 0 );
@@ -891,7 +919,7 @@
                     minTime = new Date();
                 }
 
-                if(startTime < minTime){
+                if(startTime &lt; minTime){
                     $selectStart.jqxDateTimeInput('setDate', minTime);
                 }
             }
@@ -962,7 +990,7 @@
             if(options.settings.range.max){
                 var maxTime = options.settings.range.max === 'today' ? new Date() : timeStrToDate(options.settings.range.max);
                 rangeDate = getDateObj(maxTime);
-                if(maxTime < new Date(time.getTime() + (30 * oneDayTime))){
+                if(maxTime &lt; new Date(time.getTime() + (30 * oneDayTime))){
                     dateObj = rangeDate;
                 }
             }
@@ -990,7 +1018,7 @@
             }
         }
 
-        var monthStr = dateObj.month + 1 < 10 ? '0' + parseInt(dateObj.month + 1, 10) : dateObj.month + 1;
+        var monthStr = dateObj.month + 1 &lt; 10 ? '0' + parseInt(dateObj.month + 1, 10) : dateObj.month + 1;
         var startTimeStr = startTime.year + '/' + monthStr + '/' + numberLessThan10AddPre0(startTime.day);
         var endTimeStr = endTime.year + '/' + monthStr + '/' + endTime.day;
         setInputDateTime(options, timeStrToDate(startTimeStr), timeStrToDate(endTimeStr), true);
@@ -1056,4 +1084,26 @@
         selectedTime: null, //选取时间后的回调，返回开始时间和结束时间字符串
         ready: null //初始化完成回调
     };
-})(jQuery);
+})(jQuery);</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="$.fn.bhHeader.html">bhHeader</a></li></ul><h3>Global</h3><ul><li><a href="global.html#resizeGallery">resizeGallery</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jul 06 2016 16:08:45 GMT+0800 (CST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

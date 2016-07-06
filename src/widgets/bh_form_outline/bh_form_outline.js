@@ -25,7 +25,7 @@
         }
     };
 
-    /**
+    /***
      * 表单填写大纲
      * @param insertContainer 要插入的容器
      * @param offset 大纲的偏移量{ top, left, right, bottom}，默认是右对齐
