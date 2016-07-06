@@ -8,15 +8,22 @@ import autoprefixer from 'gulp-autoprefixer';
 import sass from 'gulp-sass';
 import fs from 'fs';
 import uglify from 'gulp-uglify';
+import path from 'path';
 var exec = require('child_process').exec;
 
+//全局配置项
 var gulpConfig = {
+    //添加前缀
     prefixerScheme: ['> 1%', 'last 2 versions', 'Android >= 4.0', 'iOS >= 8'],
+    //bh css编译路径
     cssWritePath: './build/css/',
+    //widget的css编译路径
     cssWidgetWritePath: './build/widgets/',
+    //widget的js编译路径
     jsWidgetWritePath: './build/widgets/',
+    //bh js的编译路径
     jsWritePath: './build/js/',
-    bhScenesFileName: 'bh-scenes',
+    //皮肤列表
     skins: [
         'blue', 'colorE','green','lightBlue','purple'
     ]
@@ -52,10 +59,12 @@ gulp.task('browser-sync', () => {
 gulp.task('style',['css-all', 'css-widget'], function () {
 });
 
+//编译bh样式,不包括场景样式
 gulp.task('css-all', function () {
     var skins = gulpConfig.skins;
     var skinsLen = gulpConfig.skins.length;
 
+    //多套皮肤编译
     for(var k=0; k<skinsLen; k++){
         var skin = skins[k];
         var writePath = gulpConfig.cssWritePath + skin;
@@ -81,6 +90,7 @@ gulp.task('css-all', function () {
     }
 });
 
+//单独编译widget样式
 gulp.task('css-widget', function () {
     var widgets = scanFolder('./src/widgets');
     var files = widgets.files;
@@ -88,8 +98,10 @@ gulp.task('css-widget', function () {
 
     var skins = gulpConfig.skins;
     var skinsLen = gulpConfig.skins.length;
+    //多套皮肤编译
     for(var k=0; k<skinsLen; k++){
         var skin = skins[k];
+        //单个widget样式编译
         for(var i=0; i<filesLen; i++){
             var fileItem = files[i];
             if(!/\.scss$/.test(fileItem)){
@@ -123,7 +135,7 @@ gulp.task('css-widget', function () {
 
 });
 
-
+//循环获取所有的文件
 function scanFolder(path){
     var fileList = [],
         folderList = [],
@@ -153,12 +165,13 @@ function scanFolder(path){
 }
 
 
+//编译js
 gulp.task('script', ['js_all', 'js_widget'], function () {
 
 });
 
 
-
+//编译bh js
 gulp.task('js_all', function () {
     gulp.src([
         './src/js/bh.js',
@@ -171,6 +184,7 @@ gulp.task('js_all', function () {
         .pipe(gulp.dest(gulpConfig.jsWritePath));
 });
 
+//编译单个widget js
 gulp.task('js_widget', function () {
     var widgets = scanFolder('./src/widgets');
     var files = widgets.files;
@@ -195,15 +209,17 @@ gulp.task('js_widget', function () {
     }
 });
 
-
+//监听文件变化,执行编译动作
 gulp.task('watch', function () {
     //监听js文件,并编译
     gulp.watch(['./src/js/**/*.js', './src/widgets/**/*.js'], ['script']);
     gulp.watch(['./src/widgets/**/*.js'], ['jsdoc']);
     gulp.watch(['./src/sass/**/*.scss', './src/widgets/**/*.scss'], ['style']);
+    gulp.watch(['./src/fixture/**/*.{js,html}'], ['compile_example']);
 });
 
 
+//编译jsdoc
 gulp.task('jsdoc', function () {
     exec("./node_modules/.bin/jsdoc -c jsdoc-config.json -r", function(err,stdout,stderr) {
         if(err) {
@@ -214,7 +230,98 @@ gulp.task('jsdoc', function () {
     });
 });
 
-gulp.task('default',['style', 'script', 'jsdoc', 'watch', 'browser-sync'], function () {
+//编译示例
+gulp.task('example',['get_template', 'compile_example'], function () {
+
+});
+
+//获取外框html
+gulp.task('get_template', function () {
+    getTemplateHtml();
+});
+
+//合并和编译示例文件
+gulp.task('compile_example', function () {
+    var widgets = scanFolder('./src/fixture');
+    var files = widgets.files;
+    var filesLen=files.length;
+
+    for(var k=0; k<filesLen; k++){
+        var filePath = files[k];
+        //忽略template下的文件
+        if(/\/template\//.test(filePath)){
+            continue;
+        }
+
+        //html文件处理
+        if(/\.html$/.test(filePath)){
+            compileExampleFile(filePath);
+        }else if(/\.js$/.test(filePath)){
+            //js文件处理
+            var writePath = filePath.replace('./src/fixture', './examples');
+            writePath = writePath.substring(0, writePath.lastIndexOf('/'));
+            gulp.src(
+                filePath
+            ).pipe(gulp.dest(writePath))
+        }
+    }
+});
+
+//获取外框的html文件并缓存
+function getTemplateHtml() {
+    gulpConfig.templateHtml = fs.readFileSync("./src/fixture/template/template.html",'utf-8');
+}
+
+//读取示例文件,然后进行写操作
+function compileExampleFile(filePath) {
+    fs.readFile(filePath,'utf-8',function(err,data){
+        if(err){
+            console.log("error");
+        }else{
+            writeExampleFile(data, filePath)
+        }
+    });
+}
+
+//将读取到的示例文件与模板文件合并,然后写入example文件夹
+function writeExampleFile(content, filePath) {
+    var templateHtml = gulpConfig.templateHtml;
+    var newContent = templateHtml.replace('<!--body-->', content);
+    var writePath = filePath.replace('./src/fixture', './examples');
+
+    mkdirsSync(writePath.substring(0,writePath.lastIndexOf('/')), '0777');
+
+    fs.appendFile(writePath, newContent, function(err){
+        if(err)
+            console.log("fail " + err);
+        else
+            console.log("写入文件ok");
+    });
+}
+
+//根据路径检查和创建文件夹
+//mode '0777'是读写权限
+function mkdirsSync(dirpath, mode) {
+    if (!fs.existsSync(dirpath)) {
+        var pathtmp;
+        dirpath.split(path.sep).forEach(function(dirname) {
+            if (pathtmp) {
+                pathtmp = path.join(pathtmp, dirname);
+            }
+            else {
+                pathtmp = dirname;
+            }
+            if (!fs.existsSync(pathtmp)) {
+                if (!fs.mkdirSync(pathtmp, mode)) {
+                    return false;
+                }
+            }
+        });
+    }
+    return true;
+}
+
+gulp.task('default',['style', 'script', 'jsdoc', 'example', 'watch', 'browser-sync'], function () {
     gulp.watch([
         './build/**/*.{js,css,html}',
         './examples/**/*.{js,css,html}',
