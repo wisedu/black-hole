@@ -1,3 +1,4 @@
+//根据类别和等级获取颜色
 @function getColorByType($type, $level){
   @if $type == primary{
     @if $level == 1{
@@ -72,4 +73,10 @@
       @return $gray-lv5;
     }
   }
+}
+
+
+//根据宽度和栅格个数,获取每个栅格的宽度
+@function getGridWidth($width, $count){
+  @return $width/$count;
 }

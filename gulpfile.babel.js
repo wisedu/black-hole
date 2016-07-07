@@ -74,7 +74,8 @@ gulp.task('css-all', function () {
             './src/sass/mixins/*.scss',
             './src/sass/base/reset.scss',
             './src/sass/base/utils.scss',
-            './src/sass/bh/*.scss'
+            './src/sass/bh/*.scss',
+            './src/widgets/**/*.scss'
         ])
             .pipe(concat('bh-2.0.scss'))
             .pipe(sass().on('error', sass.logError))
@@ -291,7 +292,7 @@ function writeExampleFile(content, filePath) {
 
     mkdirsSync(writePath.substring(0,writePath.lastIndexOf('/')), '0777');
 
-    fs.appendFile(writePath, newContent, function(err){
+    fs.writeFile(writePath, newContent, function(err){
         if(err)
             console.log("fail " + err);
         else

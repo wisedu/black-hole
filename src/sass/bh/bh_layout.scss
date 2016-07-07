@@ -1,0 +1,103 @@
+/** article下的子层h2样式被放到paper弹框组件里了, 因为要处理paper弹框动画的缘故  **/
+
+$sc-navLeft-navItem-width: getGridWidth($layout-width, 12);
+$sc-layout-title-height: 68px;
+
+
+body > main{
+  display: block;
+  min-width: $container-min-width;
+  max-width: $container-max-width;
+  padding: $container-pardding;
+  margin: $container-margin;
+  position: relative;
+  z-index: 1;
+  margin-top: $header-bar-height;
+}
+
+body > main > article{
+  width: 100%;
+  position: relative;
+  background-color: $white-base;
+  box-shadow: $box-shadow-lv1;
+  overflow: hidden;
+
+  &:not([bh-layout-role="navLeft"]){
+    padding-bottom: 24px;
+  }
+}
+
+//单页布局
+[bh-layout-role="single"],
+[bh-layout-role="single-no-title"]{
+  & > section{
+    position: relative;
+    width: 100%;
+    padding: 0 16px;
+  }
+}
+//有标题的头
+[bh-layout-role="single"]{
+  & > section{
+    margin-top: $sc-layout-title-height;
+  }
+}
+
+//左右分栏布局
+[bh-layout-role="navLeft"]{
+  display: table;
+  width: 100%;
+  & > nav{
+    display: table-cell;
+    position: relative;
+    vertical-align: top;
+    margin-top: $sc-layout-title-height;
+  }
+  & > section{
+    display: table-cell;
+    position: relative;
+    vertical-align: top;
+    padding: 24px 16px;
+    margin-top: $sc-layout-title-height;
+    box-shadow: $box-shadow-lv2;
+  }
+
+
+  &:not(.sc-navLeft-category){
+    & > nav{
+      padding: 24px 16px;
+    }
+  }
+  &.sc-navLeft-category{
+    & > nav{
+      padding: 24px 0 24px 16px;
+    }
+  }
+  //小号的左侧栏
+  &.sc-navLeft-s{
+    & > nav{
+      width: $sc-navLeft-navItem-width * 2;
+    }
+    & > section{
+      width: calc(100% - #{$sc-navLeft-navItem-width} * 2);
+    }
+  }
+  //中号的左侧栏
+  &.sc-navLeft-m{
+    & > nav{
+      width: $sc-navLeft-navItem-width * 3;
+    }
+    & > section{
+      width: calc(100% - #{$sc-navLeft-navItem-width} * 3);
+    }
+  }
+  //大号的左侧栏
+  &.sc-navLeft-l{
+    & > nav{
+      width: $sc-navLeft-navItem-width * 4;
+    }
+    & > section{
+      width: calc(100% - #{$sc-navLeft-navItem-width} * 4);
+    }
+  }
+}
