@@ -1,0 +1,124 @@
+$ContainerW: 48px;
+$ContainerH: 24px;
+$BodyW: 48px;
+$BodyH: 24px;
+$ButtonW: 20px;
+$ButtonH: 20px;
+$transitionTime: 0.2s;
+
+/**
+ * bhSwitch
+ */
+
+.bhSwitchContainer {
+    display: inline-block;
+    height: $ContainerH;
+    line-height: $ContainerH;
+}
+
+.bhSwitchBody {
+    width: $BodyW;
+    height: $BodyH;
+    border-radius: $ContainerH/2;
+    display: block;
+    float: left;
+    position: relative;
+    left: 0;
+    top: 0;
+    transition: background $transitionTime;
+}
+
+.bhSwitchButton {
+    position: absolute;
+    top: ($ContainerH - $ButtonH)/2;
+    width: $ButtonW;
+    height: $ButtonH;
+    border-radius: $ButtonH/2;
+    background-color: #fff;
+    display: block;
+    transition: left $transitionTime;
+}
+
+.bhSwitchButton:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .24);
+}
+
+.bhButtonOn {
+    left: $ContainerW - $ButtonW - 2px;
+}
+
+.bhButtonOff {
+    width: $ButtonW;
+    left: 2px;
+}
+
+.bhSwitchLabel {
+    float: left;
+    display: block;
+    height: $ContainerH;
+    line-height: $ContainerH !important;
+    margin-left: 4px;
+}
+
+.clearfix {
+    clear: both;
+}
+
+
+/**
+ * Theme
+ */
+
+.Theme_Lv3 {
+    background-color: #D8DCF0;
+}
+
+.Theme_Lv4 {
+    background-color: #F0F1F9;
+}
+
+
+/**
+ * card
+ */
+
+.Card_Lv0 {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.Card_Lv2 {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .28);
+}
+
+.Card_Lv3 {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .24);
+}
+
+/**
+ * Caption
+ */
+
+.Caption_Default {
+    color: #BBB;
+    font-size: 12px;
+    line-height: 12px;
+}
+
+.Caption_Success {
+    color: #93D36E;
+    font-size: 12px;
+    line-height: 12px;
+}
+
+
+/**
+ * Success
+ */
+
+.Success {
+    background-color: #60BE29;
+}
+
+.Success_Lv3 {
+    background-color: #DFF2D4;
+}
