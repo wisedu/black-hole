@@ -13,12 +13,21 @@
 			this.$element = $(element);
 			init(this.settings, this.$element);
 		}
+		/**
+         * 获取开关当前状态
+         */
 		Switch.prototype.getState = function() {
 			return getState(this.$element);
 		};
+		/**
+         * 打开开关
+         */
 		Switch.prototype.open = function() {
 			openSwitch(this.$element);
 		};
+		/**
+         * 关闭开关
+         */
 		Switch.prototype.close = function() {
 			closeSwitch(this.$element);
 		};
@@ -57,8 +66,16 @@
 	$.fn.bhSwitch.defaults = {
 		type: 'Normal'
 	};
+	/**
+	 * 按钮开闭配置
+	 */
+	var stateConf = {
+		on: ' on',
+		off: 'off'
+	};
 	//初始化插件
 	function init(options, dom) {
+		//根据配置初始化switch
 		var _switch = '';
 		var type2Class = {
 			'Normal': {
@@ -66,28 +83,28 @@
 				button: 'Card_Lv2 bhButtonOff',
 				font: 'Caption_Default',
 				label: '关闭',
-				state: 'off'
+				state: stateConf.off
 			},
 			'Keep': {
 				background: 'Success',
 				button: 'Card_Lv2 bhButtonOn',
 				font: 'Caption_Success',
 				label: '打开',
-				state: 'on'
+				state: stateConf.on
 			},
 			'Disable_off': {
 				background: 'Theme_Lv4',
 				button: 'Card_Lv0 bhButtonOff Theme_Lv3',
 				font: 'Caption_Default',
 				label: '关闭',
-				state: 'off'
+				state: stateConf.off
 			},
 			'Disable_on': {
 				background: 'Success_Lv3',
 				button: 'Card_Lv0 bhButtonOn',
 				font: 'Caption_Success',
 				label: '打开',
-				state: 'on'
+				state: stateConf.on
 			}
 		};
 		_switch += '<div class="bhSwitchBody ' + type2Class[options.type].background + '">';
@@ -95,25 +112,27 @@
 		_switch += '</div>';
 		_switch += '<span class="bhSwitchLabel ' + type2Class[options.type].font + '">' + type2Class[options.type].label + '</span>';
 		$(dom).addClass('bhSwitchContainer');
-
 		setState(dom, type2Class[options.type].state);
 		$(dom).empty().append(_switch);
+		//根据是否有disable来bindclick
 		if(options.type.indexOf('Disable') === -1){
 			bindclick(dom, options);
 		}
 	}
-	//绑定click事件
+
+	//click事件
 	function bindclick(dom, options) {
 		$(dom).bind('click', function() {
 			var state = getState(this);
+			//按钮改变前回调
 			if(options.onChangeStart) options.onChangeStart(state);
-			if (state === 'on') {
+			if (state === stateConf.on) {
 				closeSwitch(this);
-			} else {
+			} else if(state === stateConf.off) {
 				openSwitch(this);
 			}
-			state = getState(this);
-			if(options.onChangeEnd) options.onChangeEnd(state);
+			//按钮改变后回调
+			if(options.onChangeEnd) options.onChangeEnd(getState(this));
 		});
 	}
 
@@ -129,23 +148,25 @@
 	//打开开关
 	function openSwitch(dom) {
 		var state = getState(dom);
-		if (state === 'off') {
-			setState(dom, 'on');
-			$(dom).find('i').removeClass('bhButtonOff').addClass('bhButtonOn');
-			$(dom).find('div').removeClass('Theme_Lv4').addClass('Success');
-			$(dom).find('span').text('打开');
-			$(dom).find('span').removeClass('Caption_Default').addClass('Caption_Success');
+		var _dom = $(dom);
+		if (state === stateConf.off) {
+			setState(dom, stateConf.on);
+			_dom.find('i').removeClass('bhButtonOff').addClass('bhButtonOn');
+			_dom.find('div').removeClass('Theme_Lv4').addClass('Success');
+			_dom.find('span').text('打开');
+			_dom.find('span').removeClass('Caption_Default').addClass('Caption_Success');
 		}
 	}
 	//关闭开关
 	function closeSwitch(dom) {
 		var state = getState(dom);
-		if (state === 'on') {
-			setState(dom, 'off');
-			$(dom).find('i').removeClass('bhButtonOn').addClass('bhButtonOff');
-			$(dom).find('div').removeClass('Success').addClass('Theme_Lv4');
-			$(dom).find('span').text('关闭');
-			$(dom).find('span').removeClass('Caption_Success').addClass('Caption_Default');
+		var _dom = $(dom);
+		if (state === stateConf.on) {
+			setState(dom, stateConf.off);
+			_dom.find('i').removeClass('bhButtonOn').addClass('bhButtonOff');
+			_dom.find('div').removeClass('Success').addClass('Theme_Lv4');
+			_dom.find('span').text('关闭');
+			_dom.find('span').removeClass('Caption_Success').addClass('Caption_Default');
 		}
 	}
 })(jQuery)
