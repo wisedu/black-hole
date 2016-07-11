@@ -1,0 +1,98 @@
+.bh-tag {
+    color: $white-base;
+    padding: 0px 4px;
+    border-radius: 2px;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+}
+
+.bh-round-tag {
+    color: $white-base;
+    padding: 0px 4px;
+    border-radius: 20px;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+}
+
+.bh-action-tag {
+    color: $white-base;
+    padding: 0px 4px;
+    border-radius: 20px;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+}
+
+.bh-add-tag {
+    color: $primary-lv2;
+    padding:  14px 32px 6px 32px;
+    border: 1px solid $primary-lv2;
+    border-radius: 20px;
+    cursor: pointer;
+    .icon-add {
+        font-weight: bolder;
+        font-size: 24px;
+    }
+}
+.bh-input-tag{
+    input{
+    	border-radius: 20px;
+    	height:28px;
+    	width:176px;
+    }
+    .icon-checkcircle{
+    	color:$success-lv1;
+    	font-size:28px;
+    }
+    .icon-close{
+   	 	font-size:28px;
+    }
+}
+
+.bh-tag-success {
+    background-color: $success-lv2;
+}
+
+.bh-tag-success:hover {
+    background-color: $success-lv1;
+}
+
+.bh-tag-info {
+    background-color: $theme-lv2;
+}
+
+.bh-tag-info:hover {
+    background-color: $theme-lv1;
+}
+
+.bh-tag-warning {
+    background-color: $warning-lv2;
+}
+
+.bh-tag-warning:hover {
+    background-color: $warning-lv1;
+}
+
+.bh-tag-danger {
+    background-color: $danger-lv2;
+}
+
+.bh-tag-danger:hover {
+    background-color: $danger-lv1;
+}
+
+.bh-tag-primay {
+    background-color: $primary-lv2;
+}
+
+.bh-tag-primay:hover {
+    background-color: $primary-lv1;
+}
+
+.bh-action-tag i {
+    font-size: 14px;
+    color: $primary-lv3;
+}
+
+.bh-action-tag:hover {
+    background-color: $success-lv1;
+}
