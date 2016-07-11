@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="http://res.wisedu.com/fe_components/iconfont/iconfont.css">
+    <link type="text/css" rel="stylesheet" href="../../build/css/blue/bh-2.0.css">
+    <!--<link type="text/css" rel="stylesheet" href="http://res.wisedu.com/fe_components/jqwidget/blue/bh-scenes.min.css">-->
+    <link type="text/css" rel="stylesheet" href="http://res.wisedu.com/fe_components/prism/prism.css">
+    <script src="http://res.wisedu.com/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="http://res.wisedu.com/fe_components/bh_utils.js"></script>
+    <script src="../../build/js/bh-2.0.js"></script>
+</head>
+<body>
+<header></header>
+<main>
+
+    <article bh-layout-role="single">
+    <h2>tag的更新</h2>
+    <section>
+        <div>
+        	<lable class="bh-tag bh-tag-primay">正方型</lable>
+            <lable class="bh-tag bh-tag-success">正方型</lable>
+            <lable class="bh-tag bh-tag-info">正方型</lable>
+            <lable class="bh-tag bh-tag-warning">正方型</lable>
+            <lable class="bh-tag bh-tag-danger">正方型</lable>
+            <lable class="bh-round-tag bh-tag-primay">椭圆形</lable>
+            <lable class="bh-round-tag bh-tag-success">椭圆形</lable>
+            <lable class="bh-round-tag bh-tag-info">椭圆形</lable>
+            <lable class="bh-round-tag bh-tag-warning">椭圆形</lable>
+            <lable class="bh-round-tag bh-tag-danger">椭圆形</lable>
+        </div>
+        <div class="bh-mv-16">
+            <lable class="bh-action-tag bh-tag-primay">
+            	<span>标签2</span>
+            	<i class="iconfont icon-setstyle icon-close"></i>
+            </lable>
+            <label class="bh-add-tag bh-mh-8">
+            	<i class="iconfont icon-setstyle icon-add"></i>
+            </label>
+        </div>
+        <!-- <div class="bh-input-tag">
+        	<input type="text" name="">
+        	<i class="iconfont icon-setstyle icon-checkcircle"></i>
+        	<i class="iconfont icon-setstyle icon-close"></i>
+        </div> -->
+    </section>
+</article>
+
+
+</main>
+<footer></footer>
+<script>
+    BH_UTILS.setContentMinHeight($("body").children("main").children("article"));
+    $('header').bhHeader({
+        "logo": "http://res.wisedu.com/scenes/public/images/demo/logo.png"
+    });
+    $("footer").bhFooter({
+        text: "版权信息：© 2015 江苏金智教育信息股份有限公司 苏ICP备10204514号"
+    });
+</script>
+<script src="http://res.wisedu.com/fe_components/prism/prism.js"></script>
+</body>
+</html>
