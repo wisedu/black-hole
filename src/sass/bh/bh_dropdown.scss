@@ -1,0 +1,179 @@
+//
+// Dropdown menus
+// --------------------------------------------------
+// The dropdown wrapper (div)
+.bh-dropdown {
+    position: relative;
+    .bh-btn {
+        position: relative;
+        min-width: 88px;
+        padding-left: 8px;
+        padding-right: 28px;
+        text-align: left;
+        margin-left: 0;
+        &.bh-btn-large {
+            // 按钮最小尺寸：100px
+            min-width: 100px;
+            padding-left: 12px;
+        }
+        &.bh-btn-small {
+            min-width: 80px;
+        }
+        i.iconfont {
+            padding: 0px;
+        }
+        &:after {
+            border-top: 6px solid $gray-lv2;
+        }
+    }
+    .bh-link {
+        cursor: pointer;
+        padding-right: 25px;
+        &:hover {
+            text-decoration: underline;
+        }
+        &:after {
+            border-top: 6px solid $primary-lv1;
+        }
+    }
+    .bh-btn,
+    .bh-link {
+        &:after {
+            content: "";
+            position: absolute;
+            right: 8px;
+            top: unquote("-webkit-calc(50% - 3px)");
+            top: unquote("-moz-calc(50% - 3px)");
+            top: unquote("calc(50% - 3px)");
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            // 箭头颜色：Grey_Lv2
+        }
+    }
+}
+
+// The dropdown menu (ul)
+.bh-dropdown-menu {
+    position: absolute;
+    z-index: 380;
+    outline: 0;
+    top: 100%;
+    left: 0;
+    min-width: 176px;
+    padding: 4px 0;
+    // 按钮与卡片间距：4px
+    margin-top: 4px;
+    list-style: none;
+    // 文字尺寸：14px
+    font-size: 14px;
+    text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+    background-color: $white-base;
+    border-radius: $common-border-radius;
+    -webkit-box-shadow: $card-lv2-box-shadow;
+    -moz-box-shadow: $card-lv2-box-shadow;
+    box-shadow: $card-lv2-box-shadow;
+    background-clip: padding-box;
+    // Dividers (basically an hr) within the dropdown
+    .bh-dropdown-divider {
+        height: 1px;
+        margin: 4px 0;
+        overflow: hidden;
+        background-color: $gray-lv5;
+    }
+    // Links within the dropdown menu
+    > li > a {
+        display: block;
+        padding: 6px 16px;
+        color: $gray-lv2;
+        clear: both;
+        white-space: nowrap; // prevent links from randomly breaking onto new lines
+    }
+    // TO-DO: autoprefixer
+
+    // http://stackoverflow.com/a/13942117
+    // There is no way to animate between height: 0 and height: auto
+    // http://glennnaessens.com/css-slidetoggle-animation/
+
+    // transition: transform;
+    // transition-duration: $animate-time-fast;
+    // backface-visibility: hidden;
+    // transform-origin: left top;
+    // transform: scale(0);
+    display: none;
+}
+
+// Hover/Focus state
+.bh-dropdown-menu > .bh-active > a,
+.bh-dropdown-menu > li > a {
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        background-color: $primary-lv4;
+    }
+}
+
+.bh-dropdown-menu > .bh-disabled > a {
+    color: $gray-lv4;
+    &:hover,
+    &:focus {
+        cursor: default;
+        background-color: transparent;
+    }
+}
+
+// Open state for the dropdown
+.bh-dropdown-open {
+    &.bh-dropdown-menu {
+        display: block;
+        // -webkit-transform: scale(1);
+        // -moz-transform: scale(1);
+        // -ms-transform: scale(1);
+        // -o-transform: scale(1);
+        // transform: scale(1);
+    }
+}
+
+.bh-dropdown-primary {
+    &.bh-dropdown {
+        & .bh-btn {
+            &:after {
+                border-top-color: $white-base;
+            }
+        }
+    }
+    .bh-dropdown-menu {
+        background-color: $brand-primary;
+        & > li > a {
+            color: $white-base;
+        }
+        & > .bh-active > a,
+        & > li > a {
+            &:hover,
+            &:focus {
+                background-color: $primary-lv2;
+            }
+        }
+        & > .bh-disabled > a {
+            opacity: 0.48;
+            &,
+            &:hover,
+            &:focus {
+                color: fade($white-base, 48%);
+            }
+        }
+    }
+}
+
+.bh-dropdown-right.bh-dropdown {
+    text-align: right;
+    & .bh-dropdown-menu {
+        right: 0;
+        left: inherit;
+        -webkit-transform-origin: right top;
+        -moz-transform-origin: right top;
+        -ms-transform-origin: right top;
+        transform-origin: right top;
+    }
+}
