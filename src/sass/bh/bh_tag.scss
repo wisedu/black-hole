@@ -24,7 +24,7 @@
 
 .bh-add-tag {
     color: $primary-lv2;
-    padding:  14px 32px 6px 32px;
+    padding: 14px 32px 6px 32px;
     border: 1px solid $primary-lv2;
     border-radius: 20px;
     cursor: pointer;
@@ -33,20 +33,40 @@
         font-size: 24px;
     }
 }
-.bh-input-tag{
-    input{
-    	border-radius: 20px;
-    	height:28px;
-    	width:176px;
+
+.bh-input-tag {
+    input {
+        border-radius: 20px;
+        height: 28px;
+        width: 176px;
+        border:1px solid $theme-lv3;
+        padding: 0px 16px;
     }
-    .icon-checkcircle{
-    	color:$success-lv1;
-    	font-size:28px;
+    .icon-check {
+        color: $white-base;
+        font-size: 28px;
+        background-color: $success-lv1;
     }
-    .icon-close{
-   	 	font-size:28px;
+    .bh-input-tag-default:focus{
+        left: 0px;
+        top: 0px;
+        width: 176px;
+        height: 28px;
+        background: inherit;
+        background-color: $white-base;
+        box-sizing: border-box;
+        border-width: 1px;
+        border-style: solid;
+        border-color: $primary-lv1;
+        border-radius: 20px;
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        color: #1E1E1E;
+        outline:none;
     }
 }
+
 
 .bh-tag-success {
     background-color: $success-lv2;

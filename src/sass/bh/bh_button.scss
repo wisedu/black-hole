@@ -293,6 +293,10 @@ $btn-disabled-border:             $btn-default-border;
   @include ButtonRadius($btn-primary-color, $btn-primary-bg, $btn-hover-default-border);
 }
 
+.bh-btn-radius-success{
+  @include ButtonRadius($btn-success-color, $btn-success-bg, $btn-hover-default-border);
+}
+
 .bh-btn-radius-default {
   @include ButtonRadius($btn-radius-default-color, $btn-default-bg, $btn-default-border);
 }
