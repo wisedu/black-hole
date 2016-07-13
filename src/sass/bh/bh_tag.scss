@@ -1,118 +1,99 @@
 .bh-tag {
     color: $white-base;
-    padding: 0px 4px;
+    padding: 4px 4px;
     border-radius: 2px;
     font-size: $font-size-base;
     line-height: $line-height-base;
+    &.bh-success {
+        background-color: $success-lv2;
+        &:hover {
+            background-color: $success-lv1;
+        }
+    }
+    &.bh-info {
+        background-color: $theme-lv2;
+        &:hover {
+            background-color: $theme-lv1;
+        }
+    }
+    &.bh-warning {
+        background-color: $warning-lv2;
+        &:hover {
+            background-color: $warning-lv1;
+        }
+    }
+    &.bh-danger {
+        background-color: $danger-lv2;
+        &:hover {
+            background-color: $danger-lv1;
+        }
+    }
+    &.bh-primay {
+        background-color: $primary-lv2;
+        &:hover {
+            background-color: $primary-lv1;
+        }
+    }
 }
 
-.bh-round-tag {
-    color: $white-base;
-    padding: 0px 4px;
+.bh-tag-round {
     border-radius: 20px;
-    font-size: $font-size-base;
-    line-height: $line-height-base;
 }
 
-.bh-action-tag {
-    color: $white-base;
-    padding: 0px 4px;
+.bh-tag-action {
     border-radius: 20px;
-    font-size: $font-size-base;
-    line-height: $line-height-base;
+    cursor: pointer;
+    background-color: $primary-lv2;
+    & > i {
+        font-size: 14px;
+        color: $primary-lv3;
+    }
+    &:hover {
+        background-color: $success-lv1;
+    }
 }
 
-.bh-add-tag {
+.bh-tag-add {
     color: $primary-lv2;
     padding: 14px 32px 6px 32px;
     border: 1px solid $primary-lv2;
     border-radius: 20px;
     cursor: pointer;
-    .icon-add {
+    & > .icon-add {
         font-weight: bolder;
         font-size: 24px;
     }
 }
 
-.bh-input-tag {
-    input {
-        border-radius: 20px;
-        height: 28px;
-        width: 176px;
-        border:1px solid $theme-lv3;
-        padding: 0px 16px;
-    }
-    .icon-check {
-        color: $white-base;
-        font-size: 28px;
-        background-color: $success-lv1;
-    }
-    .bh-input-tag-default:focus{
-        left: 0px;
-        top: 0px;
-        width: 176px;
-        height: 28px;
-        background: inherit;
-        background-color: $white-base;
-        box-sizing: border-box;
-        border-width: 1px;
-        border-style: solid;
-        border-color: $primary-lv1;
-        border-radius: 20px;
-        -moz-box-shadow: none;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-        color: #1E1E1E;
-        outline:none;
-    }
-}
-
-
-.bh-tag-success {
-    background-color: $success-lv2;
-}
-
-.bh-tag-success:hover {
-    background-color: $success-lv1;
-}
-
-.bh-tag-info {
-    background-color: $theme-lv2;
-}
-
-.bh-tag-info:hover {
-    background-color: $theme-lv1;
-}
-
-.bh-tag-warning {
-    background-color: $warning-lv2;
-}
-
-.bh-tag-warning:hover {
-    background-color: $warning-lv1;
-}
-
-.bh-tag-danger {
-    background-color: $danger-lv2;
-}
-
-.bh-tag-danger:hover {
-    background-color: $danger-lv1;
-}
-
-.bh-tag-primay {
-    background-color: $primary-lv2;
-}
-
-.bh-tag-primay:hover {
-    background-color: $primary-lv1;
-}
-
-.bh-action-tag i {
-    font-size: 14px;
-    color: $primary-lv3;
-}
-
-.bh-action-tag:hover {
-    background-color: $success-lv1;
-}
+// .bh-tag-input {
+//     & > input {
+//         border-radius: 20px;
+//         height: 28px;
+//         width: 176px;
+//         border: 1px solid $theme-lv3;
+//         padding: 0px 16px;
+//     }
+//     .icon-check {
+//         color: $white-base;
+//         font-size: 28px;
+//         background-color: $success-lv1;
+//     }
+//     .bh-tag-input-default:focus {
+//         left: 0px;
+//         top: 0px;
+//         width: 176px;
+//         height: 28px;
+//         background: inherit;
+//         background-color: $white-base;
+//         box-sizing: border-box;
+//         border-width: 1px;
+//         border-style: solid;
+//         border-color: $primary-lv1;
+//         border-radius: 20px;
+//         -moz-box-shadow: none;
+//         -webkit-box-shadow: none;
+//         box-shadow: none;
+//         color: #1E1E1E;
+//         outline: none;
+//     }
+// }
