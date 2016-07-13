@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="http://res.wisedu.com/fe_components/iconfont/iconfont.css">
+    <link type="text/css" rel="stylesheet" href="../../build/css/blue/bh-2.0.css">
+    <!--<link type="text/css" rel="stylesheet" href="http://res.wisedu.com/fe_components/jqwidget/blue/bh-scenes.min.css">-->
+    <link type="text/css" rel="stylesheet" href="http://res.wisedu.com/fe_components/prism/prism.css">
+    <script src="http://res.wisedu.com/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="http://res.wisedu.com/fe_components/bh_utils.js"></script>
+    <script src="../../build/js/bh-2.0.js"></script>
+</head>
+<body>
+<header></header>
+<main>
+
+    <article bh-layout-role="single">
+    <h2>checkbox and radio</h2>
+    <section>
+    <div class="checkbox">
+        <h4>checkbox 单例 普通、不可用、已选不可用</h4>
+        <div class="bh-form-group">
+            <div class="bh-checkbox  " >
+                <label>
+                    <input type="checkbox" name="SHHD" value="0" data-caption="考察干部">
+                    <i class="bh-choice-helper"></i>
+                    考察干部
+                </label>
+            </div>
+            <div class="bh-checkbox  ">
+                <label  disabled>
+                    <input type="checkbox" name="SHHD" value="1" data-caption="关心下一代">
+                    <i class="bh-choice-helper"></i>
+                    关心下一代
+                </label>
+            </div>
+            <div class="bh-checkbox  ">
+                <label  disabled checked>
+                    <input type="checkbox" name="SHHD" value="1" data-caption="关心下一代">
+                    <i class="bh-choice-helper"></i>
+                    关心下一代
+                </label>
+            </div>
+        </div>
+        <h4>checkbox group 水平排列</h4>
+        <div class="bh-form-group">
+            <div class="bh-checkbox   bh-checkbox-group-h">
+                <label >
+                    <input type="checkbox" name="SHHD" value="0" data-caption="考察干部">
+                    <i class="bh-choice-helper"></i>
+                    考察干部
+                </label>
+                <label  disabled>
+                    <input type="checkbox" name="SHHD" value="1" data-caption="关心下一代">
+                    <i class="bh-choice-helper"></i>
+                    关心下一代
+                </label>
+                <label  disabled checked>
+                    <input type="checkbox" name="SHHD" value="1" data-caption="关心下一代">
+                    <i class="bh-choice-helper"></i>
+                    关心下一代
+                </label>
+            </div>
+        </div>
+        <h4>checkbox group 竖直排列</h4>
+        <div class="bh-form-group">
+            <div class="bh-checkbox   bh-checkbox-group-v" >
+                <label >
+                    <input type="checkbox" name="SHHD" value="0" data-caption="考察干部">
+                    <i class="bh-choice-helper"></i>
+                    考察干部
+                </label>
+            
+                <label  disabled>
+                    <input type="checkbox" name="SHHD" value="1" data-caption="关心下一代">
+                    <i class="bh-choice-helper"></i>
+                    关心下一代
+                </label>
+            
+                <label  disabled checked>
+                    <input type="checkbox" name="SHHD" value="1" data-caption="关心下一代">
+                    <i class="bh-choice-helper"></i>
+                    关心下一代
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="radio">
+        <h4>radio 单例 普通、不可用、已选不可用</h4>
+        <div class="bh-form-group">
+            <div class="bh-radio  " >
+                <label >
+                    <input type="radio" name="SHHD" value="0" data-caption="考察干部">
+                    <i class="bh-choice-helper"></i>
+                    考察干部
+                </label>
+            </div>
+            <div class="bh-radio  ">
+                <label  disabled>
+                    <input type="radio" name="SHHD" value="1" data-caption="关心下一代">
+                    <i class="bh-choice-helper"></i>
+                    关心下一代
+                </label>
+            </div>
+            <div class="bh-radio  ">
+                <label  disabled checked>
+                    <input type="radio" name="SHHD" value="1" data-caption="关心下一代">
+                    <i class="bh-choice-helper"></i>
+                    关心下一代
+                </label>
+            </div>
+        </div>
+        <h4>radio group 竖直排列</h4>
+        <div class="bh-form-group">
+            <div class="bh-radio   bh-radio-group-h">
+                <label >
+                    <input type="radio" name="SHHD" value="0" data-caption="考察干部">
+                    <i class="bh-choice-helper"></i>
+                    考察干部
+                </label>
+                <label  disabled>
+                    <input type="radio" name="SHHD" value="1" data-caption="关心下一代">
+                    <i class="bh-choice-helper"></i>
+                    关心下一代
+                </label>
+                <label  disabled checked>
+                    <input type="radio" name="SHHD" value="1" data-caption="关心下一代">
+                    <i class="bh-choice-helper"></i>
+                    关心下一代
+                </label>
+            </div>
+        </div>
+        <h4>radio group 竖直排列</h4>
+        <div class="bh-form-group">
+            <div class="bh-radio  bh-radio-group-v" >
+                <label >
+                    <input type="radio" name="SHHD" value="0" data-caption="考察干部">
+                    <i class="bh-choice-helper"></i>
+                    考察干部
+                </label>
+            
+                <label  disabled>
+                    <input type="radio" name="SHHD" value="1" data-caption="关心下一代">
+                    <i class="bh-choice-helper"></i>
+                    关心下一代
+                </label>
+            
+                <label  disabled checked>
+                    <input type="radio" name="SHHD" value="1" data-caption="关心下一代">
+                    <i class="bh-choice-helper"></i>
+                    关心下一代
+                </label>
+            </div>
+        </div>
+    </div> 
+        
+    </section>
+</article>
+
+
+</main>
+<footer></footer>
+<script>
+    BH_UTILS.setContentMinHeight($("body").children("main").children("article"));
+    $('header').bhHeader({
+        "logo": "http://res.wisedu.com/scenes/public/images/demo/logo.png"
+    });
+    $("footer").bhFooter({
+        text: "版权信息：© 2015 江苏金智教育信息股份有限公司 苏ICP备10204514号"
+    });
+</script>
+<script src="http://res.wisedu.com/fe_components/prism/prism.js"></script>
+</body>
+</html>
