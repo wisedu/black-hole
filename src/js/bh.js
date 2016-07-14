@@ -486,7 +486,7 @@
     'use strict';
 
     $(document).on("click", "[bh-dropdown-role=bhDropdownBtn]", function() {
-        var $dropdown = $(this).closest("[bh-dropdown-role=bhDropdown]");
-        $dropdown.find("[bh-dropdown-role=bhDropdownMenu]").toggleClass("bh-dropdown-open");
+        var $dropdown_menu = $(this).siblings("[bh-dropdown-role=bhDropdownMenu]");
+        $dropdown_menu.slideToggle("fast");
     });
 })(jQuery);
