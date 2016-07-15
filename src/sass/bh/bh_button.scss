@@ -31,7 +31,28 @@ $btn-small-height:                  28px;
 $btn-small-padding-horizontal:      8px;
 $btn-small-padding-vertical:        6px;
 $btn-small-icon-size:               12px;
+<<<<<<< HEAD
 $btn-small-icon-padding-horizontal:  4px;
+=======
+$btn-small-icon-padding-horizontal:  8px;
+
+
+$btn-box-shadow: 0 1px 4px rgba(0,0,0,.32);
+$btn-hover-box-shadow: 0 4px 8px rgba(0,0,0,.28);
+$btn-disabled-box-shadow: 0 0px 0px rgba(0,0,0,.0);
+
+
+$btn-default-color:              $gray-lv2;
+$btn-default-bg:                 $white-base;
+$btn-default-border:             #e8e8e8;
+$btn-hover-default-color:              $btn-default-color;
+$btn-hover-default-bg:                 $btn-default-bg;
+$btn-hover-default-border:             transparent;
+$btn-disabled-default-color:              $btn-default-color;
+$btn-disabled-default-bg:                 $btn-default-bg;
+$btn-disabled-default-border:             $btn-default-border;
+
+>>>>>>> f331d9ea633637bfda662a9462f6826b1b874d6a
 
 
 $btn-default-border-color:             mix($gray-lv4,$white-base,68%);
@@ -99,9 +120,26 @@ $btn-disabled-hover-box-shadow-opacity:   $btn-default-hover-box-shadow-opacity;
     @include make-btn-status($white-base, $primary-lv1, $primary-lv1, $btn-primary-hover-box-shadow-opacity);
   }
 
+<<<<<<< HEAD
   &.bh-success {
     @include make-btn-status($white-base, $success-lv1, $success-lv1, $btn-success-hover-box-shadow-opacity);
   }
+=======
+}
+
+.bh-btn-radius-primary {
+  @include ButtonRadius($btn-primary-color, $btn-primary-bg, $btn-hover-default-border);
+}
+
+.bh-btn-radius-success{
+  @include ButtonRadius($btn-success-color, $btn-success-bg, $btn-hover-default-border);
+}
+
+.bh-btn-radius-default {
+  @include ButtonRadius($btn-radius-default-color, $btn-default-bg, $btn-default-border);
+}
+
+>>>>>>> f331d9ea633637bfda662a9462f6826b1b874d6a
 
   //禁用按钮
   &.bh-disabled{
