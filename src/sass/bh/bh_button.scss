@@ -1,374 +1,165 @@
-$btn-font-weight:                normal;
-
 $btn-border-width:             1px;
 $btn-border-radius:            2px;
 
 $btn-large-font-size:             16px;
 $btn-large-line-height:           $btn-large-font-size+4;
+$btn-large-border-line-height:    $btn-large-font-size+2;
 $btn-large-min-width:             100px;
 $btn-large-height:                36px;
 $btn-large-padding-horizontal:   12px;
 $btn-large-padding-vertical:     8px;
 $btn-large-icon-size:            16px;
-$btn-large-icon-padding-horizontal:   12px;
+$btn-large-icon-padding-horizontal:   8px;
 
 
 $btn-default-font-size:             14px;
-$btn-default-line-height:           $btn-default-font-size+6;
+$btn-default-line-height:           $btn-default-font-size+4;
+$btn-default-border-line-height:    $btn-default-font-size+2;
 $btn-default-min-width:             80px;
 $btn-default-height:                32px;
 $btn-default-padding-horizontal:    8px;
-$btn-default-padding-vertical:      6px;
+$btn-default-padding-vertical:      7px;
 $btn-default-icon-size:             14px;
 $btn-default-icon-padding-horizontal:  8px;
 
 
 $btn-small-font-size:               12px;
-$btn-small-line-height:             $btn-small-font-size+6;
+$btn-small-line-height:             $btn-small-font-size+4;
+$btn-small-border-line-height:      $btn-small-font-size+2;
 $btn-small-min-width:               68px;
 $btn-small-height:                  28px;
 $btn-small-padding-horizontal:      8px;
-$btn-small-padding-vertical:        5px;
+$btn-small-padding-vertical:        6px;
 $btn-small-icon-size:               12px;
-$btn-small-icon-padding-horizontal:  8px;
+$btn-small-icon-padding-horizontal:  4px;
 
 
-$btn-box-shadow: 0 1px 4px rgba(0,0,0,.32);
-$btn-hover-box-shadow: 0 4px 8px rgba(0,0,0,.28);
-$btn-disabled-box-shadow: 0 0px 0px rgba(0,0,0,.0);
+$btn-default-border-color:             mix($gray-lv4,$white-base,68%);
+$btn-default-hover-box-shadow-opacity: 0.28;
+$btn-primary-hover-box-shadow-opacity: 0.70;
+$btn-success-hover-box-shadow-opacity: 0.70;
 
-
-$btn-default-color:              $gray-lv1;
-$btn-default-bg:                 $white-base;
-$btn-default-border:             #e8e8e8;
-$btn-hover-default-color:              $btn-default-color;
-$btn-hover-default-bg:                 $btn-default-bg;
-$btn-hover-default-border:             transparent;
-$btn-disabled-default-color:              $btn-default-color;
-$btn-disabled-default-bg:                 $btn-default-bg;
-$btn-disabled-default-border:             $btn-default-border;
-
-
-$btn-primary-color:              $white-base;
-$btn-primary-bg:                 $primary-lv1;
-$btn-primary-border:             none;
-$btn-hover-primary-color:              $btn-primary-color;
-$btn-hover-primary-bg:                 $btn-primary-bg;
-$btn-hover-primary-border:             $btn-primary-border;
-$btn-disabled-primary-color:              $btn-default-color;
-$btn-disabled-primary-bg:                 $btn-default-bg;
-$btn-disabled-primary-border:             $btn-disabled-default-border;
-
-
-$btn-success-color:              $white-base;
-$btn-success-bg:                 $success-lv1;
-$btn-success-border:             none;
-$btn-hover-success-color:              $btn-success-color;
-$btn-hover-success-bg:                 $btn-success-bg;
-$btn-hover-success-border:             $btn-success-border;
-$btn-disabled-success-color:              $btn-default-color;
-$btn-disabled-success-bg:                 $btn-default-bg;
-$btn-disabled-success-border:             $btn-disabled-default-border;
 
 $btn-radius-width:               28px;
 $btn-radius-height:              28px;
 $btn-radius-icon-size:           14px;
-$btn-radius-default-color:       $gray-lv2; 
-$btn-radius-default-bg:          $white-base;  
-$btn-radius-primary-color:       $white-base; 
-$btn-radius-primary-bg:          $primary-lv1;
+
 
 $btn-card-width:                 28px;
 $btn-card-height:                28px;
 $btn-card-icon-size:             14px;
-$btn-card-icon-color:            $gray-lv2;
-$btn-card-bg:                    $white-base;
-$btn-card-hover-bg:              $theme-lv4;
-$btn-card-disabled-color:        $gray-lv5;
   
-$btn-disabled-color:              $gray-lv1;
-$btn-disabled-bg:                 $white-base;
-$btn-disabled-border:             $btn-default-border;
 
+$btn-disabled-border-color:               $btn-default-border-color;
+$btn-disabled-line-height:                $btn-default-border-line-height;
+$btn-disabled-hover-box-shadow-opacity:   $btn-default-hover-box-shadow-opacity;
 
-//=================================================================================================
-
-@mixin box-shadow($shadow) {
-  -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
-     -moz-box-shadow: $shadow; 
-       -o-box-shadow: $shadow; 
-          box-shadow: $shadow;
-}
-
-@mixin transition($transition) {
-  -webkit-transition: $transition;
-       -o-transition: $transition;
-          transition: $transition;
-}
-
-@mixin transition-duration($transition-duration) {
-  -webkit-transition-duration: $transition-duration;
-       -o-transition-duration: $transition-duration;
-          transition-duration: $transition-duration;
-}
-
-@mixin buttonSize($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius, $min-width, $height) {
-  padding: $padding-vertical $padding-horizontal;
-  font-size: $font-size;
-  line-height: $line-height;
-  border-radius: $border-radius;
-  min-width: $min-width;
-  height: $height;
-}
-
-@mixin buttonDisabled($color, $background, $border) {
-  color: $color;
-  background-color: $background;
-  border-color: $border;
-}
-
-@mixin ampButtonVariant($color, $background, $border, $h-color, $h-background, $h-border, $d-color, $d-background, $d-border) {
-  color: $color;
-  background-color: $background;
-  border-color: $border;
-
-  &:hover,
-  &.bh-focus,
-  &:active,
-  &.bh-active{
-    color: $h-color;
-    background-color: $h-background; 
-    border-color: $h-border;
-  }
-  &:active,
-  &.bh-active,
-  .bh-open > .bh-dropdown-toggle{
-    background-image: none;
-  }
-
-  &.bh-disabled{
-   // cursor: not-allowed;
-    @include buttonDisabled($d-color, $d-background, $d-border);
-    
-    &:hover{
-      border-color: transparent;
-      @include box-shadow($btn-hover-box-shadow);    
-    }
-  }
-
-}
-
-@mixin iconSize($icon-size, $padding-horizontal) {
-    font-size: $icon-size;
-    padding: 0 $padding-horizontal;
-    padding-left: 0;
-}
-
-@mixin ButtonRadius($color, $bg, $border) {
-  background-color: $bg;
-  color: $color;
-  border-color: $border;
-
-  &:hover{
-    color: $color;
-    text-decoration: none;
-    border-color: transparent;
-    @include box-shadow($btn-hover-box-shadow);
-  }
-}
-
-@mixin opacity($opacity) {
-  opacity: $opacity;
-  // IE8 filter
-  $opacity-ie: ($opacity * 100);
-  filter: alpha(opacity=$opacity-ie);
-}
-
-// Base styles
 //=================================================================================================
 
 .bh-btn {
   display: inline-block;
-  margin-left: 4px;
   font-weight: normal;
   text-align: center;
-  vertical-align: middle;
-  touch-action: manipulation;
   cursor: pointer;
-  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-  border: 1px solid transparent;
+  background-image: none; 
+  border: 0;
   white-space: nowrap;
   outline: none !important;
-  @include buttonSize($btn-default-padding-vertical, $btn-default-padding-horizontal, $btn-default-font-size, $btn-default-line-height, $btn-border-radius, $btn-default-min-width, $btn-default-height);  
-  @include transition(all);
-  @include transition-duration(300ms);
-
-  &:hover{
-    color: $btn-default-color;
-    text-decoration: none;
-    @include box-shadow($btn-hover-box-shadow);
-  }
-
-  &.bh-active {
-    outline: 0;
-    background-image: none;
-    @include box-shadow($btn-hover-box-shadow);
-  }
-
-  & i.iconfont {
-    @include iconSize($btn-default-icon-size, $btn-default-icon-padding-horizontal);
-  }
-}
-
-//Button Type: Default, Primary, Success
-.bh-btn-default {
-  @include ampButtonVariant($btn-default-color, $btn-default-bg, $btn-default-border,
-        $btn-hover-default-color, $btn-hover-default-bg, $btn-hover-default-border,
-        $btn-disabled-default-color, $btn-disabled-default-bg, $btn-disabled-default-border);
-}
-
-.bh-btn-primary {
-  @include ampButtonVariant($btn-primary-color, $btn-primary-bg, $btn-primary-border,
-        $btn-hover-primary-color, $btn-hover-primary-bg, $btn-hover-primary-border,
-        $btn-disabled-primary-color, $btn-disabled-primary-bg, $btn-disabled-primary-border);
-}
-
-.bh-btn-success {
-  @include ampButtonVariant($btn-success-color, $btn-success-bg, $btn-success-border,
-        $btn-hover-success-color, $btn-hover-success-bg, $btn-hover-success-border,
-        $btn-disabled-success-color, $btn-disabled-success-bg, $btn-disabled-success-border);
-}
-
-//Button Size: Button_Default_Large, Button_Default, Button_Default_Small
-.bh-btn-large {
-  // line-height: ensure proper height of button next to small input
-  @include buttonSize($btn-large-padding-vertical, $btn-large-padding-horizontal, $btn-large-font-size, $btn-large-line-height, $btn-border-radius, $btn-large-min-width, $btn-large-height);
-
-  & i.iconfont {
-    @include iconSize($btn-large-icon-size, $btn-large-icon-padding-horizontal);
-  } 
-}
-
-.bh-btn-small {
-  @include buttonSize($btn-small-padding-vertical, $btn-small-padding-horizontal, $btn-small-font-size, $btn-small-line-height, $btn-border-radius, $btn-small-min-width, $btn-small-height);
+  transition: all;
+  transition-duration: 300ms;
+  //默认大小
+  @include make-btn-size($btn-default-padding-vertical, $btn-default-padding-horizontal, $btn-default-font-size, $btn-default-line-height, 
+      $btn-border-radius, $btn-default-min-width, $btn-default-height, $btn-default-icon-size, $btn-default-icon-padding-horizontal);   
   
-  & i.iconfont {
-    @include iconSize($btn-small-icon-size, $btn-small-icon-padding-horizontal);
+  //大号按钮
+  &.bh-large {
+    @include make-btn-size($btn-large-padding-vertical, $btn-large-padding-horizontal, $btn-large-font-size, $btn-large-line-height, 
+        $btn-border-radius, $btn-large-min-width, $btn-large-height, $btn-large-icon-size, $btn-large-icon-padding-horizontal);
+  }
+  //小号按钮
+  &.bh-small {
+    @include make-btn-size($btn-small-padding-vertical, $btn-small-padding-horizontal, $btn-small-font-size, $btn-small-line-height, 
+        $btn-border-radius, $btn-small-min-width, $btn-small-height, $btn-small-icon-size, $btn-small-icon-padding-horizontal);  
   } 
-} 
 
-
-//Button_Radius: 圆形按钮
-.bh-btn-radius {
-  display: inline-block;
-  margin-left: 4px;
-  width: $btn-radius-width;
-  height: $btn-radius-height;
-  border-radius: 50%;
-  text-align: center;
-  line-height: $btn-radius-height;
-  vertical-align: middle;
-  cursor: pointer;
-  border: 1px solid transparent;
-
-  @include transition(all);
-  @include transition-duration(300ms);
-
-  &.bh-active {
-    outline: 0;
-    background-image: none;
-    @include box-shadow($btn-hover-box-shadow);
+  //按钮类型
+  &.bh-default {
+    border: $btn-border-width solid $btn-default-border-color;
+    line-height: $btn-default-border-line-height;
+    @include make-btn-status($gray-lv1, $white-base, $gray-base, $btn-default-hover-box-shadow-opacity);
+    &.bh-large {
+      line-height: $btn-large-border-line-height;
+    }
+    &.bh-small {
+      line-height: $btn-small-border-line-height;
+    }
   }
 
-  & i.iconfont {
-    display: inline-block;
-    font-size: $btn-radius-icon-size;
-    height: $btn-radius-icon-size;
-    line-height: $btn-radius-icon-size;
+  &.bh-primary {
+    @include make-btn-status($white-base, $primary-lv1, $primary-lv1, $btn-primary-hover-box-shadow-opacity);
   }
 
-}
-
-.bh-btn-radius-primary {
-  @include ButtonRadius($btn-primary-color, $btn-primary-bg, $btn-hover-default-border);
-}
-
-.bh-btn-radius-default {
-  @include ButtonRadius($btn-radius-default-color, $btn-default-bg, $btn-default-border);
-}
-
-
-//卡片操作按钮
-.bh-btn-card {
-  width: $btn-card-width;
-  height: $btn-card-height;
-  line-height: $btn-card-height;
-  display: inline-block;
-  font-weight: normal;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer; 
-  @include transition(all);
-  @include transition-duration(300ms);
-  
-  & i.iconfont {
-    display: inline-block;
-    font-size: $btn-card-icon-size;
-    height: $btn-card-icon-size;
-    line-height: $btn-card-icon-size;
-    color: $btn-card-icon-color;
+  &.bh-success {
+    @include make-btn-status($white-base, $success-lv1, $success-lv1, $btn-success-hover-box-shadow-opacity);
   }
 
-  &:hover{
-    text-decoration: none;
-    background-color: $btn-card-hover-bg;
+  //禁用按钮
+  &.bh-disabled{
+    border: $btn-border-width solid $btn-disabled-border-color;
+    line-height: $btn-disabled-line-height;
+    @include make-btn-status($gray-lv1, $white-base, $gray-base, $btn-disabled-hover-box-shadow-opacity);
   }
 
-  &.bh-disabled {
-    background-color: $btn-card-bg;
-    color: $btn-card-disabled-color;
-    cursor: not-allowed;
+  //圆形按钮
+  &.bh-btn-circle {
+    border-radius: 50%;
+    border: 1px solid transparent;
+    @include reset-btn-size($btn-radius-width, $btn-radius-height, $btn-radius-icon-size); 
+    &.bh-default {
+      border-color: $btn-default-border-color;
+    }  
+  }
 
-    & i.iconfont {
-      color: $btn-card-disabled-color;
+  //卡片操作按钮
+  &.bh-btn-icon {
+    @include reset-btn-size($btn-card-width, $btn-card-height, $btn-card-icon-size);  
+    &:hover{
+      background-color: $theme-lv4;
+    }
+    & > .iconfont {
+      color: $gray-lv2;
+    }
+
+    &.bh-disabled {
+      background-color: $white-base;
+      color: $gray-lv5;
+      cursor: not-allowed;
+      border: 0;
+      & > .iconfont {
+        color: $gray-lv5;
+      }
+      &:hover {
+        box-shadow: none;
+      }
     }
   }
 }
 
 //按钮组
-.bh-btn-group > .bh-btn{
-  float: left;
-}
-.bh-btn-group > .bh-btn:nth-child(1){
-  margin-left: 0;
-}
-.bh-btn-group:after{
-  content: "";
-  clear: both;
-  display: table;
-}
-
-//选择按钮组
-.bh-selectBtn-group{
-  &:after{
-    content: "";
-    display: table;
-    clear: both;
-  }
-  & .bh-btn{
-    margin-left: 0;
+.bh-btn-group {
+  & > .bh-btn {
     float: left;
-  }
-  & .bh-active{
-    &:after{
-      content: "";
-      background: rgba(0, 0, 0, 0.15);
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      left: 0;
-      top: 0;
+    margin-left: 4px;
+    &:nth-child(1) {
+      margin-left: 0;
     }
   }
+  &:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
 }
+
+
 

@@ -80,3 +80,9 @@
 @function getGridWidth($width, $count){
   @return $width/$count;
 }
+
+
+//根据颜色和透明度，获取按钮的Hover阴影
+@function getButtonBoxShadow($color, $opacity){
+  @return 0 2px 6px rgba($color, $opacity);
+}
