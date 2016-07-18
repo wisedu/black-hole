@@ -56,7 +56,7 @@ $btn-disabled-hover-box-shadow-opacity:   $btn-default-hover-box-shadow-opacity;
 
 //=================================================================================================
 
-.bh-btn {
+.bh2-btn {
   display: inline-block;
   font-weight: normal;
   text-align: center;
@@ -72,56 +72,56 @@ $btn-disabled-hover-box-shadow-opacity:   $btn-default-hover-box-shadow-opacity;
       $btn-border-radius, $btn-default-min-width, $btn-default-height, $btn-default-icon-size, $btn-default-icon-padding-horizontal);   
   
   //大号按钮
-  &.bh-large {
+  &.bh2-large {
     @include make-btn-size($btn-large-padding-vertical, $btn-large-padding-horizontal, $btn-large-font-size, $btn-large-line-height, 
         $btn-border-radius, $btn-large-min-width, $btn-large-height, $btn-large-icon-size, $btn-large-icon-padding-horizontal);
   }
   //小号按钮
-  &.bh-small {
+  &.bh2-small {
     @include make-btn-size($btn-small-padding-vertical, $btn-small-padding-horizontal, $btn-small-font-size, $btn-small-line-height, 
         $btn-border-radius, $btn-small-min-width, $btn-small-height, $btn-small-icon-size, $btn-small-icon-padding-horizontal);  
   } 
 
   //按钮类型
-  &.bh-default {
+  &.bh2-default {
     border: $btn-border-width solid $btn-default-border-color;
     line-height: $btn-default-border-line-height;
     @include make-btn-status($gray-lv1, $white-base, $gray-base, $btn-default-hover-box-shadow-opacity);
-    &.bh-large {
+    &.bh2-large {
       line-height: $btn-large-border-line-height;
     }
-    &.bh-small {
+    &.bh2-small {
       line-height: $btn-small-border-line-height;
     }
   }
 
-  &.bh-primary {
+  &.bh2-primary {
     @include make-btn-status($white-base, $primary-lv1, $primary-lv1, $btn-primary-hover-box-shadow-opacity);
   }
 
-  &.bh-success {
+  &.bh2-success {
     @include make-btn-status($white-base, $success-lv1, $success-lv1, $btn-success-hover-box-shadow-opacity);
   }
 
   //禁用按钮
-  &.bh-disabled{
+  &.bh2-disabled{
     border: $btn-border-width solid $btn-disabled-border-color;
     line-height: $btn-disabled-line-height;
     @include make-btn-status($gray-lv1, $white-base, $gray-base, $btn-disabled-hover-box-shadow-opacity);
   }
 
   //圆形按钮
-  &.bh-btn-circle {
+  &.bh2-btn-circle {
     border-radius: 50%;
     border: 1px solid transparent;
     @include reset-btn-size($btn-radius-width, $btn-radius-height, $btn-radius-icon-size); 
-    &.bh-default {
+    &.bh2-default {
       border-color: $btn-default-border-color;
     }  
   }
 
   //卡片操作按钮
-  &.bh-btn-icon {
+  &.bh2-btn-icon {
     @include reset-btn-size($btn-card-width, $btn-card-height, $btn-card-icon-size);  
     &:hover{
       background-color: $theme-lv4;
@@ -130,7 +130,7 @@ $btn-disabled-hover-box-shadow-opacity:   $btn-default-hover-box-shadow-opacity;
       color: $gray-lv2;
     }
 
-    &.bh-disabled {
+    &.bh2-disabled {
       background-color: $white-base;
       color: $gray-lv5;
       cursor: not-allowed;
@@ -146,8 +146,8 @@ $btn-disabled-hover-box-shadow-opacity:   $btn-default-hover-box-shadow-opacity;
 }
 
 //按钮组
-.bh-btn-group {
-  & > .bh-btn {
+.bh2-btn-group {
+  & > .bh2-btn {
     float: left;
     margin-left: 4px;
     &:nth-child(1) {
