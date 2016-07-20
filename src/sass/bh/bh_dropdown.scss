@@ -2,7 +2,7 @@
 // Dropdown menus
 // --------------------------------------------------
 // The dropdown wrapper (div)
-.bh-dropdown {
+.bh2-dropdown {
     position: relative;
     .bh-btn {
         position: relative;
@@ -26,7 +26,7 @@
             border-top: 6px solid $gray-lv2;
         }
     }
-    .bh-dropdown-link {
+    .bh2-dropdown-link {
         cursor: pointer;
         padding-right: 25px;
         &:hover {
@@ -37,7 +37,7 @@
         }
     }
     .bh-btn,
-    .bh-dropdown-link {
+    .bh2-dropdown-link {
         &:after {
             content: "";
             position: absolute;
@@ -53,7 +53,7 @@
 }
 
 // The dropdown menu (ul)
-.bh-dropdown-menu {
+.bh2-dropdown-menu {
     position: absolute;
     z-index: 380;
     outline: 0;
@@ -72,7 +72,7 @@
     box-shadow: $card-lv2-box-shadow;
     background-clip: padding-box;
     // Dividers (basically an hr) within the dropdown
-    .bh-dropdown-divider {
+    .bh2-dropdown-divider {
         height: 1px;
         margin: 4px 0;
         overflow: hidden;
@@ -90,8 +90,8 @@
 }
 
 // Hover/Focus state
-.bh-dropdown-menu > .bh-active > a,
-.bh-dropdown-menu > li > a {
+.bh2-dropdown-menu > .bh-active > a,
+.bh2-dropdown-menu > li > a {
     &:hover,
     &:focus {
         text-decoration: none;
@@ -99,7 +99,7 @@
     }
 }
 
-.bh-dropdown-menu > .bh-disabled > a {
+.bh2-dropdown-menu > .bh-disabled > a {
     color: $gray-lv4;
     &:hover,
     &:focus {
@@ -109,21 +109,21 @@
 }
 
 // Open state for the dropdown
-.bh-dropdown-open {
-    &.bh-dropdown-menu {
+.bh2-dropdown-open {
+    &.bh2-dropdown-menu {
         display: block;
     }
 }
 
-.bh-dropdown-primary {
-    &.bh-dropdown {
+.bh2-dropdown-primary {
+    &.bh2-dropdown {
         & .bh-btn {
             &:after {
                 border-top-color: $white-base;
             }
         }
     }
-    .bh-dropdown-menu {
+    .bh2-dropdown-menu {
         background-color: $brand-primary;
         & > li > a {
             color: $white-base;
@@ -146,9 +146,9 @@
     }
 }
 
-.bh-dropdown-right.bh-dropdown {
+.bh2-dropdown-right.bh2-dropdown {
     text-align: right;
-    & .bh-dropdown-menu {
+    & .bh2-dropdown-menu {
         right: 0;
         left: inherit;
         transform-origin: right top;
