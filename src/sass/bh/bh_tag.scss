@@ -1,40 +1,40 @@
 .bh2-tag {
     color: $white-base;
-    padding: 4px 4px;
+    padding: 4px 12px;
     border-radius: 2px;
     font-size: $font-size-base;
     line-height: $line-height-base;
-    &.bh-success {
+    &.bh2-success {
         background-color: $success-lv2;
         &:hover {
             background-color: $success-lv1;
         }
     }
-    &.bh-info {
+    &.bh2-info {
         background-color: $theme-lv2;
         &:hover {
             background-color: $theme-lv1;
         }
     }
-    &.bh-warning {
+    &.bh2-warning {
         background-color: $warning-lv2;
         &:hover {
             background-color: $warning-lv1;
         }
     }
-    &.bh-danger {
+    &.bh2-danger {
         background-color: $danger-lv2;
         &:hover {
             background-color: $danger-lv1;
         }
     }
-    &.bh-primay {
+    &.bh2-primay {
         background-color: $primary-lv2;
         &:hover {
             background-color: $primary-lv1;
         }
     }
-    &.bh-default{
+    &.bh2-default{
         background-color:$white-base;
         &:hover {
             background-color: $primary-lv1;
@@ -71,7 +71,13 @@
     }
 }
 .bh2-tag-group{
-    border:
+    border:1px solid #ddd;
+    color: $gray-lv1;
+    background-color:$white-base;
+    &.bh2-tag-active{
+        color: $white-base;
+        background-color:$primary-lv2;
+    }
 }
 
 
