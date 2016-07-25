@@ -66,13 +66,6 @@
 	$.fn.bhSwitch.defaults = {
 		type: 'Normal'
 	};
-	/**
-	 * 按钮开闭配置
-	 */
-	var stateConf = {
-		on: ' on',
-		off: 'off'
-	};
 	//初始化插件
 	function init(options, dom) {
 		//根据配置初始化switch
@@ -80,93 +73,96 @@
 		var type2Class = {
 			'Normal': {
 				background: 'Theme_Lv4',
-				button: 'Card_Lv2 bhButtonOff',
+				button: 'bh-switch-btn-off',//todo Card_Lv2
 				font: 'Caption_Default',
 				label: '关闭',
-				state: stateConf.off
+				state: false
 			},
 			'Keep': {
 				background: 'Success',
-				button: 'Card_Lv2 bhButtonOn',
+				button: 'bh-switch-btn-on',//todo Card_Lv2
 				font: 'Caption_Success',
 				label: '打开',
-				state: stateConf.on
+				state: true
 			},
 			'Disable_off': {
 				background: 'Theme_Lv4',
-				button: 'Card_Lv0 bhButtonOff Theme_Lv3',
+				button: 'bh-switch-btn-off bh-switch-btn-disable',//todo Card_Lv0
 				font: 'Caption_Default',
 				label: '关闭',
-				state: stateConf.off
+				state: false
 			},
 			'Disable_on': {
 				background: 'Success_Lv3',
-				button: 'Card_Lv0 bhButtonOn',
+				button: 'bh-switch-btn-on bh-switch-btn-disable',//todo Card_Lv0
 				font: 'Caption_Success',
 				label: '打开',
-				state: stateConf.on
+				state: true
 			}
 		};
-		_switch += '<div class="bhSwitchBody ' + type2Class[options.type].background + '">';
-		_switch += '	<i class="bhSwitchButton ' + type2Class[options.type].button + '"></i>';
+		_switch += '<div class="bh-switch-body ' + type2Class[options.type].background + '">';
+		_switch += '	<i class="bh-switch-btn ' + type2Class[options.type].button + '"></i>';
 		_switch += '</div>';
-		_switch += '<span class="bhSwitchLabel ' + type2Class[options.type].font + '">' + type2Class[options.type].label + '</span>';
-		$(dom).addClass('bhSwitchContainer');
+		_switch += '<span class="bh-switch-label ' + type2Class[options.type].font + '">' + type2Class[options.type].label + '</span>';
+		$(dom).wrap('<div></div>');
+		var parent = $(dom).parent();
+		parent.addClass('bh-switch-container');
+		parent.append(_switch);
 		setState(dom, type2Class[options.type].state);
-		$(dom).empty().append(_switch);
 		//根据是否有disable来bindclick
 		if(options.type.indexOf('Disable') === -1){
-			bindclick(dom, options);
+			bindclick(parent, options);
 		}
 	}
 
 	//click事件
 	function bindclick(dom, options) {
 		$(dom).bind('click', function() {
-			var state = getState(this);
+			var _dom = $(this).children('input[type="checkbox"]');
+			var state = getState(_dom);
 			//按钮改变前回调
 			if(options.onChangeStart) options.onChangeStart(state);
-			if (state === stateConf.on) {
+			if (state) {
 				closeSwitch(this);
-			} else if(state === stateConf.off) {
+			}else {
 				openSwitch(this);
 			}
 			//按钮改变后回调
-			if(options.onChangeEnd) options.onChangeEnd(getState(this));
+			if(options.onChangeEnd) options.onChangeEnd(getState(_dom));
 		});
 	}
 
 	//获取开关状态
 	function getState(dom) {
-		return $(dom).attr('state');
+		return $(dom).prop('checked');
 	}
 
 	//修改开关状态
 	function setState(dom, state) {
-		return $(dom).attr('state', state);
+		return $(dom).prop('checked', state);
 	}
 	//打开开关
-	function openSwitch(dom) {
-		var state = getState(dom);
-		var _dom = $(dom);
-		if (state === stateConf.off) {
-			setState(dom, stateConf.on);
-			_dom.find('i').removeClass('bhButtonOff').addClass('bhButtonOn');
-			_dom.find('div').removeClass('Theme_Lv4').addClass('Success');
-			_dom.find('span').text('打开');
-			_dom.find('span').removeClass('Caption_Default').addClass('Caption_Success');
+	function openSwitch(parent) {
+		var _dom = $(parent).children('input[type="checkbox"]');
+		var state = getState(_dom);
+		if (!state) {
+			setState(_dom, true);
+			$(parent).find('i').removeClass('bh-switch-btn-off').addClass('bh-switch-btn-on');
+			$(parent).find('div').removeClass('Theme_Lv4').addClass('Success');
+			$(parent).find('span').text('打开');
+			$(parent).find('span').removeClass('Caption_Default').addClass('Caption_Success');
 		}
 	}
 	//关闭开关
-	function closeSwitch(dom) {
-		var state = getState(dom);
-		var _dom = $(dom);
-		if (state === stateConf.on) {
-			setState(dom, stateConf.off);
-			_dom.find('i').removeClass('bhButtonOn').addClass('bhButtonOff');
-			_dom.find('div').removeClass('Success').addClass('Theme_Lv4');
-			_dom.find('span').text('关闭');
-			_dom.find('span').removeClass('Caption_Success').addClass('Caption_Default');
+	function closeSwitch(parent) {
+		var _dom = $(parent).children('input[type="checkbox"]');
+		var state = getState(_dom);
+		if (state) {
+			setState(_dom, false);
+			$(parent).find('i').removeClass('bh-switch-btn-on').addClass('bh-switch-btn-off');
+			$(parent).find('div').removeClass('Success').addClass('Theme_Lv4');
+			$(parent).find('span').text('关闭');
+			$(parent).find('span').removeClass('Caption_Success').addClass('Caption_Default');
 		}
 	}
 })(jQuery)

@@ -10,102 +10,81 @@ $transitionTime: 0.2s;
  * bhSwitch
  */
 
-.bhSwitchContainer {
+.bh-switch-container {
     display: inline-block;
     height: $ContainerH;
     line-height: $ContainerH;
+    & > .bh-switch-body {
+        width: $BodyW;
+        height: $BodyH;
+        border-radius: $ContainerH/2;
+        display: block;
+        float: left;
+        position: relative;
+        left: 0;
+        top: 0;
+        transition: background $transitionTime;
+        & > .bh-switch-btn {
+            position: absolute;
+            top: ($ContainerH - $ButtonH)/2;
+            width: $ButtonW;
+            height: $ButtonH;
+            border-radius: $ButtonH/2;
+            background-color: #fff;
+            display: block;
+            transition: left $transitionTime;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .28);
+        }
+        & > .bh-switch-btn:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, .24);
+        }
+        & >.bh-switch-btn-on {
+            left: $ContainerW - $ButtonW - 2px;
+        }
+        & >.bh-switch-btn-off {
+            width: $ButtonW;
+            left: 2px;
+        }
+    }
+    & >.bh-switchLabel {
+        float: left;
+        display: block;
+        height: $ContainerH;
+        line-height: $ContainerH !important;
+        margin-left: 4px;
+    }
 }
 
-.bhSwitchBody {
-    width: $BodyW;
-    height: $BodyH;
-    border-radius: $ContainerH/2;
-    display: block;
-    float: left;
-    position: relative;
-    left: 0;
-    top: 0;
-    transition: background $transitionTime;
+.bh-switch-btn-disable{
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
 }
-
-.bhSwitchButton {
-    position: absolute;
-    top: ($ContainerH - $ButtonH)/2;
-    width: $ButtonW;
-    height: $ButtonH;
-    border-radius: $ButtonH/2;
-    background-color: #fff;
-    display: block;
-    transition: left $transitionTime;
-}
-
-.bhSwitchButton:hover {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, .24);
-}
-
-.bhButtonOn {
-    left: $ContainerW - $ButtonW - 2px;
-}
-
-.bhButtonOff {
-    width: $ButtonW;
-    left: 2px;
-}
-
-.bhSwitchLabel {
-    float: left;
-    display: block;
-    height: $ContainerH;
-    line-height: $ContainerH !important;
-    margin-left: 4px;
-}
-
-.clearfix {
-    clear: both;
-}
-
 
 /**
  * Theme
  */
 
 .Theme_Lv3 {
-    background-color: #D8DCF0;
+    background-color: $theme-lv3;
 }
 
 .Theme_Lv4 {
-    background-color: #F0F1F9;
+    background-color: $theme-lv4;
 }
 
 
-/**
- * card
- */
-
-.Card_Lv0 {
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-}
-
-.Card_Lv2 {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .28);
-}
-
-.Card_Lv3 {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, .24);
-}
 
 /**
  * Caption
  */
 
 .Caption_Default {
-    color: #BBB;
+    color: $gray-lv3;
     font-size: 12px;
     line-height: 12px;
 }
 
 .Caption_Success {
-    color: #93D36E;
+    color: $success-lv2;
     font-size: 12px;
     line-height: 12px;
 }
@@ -116,9 +95,9 @@ $transitionTime: 0.2s;
  */
 
 .Success {
-    background-color: #60BE29;
+    background-color: $success-lv1;
 }
 
 .Success_Lv3 {
-    background-color: #DFF2D4;
+    background-color: $success-lv3;
 }
