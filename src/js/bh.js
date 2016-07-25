@@ -485,8 +485,8 @@
 + (function($) {
     'use strict';
 
-    $(document).on("click", "[bh-dropdown-role=bhDropdownBtn]", function() {
-        var $dropdown_menu = $(this).siblings("[bh-dropdown-role=bhDropdownMenu]");
+    $(document).on("click", "[bh2-dropdown-role=bhDropdownBtn]", function() {
+        var $dropdown_menu = $(this).siblings("[bh2-dropdown-role=bhDropdownMenu]");
         $dropdown_menu.slideToggle("fast");
     });
 })(jQuery);

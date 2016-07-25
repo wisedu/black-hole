@@ -1,46 +1,52 @@
-.bh-tag {
+.bh2-tag {
     color: $white-base;
-    padding: 4px 4px;
+    padding: 4px 12px;
     border-radius: 2px;
     font-size: $font-size-base;
     line-height: $line-height-base;
-    &.bh-success {
+    &.bh2-success {
         background-color: $success-lv2;
         &:hover {
             background-color: $success-lv1;
         }
     }
-    &.bh-info {
+    &.bh2-info {
         background-color: $theme-lv2;
         &:hover {
             background-color: $theme-lv1;
         }
     }
-    &.bh-warning {
+    &.bh2-warning {
         background-color: $warning-lv2;
         &:hover {
             background-color: $warning-lv1;
         }
     }
-    &.bh-danger {
+    &.bh2-danger {
         background-color: $danger-lv2;
         &:hover {
             background-color: $danger-lv1;
         }
     }
-    &.bh-primay {
+    &.bh2-primay {
         background-color: $primary-lv2;
+        &:hover {
+            background-color: $primary-lv1;
+        }
+    }
+    &.bh2-default{
+        background-color:$white-base;
         &:hover {
             background-color: $primary-lv1;
         }
     }
 }
 
-.bh-tag-round {
+.bh2-tag-round {
     border-radius: 20px;
 }
 
-.bh-tag-action {
+.bh2-tag-action {
     border-radius: 20px;
     cursor: pointer;
     background-color: $primary-lv2;
@@ -53,7 +59,7 @@
     }
 }
 
-.bh-tag-add {
+.bh2-tag-add {
     color: $primary-lv2;
     padding: 14px 32px 6px 32px;
     border: 1px solid $primary-lv2;
@@ -64,36 +70,14 @@
         font-size: 24px;
     }
 }
+.bh2-tag-group{
+    border:1px solid #ddd;
+    color: $gray-lv1;
+    background-color:$white-base;
+    &.bh2-tag-active{
+        color: $white-base;
+        background-color:$primary-lv2;
+    }
+}
 
-// .bh-tag-input {
-//     & > input {
-//         border-radius: 20px;
-//         height: 28px;
-//         width: 176px;
-//         border: 1px solid $theme-lv3;
-//         padding: 0px 16px;
-//     }
-//     .icon-check {
-//         color: $white-base;
-//         font-size: 28px;
-//         background-color: $success-lv1;
-//     }
-//     .bh-tag-input-default:focus {
-//         left: 0px;
-//         top: 0px;
-//         width: 176px;
-//         height: 28px;
-//         background: inherit;
-//         background-color: $white-base;
-//         box-sizing: border-box;
-//         border-width: 1px;
-//         border-style: solid;
-//         border-color: $primary-lv1;
-//         border-radius: 20px;
-//         -moz-box-shadow: none;
-//         -webkit-box-shadow: none;
-//         box-shadow: none;
-//         color: #1E1E1E;
-//         outline: none;
-//     }
-// }
+

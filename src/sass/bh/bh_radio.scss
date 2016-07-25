@@ -1,0 +1,106 @@
+
+.bh-radio {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+}
+
+.bh-radio > .bh-radio-label {
+    padding-left: 4px;
+    display: inline-block;
+    margin-bottom: 8px;
+    position: relative;
+    & > input[type=radio] {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-left: 0!important;
+        z-index: 1;
+        cursor: pointer;
+        opacity: 0;
+        filter: alpha(opacity=0);
+        margin-top: 0;
+        margin-right: 2px;
+        width: 16px;
+        height: 16px;
+    }
+    &:not([disabled]) {
+        input[type=radio]:hover+.bh-choice-helper:before {
+            border: 1px solid $success-lv2;
+        }
+        input[type=radio]:checked+.bh-choice-helper:after {
+            transform: scale(1);
+        }
+    }
+    &[disabled] {
+        padding-left:24px;
+        // & > i {
+        //     z-index: 2;
+        // }
+
+        & > input[type=radio] {
+            cursor: default;
+            // z-index: -1;
+            display: none;
+        }
+        .bh-choice-helper:after {
+            background: $success-lv3;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            top: 5px;
+            left: 3px;
+            transform: scale(1);
+        }
+        &:not([checked]) {
+            input[type=radio] {
+                cursor: default;
+            }
+            .bh-choice-helper:before {
+                border: solid 1px $theme-lv3;
+                background-color: $theme-lv4;
+            }
+            .bh-choice-helper:after {
+                transform: scale(0);
+            }   
+        } 
+    }
+}
+
+.bh-radio .bh-choice-helper:after,
+.bh-radio .bh-choice-helper:before {
+    -webkit-transition: all;
+    transition: all;
+    -webkit-transition-duration: 250ms;
+    transition-duration: 250ms;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    content: "";
+}
+
+.bh-radio .bh-choice-helper:before {
+    top: 2px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    left: 0;
+    border: 1px solid $theme-lv3;
+    background-color: $white-base;
+}
+.bh-radio .bh-choice-helper:after {
+    width: 10px;
+    height: 10px;
+    background: $success-lv1;
+    border-radius: 50%;
+    top: 5px;
+    left: 3px;
+    transform: scale(0);
+}
+.bh-radio-group-h .bh-radio-label {
+    padding-right: 16px;
+}
+.bh-radio-group-v .bh-radio-label {
+    display: block;
+}
