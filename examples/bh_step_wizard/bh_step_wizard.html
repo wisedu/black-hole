@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="http://res.wisedu.com/fe_components/iconfont/iconfont.css">
+    <link type="text/css" rel="stylesheet" href="../../build/css/blue/bh-2.0.css">
+    <!--<link type="text/css" rel="stylesheet" href="http://res.wisedu.com/fe_components/jqwidget/blue/bh-scenes.min.css">-->
+    <link type="text/css" rel="stylesheet" href="http://res.wisedu.com/fe_components/prism/prism.css">
+    <script src="http://res.wisedu.com/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="http://res.wisedu.com/fe_components/bh_utils.js"></script>
+    <script src="../../build/js/bh-2.0.js"></script>
+</head>
+<body>
+<header></header>
+<main>
+
+    <article bh-layout-role="single" id="bhStepWizard">
+    <h2>步骤向导 bhStepWizard</h2>
+    <section>
+        <div class="e2e-opt">
+        	<button class="bh-btn bh-btn-default" data-action="isLastStep" title="当前是否为最后一个">isLastStep</button>
+            <button class="bh-btn bh-btn-default" data-action="activePrevItem" title="上一项">activePrevItem</button>
+            <button class="bh-btn bh-btn-default" data-action="activeNextItem" title="下一项">activeNextItem</button>
+            <button class="bh-btn bh-btn-default" data-action="changeToActive" title="激活第一个">changeToActive</button>
+            <button class="bh-btn bh-btn-default" data-action="changeToFinished" title="将当前状态变为完成">changeToFinished</button>
+            <button class="bh-btn bh-btn-default" data-action="getFinishedIndexs" title="获取已完成的编号">getFinishedIndexs</button>
+            <button class="bh-btn bh-btn-default" data-action="getStepIdByIndex" title="根据stepID获取index">getStepIdByIndex</button>
+            <button class="bh-btn bh-btn-default" data-action="resetFinishedItems" title="设置完成项">resetFinishedItems</button>
+            <button class="bh-btn bh-btn-default" data-action="resetWidth" title="重新设置宽度">resetWidth</button>
+            <button class="bh-btn bh-btn-default" data-action="deleteItem" title="删除项">deleteItem</button>
+            <button class="bh-btn bh-btn-default" data-action="showItem" title="显示项">showItem</button>
+            <button class="bh-btn bh-btn-default" data-action="hideItem" title="隐藏项">hideItem</button>
+            <button class="bh-btn bh-btn-default" data-action="getActiveItem" title="获取当前激活项的stepID">getActiveItem</button>
+        </div>
+        <mark>
+            返回状态
+        </mark>
+        <div class="bh-mv-16">
+            <div class="bh-wizard bh-mt-16" id="control"></div>
+            <div class="container bh-clearfix">
+                <div id="step1">
+                    步骤向导-1-内容
+                </div>
+                <div id="step2">
+                    步骤向导-2-内容
+                </div>
+                <div id="step3">
+                    步骤向导-3-内容
+                </div>
+                <div id="step4">
+                    步骤向导-4-内容
+                </div>
+                <div id="step5">
+                    步骤向导-5-内容
+                </div>
+                <div id="step6">
+                    步骤向导-6-内容
+                </div>
+            </div>
+        </div>
+        <pre data-src="bh_step_wizard.js"></pre>
+    </section>
+</article>
+<script src="bh_step_wizard.js"></script>
+
+</main>
+<footer></footer>
+<script>
+    BH_UTILS.setContentMinHeight($("body").children("main").children("article"));
+    $('header').bhHeader({
+        "logo": "http://res.wisedu.com/scenes/public/images/demo/logo.png"
+    });
+    $("footer").bhFooter({
+        text: "版权信息：© 2015 江苏金智教育信息股份有限公司 苏ICP备10204514号"
+    });
+</script>
+<script src="http://res.wisedu.com/fe_components/prism/prism.js"></script>
+</body>
+</html>
