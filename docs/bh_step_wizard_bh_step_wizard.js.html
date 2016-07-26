@@ -27,19 +27,73 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * 可折叠面板
- *
+ * @fileOverview 步骤条组件
+ * @example
+$control.bhStepWizard({
+    items: [
+        { stepId: "step1", title: "步骤向导-1" },
+        { stepId: "step2", title: "步骤向导-2" },
+        { stepId: "step3", title: "步骤向导-3" }
+    ],
+    active: "step3",//可选, 当前激活项的stepId
+    finished: ['step2'], //可选, 当前已完成项的stepId数组,默认值为[]
+    change: function () { } //可选, 焦点项变化的回调,默认值为null
+});
  */
 (function($) {
+
+    $.fn.bhStepWizard = function(options, params) {
+        var instance;
+        instance = this.data('bhStepWizard');
+        /**
+         * 判断插件是否已经实例化过，如果已经实例化了则直接返回该实例化对象
+         */
+        if (!instance) {
+            return this.each(function() {
+                //将实例化后的插件缓存在dom结构里（内存里）
+                return $(this).data('bhStepWizard', new Plugin(this, options));
+            });
+        }
+        if (options === true) return instance;
+        /**
+         * 优雅处： 如果插件的参数是一个字符串，则 调用 插件的 字符串方法。
+         * 如 $('#id').plugin('doSomething') 则实际调用的是 $('#id).plugin.doSomething();
+         * doSomething是刚才定义的接口。这种方法 在 juqery ui 的插件里 很常见。
+         */
+        if ($.type(options) === 'string') {
+            var result = instance[options](params);
+            return result;
+        }
+        //return this;
+    };
+
     /**
-     * 定义一个插件
+     * @memberof module:bhStepWizard
+     * @description 内置默认值
+     * @prop {object}  defaults
+     * @prop {Array}  defaults.items - 步骤参数集合 title,stepId,active,finished
+     * @prop {string}  defaults.active - 当前 active 项的stepId
+     * @prop {Array}  defaults.finished - 当前 finished 项的stepId数组
+     * @prop {boolean}  defaults.isAddClickEvent - 步骤条是否可点
+     * @prop {$}  defaults.contentContainer - 正文的容器选择器
+     * @prop {function}  defaults.change - 焦点项变化的回调事件
      */
+    $.fn.bhStepWizard.defaults = {
+        items: [],
+        active: '',
+        finished: [],
+        isAddClickEvent: true,
+        contentContainer: $("body"),
+        change: null
+    };
+
     var Plugin;
 
     var g = {};
 
     /**
      * 这里是一个自运行的单例模式。
+     * @module bhStepWizard
      */
     Plugin = (function() {
         /**
@@ -52,13 +106,22 @@
             this.$element = $(element);
             init(this.settings, this.$element);
         }
+        
+        // Plugin.prototype.addItem = function(i, item, total) {
+        //     addItem(i, item, total);
+        // };
 
-        Plugin.prototype.addItem = function(i, item, total) {
-            addItem(i, item, total);
-        };
-        Plugin.prototype.resetActiveItem = function(stepId) {
-            resetActiveItem(stepId);
-        };
+        // Plugin.prototype.resetActiveItem = function(stepId) {
+        //     resetActiveItem(stepId);
+        // };
+
+        /**
+         * 设置 finished 状态项
+         * @method resetFinishedItems
+         * @param {Array} stepIds - 需要改为 finished 状态的步骤ID
+         * @example
+        $control.bhStepWizard("resetFinishedItems", ["step1", "step2"]);
+         */
         Plugin.prototype.resetFinishedItems = function(stepIds) {
             g.finishedItemStepIds = stepIds;
             for (var i = 0; i &lt; g.finishedItemStepIds.length; i++) {
@@ -67,20 +130,45 @@
                 refreshElementByIndex(finishedIndex);
             }
         };
+
+        /**
+         * active下一项
+         * @method activeNextItem
+         * @example
+        $control.bhStepWizard("activeNextItem");
+         */
         Plugin.prototype.activeNextItem = function() {
             activeNextItem();
         };
+
+        /**
+         * active上一项
+         * @method activePrevItem
+         * @example
+        $control.bhStepWizard("activePrevItem");
+         */
         Plugin.prototype.activePrevItem = function() {
             activePrevItem();
         };
 
         /**
-         * 把指定的步骤切成active状态
-         * @param stepId
+         * 把指定的步骤变成active状态
+         * @method changeToActive
+         * @param {string} stepId 步骤ID
+         * @example
+        $control.bhStepWizard("changeToActive", "step1");
          */
         Plugin.prototype.changeToActive = function(stepId) {
             changeToActive(stepId);
         };
+
+        /**
+         * 把指定步骤变成finished状态
+         * @method changeToFinished
+         * @param {string} stepId 步骤ID
+         * @example
+        $control.bhStepWizard("changeToFinished", "step1");
+         */
         Plugin.prototype.changeToFinished = function(finishedStepId) {
             if (finishedStepId == undefined || finishedStepId == null) {
                 finishedStepId = g.activeItemStepId;
@@ -92,6 +180,13 @@
             refreshElementByIndex(finishedIndex);
         };
 
+        /**
+         * 重置步骤条宽度，当屏幕尺寸变化需要手动触发
+         * @method resetWidth
+         * @param {string} stepId 步骤ID
+         * @example
+        $control.bhStepWizard("resetWidth");
+         */
         Plugin.prototype.resetWidth = function() {
             resetItemWidth();
         };
@@ -124,7 +219,7 @@
             return result;
         };
         Plugin.prototype.deleteItem = function(stepId) {
-            resizeWizard(function($item){
+            resizeWizard(stepId, function($item){
                 $item.remove();
             });
         };
@@ -137,7 +232,10 @@
             resizeWizard(stepId, function($item){
                 $item.hide();
             });
-        }
+        };
+        Plugin.prototype.getActiveItem = function() {
+            return g.activeItemStepId;
+        };
 
         return Plugin;
 
@@ -408,47 +506,7 @@
 
         resetItemWidth();
     }
-    /**
-     * 这里是关键
-     * 定义一个插件 plugin
-     */
-    $.fn.bhStepWizard = function(options, params) {
-        var instance;
-        instance = this.data('bhStepWizard');
-        /**
-         * 判断插件是否已经实例化过，如果已经实例化了则直接返回该实例化对象
-         */
-        if (!instance) {
-            return this.each(function() {
-                //将实例化后的插件缓存在dom结构里（内存里）
-                return $(this).data('bhStepWizard', new Plugin(this, options));
-            });
-        }
-        if (options === true) return instance;
-        /**
-         * 优雅处： 如果插件的参数是一个字符串，则 调用 插件的 字符串方法。
-         * 如 $('#id').plugin('doSomething') 则实际调用的是 $('#id).plugin.doSomething();
-         * doSomething是刚才定义的接口。
-         * 这种方法 在 juqery ui 的插件里 很常见。
-         */
-        if ($.type(options) === 'string') {
-            var result = instance[options](params);
-            return result;
-        }
-        //return this;
-    };
-
-    /**
-     * 插件的默认值
-     */
-    $.fn.bhStepWizard.defaults = {
-        items: [], //步骤参数集合 title,stepId,active,finished
-        active: '', //当前激活项的stepId
-        finished: [], //当前已完成项的stepId数组
-        isAddClickEvent: true, //步骤条是否可点
-        contentContainer: $("body"), //正文的容器选择器
-        change: null
-    };
+    
 })(jQuery);
 </code></pre>
         </article>
@@ -460,13 +518,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="$.fn.bhHeader.html">bhHeader</a></li></ul><h3>Global</h3><ul><li><a href="global.html#resizeGallery">resizeGallery</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-bhStepWizard.html">bhStepWizard</a></li></ul><h3>Classes</h3><ul><li><a href="$.fn.bhHeader.html">bhHeader</a></li></ul><h3>Global</h3><ul><li><a href="global.html#resizeGallery">resizeGallery</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Thu Jul 07 2016 10:29:13 GMT+0800 (CST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Tue Jul 26 2016 17:42:11 GMT+0800 (CST)
 </footer>
 
 <script> prettyPrint(); </script>
