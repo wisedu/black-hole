@@ -1,6 +1,11 @@
 /**
- * @class bhStar
- * 类似于纵向tab页签
+ * 评分组件
+ * @module bhStar
+ *
+ * @example
+ * $('#starDiv').bhStar({
+ *      score: 3
+ * });
  */
 (function ($) {
     /**
@@ -10,11 +15,12 @@
 
     /**
      * 这里是一个自运行的单例模式。
+     * @private
      */
     Plugin = (function () {
 
         /**
-         * 插件实例化部分，初始化时调用的代码可以放这里
+         * @alias bhStar
          */
         function Plugin(element, setting) {
             var space = this.space = {
@@ -29,7 +35,15 @@
             space.dom = this.$element;
             init(this);
         }
-        //获取评分方法
+        /**
+         * 获取评分
+         * @inner
+         * @method  getScore
+         * @memberOf module:bhStar
+         * @return {Number} 当前评分值
+         * @example
+         * $('#starDiv').bhStar('getScore');
+         */
         Plugin.prototype.getScore = function() {
             return this.space.options.score;
         };
@@ -143,7 +157,16 @@
     };
 
     /**
-     * 插件的默认值
+     * 组件初始化时设置的参数
+     * @memberOf module:bhStar
+     * @alias settings
+     * @inner
+     * @property {Number} [score=0] 分值
+     * @property {Number} [size=0] 设置星的大小，单位按像素计算
+     * @property {Boolean} [isShowNum=true] 是否显示数字
+     * @property {String} [text=分] 在分数后面显示的文字
+     * @property {String} [textClass] 给分数的父层添加样式类
+     * @property {String} [starClass] 给星星的父层添加样式类
      */
     $.fn.bhStar.defaults = {
         score: 0, //可选，设置初始化分数，默认是0
