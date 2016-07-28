@@ -80,7 +80,8 @@
     var Plugin;
 
     /**
-     * 这里是一个自运行的单例模式。 
+     * 这里是一个自运行的单例模式。
+     * @module bhPagination 
      */
     Plugin = (function() {
 
