@@ -14,20 +14,20 @@
 			init(this.settings, this.$element);
 		}
 		/**
-         * 获取开关当前状态
-         */
+		 * 获取开关当前状态
+		 */
 		Switch.prototype.getState = function() {
 			return getState(this.$element);
 		};
 		/**
-         * 打开开关
-         */
+		 * 打开开关
+		 */
 		Switch.prototype.open = function() {
 			openSwitch(this.$element);
 		};
 		/**
-         * 关闭开关
-         */
+		 * 关闭开关
+		 */
 		Switch.prototype.close = function() {
 			closeSwitch(this.$element);
 		};
@@ -64,7 +64,9 @@
 	 * 插件的默认值
 	 */
 	$.fn.bhSwitch.defaults = {
-		type: 'Normal'
+		type: 'Normal',
+		shape: 'circular',
+		label: true
 	};
 	//初始化插件
 	function init(options, dom) {
@@ -73,44 +75,54 @@
 		var type2Class = {
 			'Normal': {
 				background: 'Theme_Lv4',
-				button: 'bh-switch-btn-off',//todo Card_Lv2
+				button: 'bh-switch-btn-off bh-card-lv2',
 				font: 'Caption_Default',
 				label: '关闭',
 				state: false
 			},
 			'Keep': {
 				background: 'Success',
-				button: 'bh-switch-btn-on',//todo Card_Lv2
+				button: 'bh-switch-btn-on bh-card-lv2',
 				font: 'Caption_Success',
 				label: '打开',
 				state: true
 			},
 			'Disable_off': {
 				background: 'Theme_Lv4',
-				button: 'bh-switch-btn-off bh-switch-btn-disable',//todo Card_Lv0
+				button: 'bh-switch-btn-off bh-card-lv0 bh-switch-btn-theme-lv3',
 				font: 'Caption_Default',
 				label: '关闭',
 				state: false
 			},
 			'Disable_on': {
 				background: 'Success_Lv3',
-				button: 'bh-switch-btn-on bh-switch-btn-disable',//todo Card_Lv0
+				button: 'bh-switch-btn-on bh-card-lv0',
 				font: 'Caption_Success',
 				label: '打开',
 				state: true
 			}
 		};
-		_switch += '<div class="bh-switch-body ' + type2Class[options.type].background + '">';
-		_switch += '	<i class="bh-switch-btn ' + type2Class[options.type].button + '"></i>';
-		_switch += '</div>';
-		_switch += '<span class="bh-switch-label ' + type2Class[options.type].font + '">' + type2Class[options.type].label + '</span>';
+
+		//圆形或者方形
+		if (options.shape === 'circular') {
+			_switch += '<div class="bh-switch-body ' + type2Class[options.type].background + '">';
+			_switch += '	<i class="bh-switch-btn ' + type2Class[options.type].button + '"></i>';
+		} else if (options.shape === 'square') {
+			_switch += '<div class="bh-switch-body bh-switch-body-square ' + type2Class[options.type].background + '">';
+			_switch += '	<i class="bh-switch-btn bh-switch-btn-square ' + type2Class[options.type].button + '"></i>';
+		}
+		_switch += '	</div>';
+
+		//标签显示与否
+		_switch += '	<span ' + (options.label ? '' : 'style="display: none"') + ' class="bh-switch-label ' + type2Class[options.type].font + '">' + type2Class[options.type].label + '</span>';
+		$(dom).hide();
 		$(dom).wrap('<div></div>');
 		var parent = $(dom).parent();
 		parent.addClass('bh-switch-container');
 		parent.append(_switch);
 		setState(dom, type2Class[options.type].state);
 		//根据是否有disable来bindclick
-		if(options.type.indexOf('Disable') === -1){
+		if (options.type.indexOf('Disable') === -1) {
 			bindclick(parent, options);
 		}
 	}
@@ -121,14 +133,14 @@
 			var _dom = $(this).children('input[type="checkbox"]');
 			var state = getState(_dom);
 			//按钮改变前回调
-			if(options.onChangeStart) options.onChangeStart(state);
+			if (options.onChangeStart) options.onChangeStart(state);
 			if (state) {
 				closeSwitch(this);
-			}else {
+			} else {
 				openSwitch(this);
 			}
 			//按钮改变后回调
-			if(options.onChangeEnd) options.onChangeEnd(getState(_dom));
+			if (options.onChangeEnd) options.onChangeEnd(getState(_dom));
 		});
 	}
 

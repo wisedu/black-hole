@@ -6,59 +6,7 @@ $ButtonW: 20px;
 $ButtonH: 20px;
 $transitionTime: 0.2s;
 
-/**
- * bhSwitch
- */
-
-.bh-switch-container {
-    display: inline-block;
-    height: $ContainerH;
-    line-height: $ContainerH;
-    & > .bh-switch-body {
-        width: $BodyW;
-        height: $BodyH;
-        border-radius: $ContainerH/2;
-        display: block;
-        float: left;
-        position: relative;
-        left: 0;
-        top: 0;
-        transition: background $transitionTime;
-        & > .bh-switch-btn {
-            position: absolute;
-            top: ($ContainerH - $ButtonH)/2;
-            width: $ButtonW;
-            height: $ButtonH;
-            border-radius: $ButtonH/2;
-            background-color: #fff;
-            display: block;
-            transition: left $transitionTime;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, .28);
-        }
-        & > .bh-switch-btn:hover {
-            box-shadow: 0 4px 16px rgba(0, 0, 0, .24);
-        }
-        & >.bh-switch-btn-on {
-            left: $ContainerW - $ButtonW - 2px;
-        }
-        & >.bh-switch-btn-off {
-            width: $ButtonW;
-            left: 2px;
-        }
-    }
-    & >.bh-switchLabel {
-        float: left;
-        display: block;
-        height: $ContainerH;
-        line-height: $ContainerH !important;
-        margin-left: 4px;
-    }
-}
-
-.bh-switch-btn-disable{
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-}
-
+$squareBorder: 2px;
 /**
  * Theme
  */
@@ -70,7 +18,6 @@ $transitionTime: 0.2s;
 .Theme_Lv4 {
     background-color: $theme-lv4;
 }
-
 
 
 /**
@@ -100,4 +47,66 @@ $transitionTime: 0.2s;
 
 .Success_Lv3 {
     background-color: $success-lv3;
+}
+
+
+/**
+ * bhSwitch
+ */
+
+.bh-switch-container {
+    display: inline-block;
+    height: $ContainerH;
+    line-height: $ContainerH;
+    & > .bh-switch-body {
+        width: $BodyW;
+        height: $BodyH;
+        border-radius: $ContainerH/2;
+        display: block;
+        float: left;
+        position: relative;
+        left: 0;
+        top: 0;
+        transition: background $transitionTime;
+        & > .bh-switch-btn {
+            position: absolute;
+            top: ($ContainerH - $ButtonH)/2;
+            width: $ButtonW;
+            height: $ButtonH;
+            background-color: $white-base;
+            border-radius: $ButtonH/2;
+            display: block;
+            transition: left $transitionTime;
+        }
+        & > .bh-switch-btn-theme-lv3 {
+            background-color: $theme-lv3;
+        }
+        & > .bh-switch-btn:hover {
+            box-shadow: $box-shadow-lv3;
+        }
+        & >.bh-switch-btn-on {
+            left: $ContainerW - $ButtonW - 2px;
+        }
+        & >.bh-switch-btn-off {
+            width: $ButtonW;
+            left: 2px;
+        }
+    }
+    & >.bh-switch-label {
+        float: left;
+        display: block;
+        height: $ContainerH;
+        line-height: $ContainerH !important;
+        margin-left: 4px;
+    }
+
+    /**
+     * 方形
+     */
+    & > .bh-switch-body-square {
+        border-radius: $squareBorder;
+        & > .bh-switch-btn-square {
+            border-radius: $squareBorder;
+        }
+    }
 }
