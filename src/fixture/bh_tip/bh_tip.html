@@ -1,0 +1,89 @@
+<article bh-layout-role="single">
+    <h2>全局提示组件 bhTip</h2>
+    <section>
+        <h3 class='bh-mb-8'>常规参数设置</h3>
+        <form class='bh-form-horizontal bh-p-8' style='border: 1px solid #eee;'>
+            <form-group class='bh-mt-8 bh-col-md-12'>
+                <label class='bh-col-md-1 bh-form-label'>提示文字</label>
+                <input class='bh-col-md-5 bh-form-control' type="text" id="tip-text" value='默认提示文字'>
+            </form-group>
+            <form-group class='bh-mt-8 bh-col-md-12'>
+                <label class='bh-col-md-1 bh-form-label'>提示类型</label>
+                <div class="bh-radio bh-radio-group-h bh-col-md-5">
+                    <label class="bh-radio-label">
+                        <input type="radio" name="nl" value="success" data-caption="success" checked>
+                        <i class="bh-choice-helper"></i>
+                        success
+                    </label>
+                    <label class="bh-radio-label">
+                        <input type="radio" name="nl" value="warning" data-caption="warning">
+                        <i class="bh-choice-helper"></i>
+                        warning
+                    </label>
+                    <label class="bh-radio-label">
+                        <input type="radio" name="nl" value="danger" data-caption="danger">
+                        <i class="bh-choice-helper"></i>
+                        danger
+                    </label>
+                </div>
+            </form-group>
+            <form-group class='bh-mt-8 bh-col-md-12'>
+                <label class='bh-col-md-1 bh-form-label'>图标样式</label>
+                <input class='bh-col-md-5 bh-form-control' type="text" id="tip-icon" value='icon-star'>
+            </form-group>
+            <form-group class='bh-mt-8 bh-col-md-12'>
+                <label class='bh-col-md-1 bh-form-label'>动画时间</label>
+                <input class='bh-col-md-5 bh-form-control' type="text" id="tip-dur" value='3000'> (ms)
+            </form-group>
+            <button id='tip-btn1' class='bh2-btn bh2-primary bh2-small bh-mt-8'>显示提示信息</button>
+        </form>
+        <h3 class='bh-mv-8'>增加回调处理(onClosed)</h3>
+        <div>
+            <button id='tip-btn2' class='bh2-btn bh2-primary bh2-small bh-mt-8'>点我！</button>
+        </div>
+        <h3 class='bh-mv-8'>自定义操作</h3>
+        <div>
+            <button id='tip-btn3' class='bh2-btn bh2-primary bh2-small bh-mt-8'>再点我！</button>
+        </div>
+        <hr style='border: 1px solid #eee; border-style: solid;'>
+    </section>
+</article>
+<script>
+    $(function() {
+        var params = function() {
+            return {
+                content: $('#tip-text').val(), // 必填，提示框的内容
+                state: $('[name="nl"]:checked').val(), //必填，3种状态：成功success，警告warning，失败danger
+                iconClass: $("#tip-icon").val(),
+                animateTimes: parseInt($("#tip-dur").val())
+            };
+        };
+
+        $('#tip-btn1').click(() => {
+            $.bhTip(params());
+            return false;
+        });
+
+        $('#tip-btn2').click(() => {
+            var p = params();
+            p.onClosed = () => alert('closed');
+            $.bhTip(p);
+        });
+
+        $('#tip-btn3').click(() => {
+            var p = params();
+            p.options = [{
+                text: '查看',
+                callback () {
+                    alert('查看详细信息');
+                }
+            }, {
+                text: '百度一下',
+                callback () {
+                    window.open('http://www.baidu.com');
+                }
+            }];
+            $.bhTip(p);
+        });
+    });
+</script>

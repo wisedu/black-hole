@@ -1,9 +1,44 @@
-'use strict';
-
 /**
- * 将插件封装在一个闭包里面，防止外部代码污染  冲突
+ * @fileOverview 分页组件
+ * @example
+ $selector.pagination({
+    mode: 'simple'
+ });
  */
 (function() {
+    /**
+     * 这里是关键
+     * 定义一个插件 plugin
+     */
+    $.fn.pagination = function(options, params) {
+        var instance = new Plugin(this, options);
+
+        if (options === true) return instance;
+        return this;
+    };
+
+    /**
+     * @memberof module:pagination
+     * @description 内置默认值
+     * @prop {object}  defaults
+     * @prop {string}  defaults.mode - 分页模式 支持advanced高级和simple简单两种模式
+     * @prop {number}  defaults.pagesize - 每页显示条数
+     * @prop {Array}  defaults.pageSizeOptions - 每页显示条数下拉选择框值
+     * @prop {number}  defaults.selectedIndex - 每页显示条数下拉框默认值
+     * @prop {number}  defaults.pagenum - 当前页码从0开始
+     * @prop {number}  defaults.totalSize - 总条数
+     * @prop {number}  defaults.pagerButtonsCount - 简单分页模式页码按钮数
+     */
+    $.fn.pagination.defaults = {
+        mode: 'advanced',
+        pagesize: 10,
+        pageSizeOptions: [10, 20, 50, 100],
+        selectedIndex: 0,
+        pagenum: 0,
+        totalSize: 0,
+        pagerButtonsCount: 0,
+    };
+
     var html_advanced = '<div class="bh-pager bh-hide">' +
         '<div class="bh-pull-left">' +
         '<a href="javascript:void(0);" class="bh-pager-btn waves-effect" pager-flag="prev">' +
@@ -45,7 +80,8 @@
     var Plugin;
 
     /**
-     * 这里是一个自运行的单例模式。 
+     * 这里是一个自运行的单例模式。
+     * @module bhPagination 
      */
     Plugin = (function() {
 
@@ -378,12 +414,12 @@
                 _triggerEvent(instance, $(this));
             });
             //点击数字，跳转
-            $element.off('click', '[pager-flag="simpleGotoPage"]').on('click', 'a[pager-flag="simpleGotoPage"]', function() {
+            $element.off('click', 'a[pager-flag="simpleGotoPage"]').on('click', 'a[pager-flag="simpleGotoPage"]', function() {
                 var $pageItem = $(this);
                 var pagenum = parseInt($pageItem.text());
                 settings.pagenum = pagenum - 1;
                 _addNumBtn(settings, $element, pageLen);
-                var $eventEle = $element.find('[pager-flag="simpleGotoPage"]').filter(function() {
+                var $eventEle = $element.find('a[pager-flag="simpleGotoPage"]').filter(function() {
                     return $(this).text() == pagenum;
                 });
                 _triggerEvent(instance, $eventEle);
@@ -488,28 +524,4 @@
         var total = instance.getTotal();
         $selector.trigger('pagersearch', [pagenum, pagesize, total]);
     }
-
-    /**
-     * 这里是关键
-     * 定义一个插件 plugin
-     */
-    $.fn.pagination = function(options, params) {
-        var instance = new Plugin(this, options);
-
-        if (options === true) return instance;
-        return this;
-    };
-
-    /**
-     * 插件的默认值
-     */
-    $.fn.pagination.defaults = {
-        mode: 'advanced',
-        pagesize: 10,
-        pageSizeOptions: [10, 20, 50, 100],
-        selectedIndex: 0,
-        pagenum: 0,
-        totalSize: 0,
-        pagerButtonsCount: 0,
-    };
 }).call(undefined);
