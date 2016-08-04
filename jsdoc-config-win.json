@@ -1,11 +1,11 @@
 {
   "source": {
-    "include": ["./src/widgets/"],
+    "include": [".\\src\\widgets\\"],
     "includePattern": "\\.(js)$"
   },
   "opts": {
     "encoding": "utf8",
-    "destination": "./docs/",
+    "destination": ".\\docs\\",
     "recurse": true
   },
   "allowUnknownTags": true
