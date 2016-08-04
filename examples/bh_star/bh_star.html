@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="http://res.wisedu.com/fe_components/iconfont/iconfont.css">
+        <link type="text/css" rel="stylesheet" href="../../build/css/blue/bh-2.0.css">
+        <!--<link type="text/css" rel="stylesheet" href="http://res.wisedu.com/fe_components/jqwidget/blue/bh-scenes.min.css">-->
+        <link type="text/css" rel="stylesheet" href="http://res.wisedu.com/fe_components/prism/prism.css">
+        <script src="http://res.wisedu.com/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="http://res.wisedu.com/fe_components/bh_utils.js"></script>
+        <script src="../../build/js/bh-2.0.js"></script>
+
+        <style type="text/css">
+            .cls-star, .cls-text {
+                color: #f00;
+            }
+        </style>
+    </head>
+    <body>
+        <header></header>
+        <main>
+            <article bh-layout-role="single">
+                <h2>评分组件 bhStar</h2>
+                <section>
+                    <h3 class='bh-mt-16'>设置默认score</h3>
+                    <div id="star1"></div>
+                    <h3 class='bh-mt-16'>设置size</h3>
+                    <div id="star2" class='bh-mt-8'></div>
+                    <h3 class='bh-mt-16'>设置单位</h3>
+                    <div id="star3" class='bh-mt-8'></div>
+                    <h3 class='bh-mt-16'>设置starClass和textClass</h3>
+                    <div id="star4" class='bh-mt-8'></div>
+                    <h3 class='bh-mt-16'>隐藏数字</h3>
+                    <div id="star5" class='bh-mt-8'></div>
+                    <h3 class='bh-mt-16'>获取score</h3>
+                    <div id="star6" class='bh-mt-8 bh2-pull-left'></div>
+                    <button id='score-btn' class='bh2-btn bh2-primary bh2-small bh2-pull-left bh-ml-8'>Get</button>
+                </section>
+            </article>
+        </main>
+        <footer></footer>
+        <script>
+            $(function() {
+                $('#star1').bhStar({
+                    score: 3
+                });
+
+                $('#star2').bhStar({
+                    size: 30
+                });
+
+                $('#star3').bhStar({
+                    text: 'Vote'
+                });
+
+                $('#star4').bhStar({
+                    starClass: 'cls-star',
+                    textClass: 'cls-text'
+                });
+
+                $('#star5').bhStar({
+                    isShowNum: false
+                });
+
+                $('#star6').bhStar();
+                $("#score-btn").click(() => {
+                    alert($('#star6').bhStar('getScore'));
+                });
+            });
+
+            $('header').bhHeader({
+                "logo": "http://res.wisedu.com/scenes/public/images/demo/logo.png"
+            });
+
+            $("footer").bhFooter({
+                "text": "版权信息：© 2015 江苏金智教育信息股份有限公司 苏ICP备10204514号"
+            });
+
+            BH_UTILS.setContentMinHeight($("body").children("main").children("article"));
+        </script>
+        <script src="http://res.wisedu.com/fe_components/prism/prism.js"></script>
+    </body>
+</html>

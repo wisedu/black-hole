@@ -4,19 +4,19 @@
 // The dropdown wrapper (div)
 .bh2-dropdown {
     position: relative;
-    .bh-btn {
+    .bh2-btn {
         position: relative;
         min-width: 88px;
         padding-left: 8px;
         padding-right: 28px;
         text-align: left;
         margin-left: 0;
-        &.bh-btn-large {
+        &.bh2-btn-large {
             // 按钮最小尺寸：100px
             min-width: 100px;
             padding-left: 12px;
         }
-        &.bh-btn-small {
+        &.bh2-btn-small {
             min-width: 80px;
         }
         i.iconfont {
@@ -36,7 +36,7 @@
             border-top: 6px solid $primary-lv1;
         }
     }
-    .bh-btn,
+    .bh2-btn,
     .bh2-dropdown-link {
         &:after {
             content: "";
@@ -90,7 +90,7 @@
 }
 
 // Hover/Focus state
-.bh2-dropdown-menu > .bh-active > a,
+.bh2-dropdown-menu > .bh2-active > a,
 .bh2-dropdown-menu > li > a {
     &:hover,
     &:focus {
@@ -99,7 +99,7 @@
     }
 }
 
-.bh2-dropdown-menu > .bh-disabled > a {
+.bh2-dropdown-menu > .bh2-disabled > a {
     color: $gray-lv4;
     &:hover,
     &:focus {
@@ -117,7 +117,7 @@
 
 .bh2-dropdown-primary {
     &.bh2-dropdown {
-        & .bh-btn {
+        & .bh2-btn {
             &:after {
                 border-top-color: $white-base;
             }
@@ -128,14 +128,14 @@
         & > li > a {
             color: $white-base;
         }
-        & > .bh-active > a,
+        & > .bh2-active > a,
         & > li > a {
             &:hover,
             &:focus {
                 background-color: $primary-lv2;
             }
         }
-        & > .bh-disabled > a {
+        & > .bh2-disabled > a {
             opacity: 0.48;
             &,
             &:hover,

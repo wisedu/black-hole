@@ -1,5 +1,11 @@
 /**
- * 类似于纵向tab页签
+ * 评分组件
+ * @module bhStar
+ *
+ * @example
+ * $('#starDiv').bhStar({
+ *      score: 3
+ * });
  */
 (function ($) {
     /**
@@ -7,55 +13,67 @@
      */
     var Plugin;
 
-    var space = {
-        options: null,
-        dom: null
-    };
     /**
      * 这里是一个自运行的单例模式。
+     * @private
      */
     Plugin = (function () {
 
         /**
-         * 插件实例化部分，初始化时调用的代码可以放这里
+         * @alias bhStar
          */
         function Plugin(element, setting) {
+            var space = this.space = {
+                options: null,
+                dom: null
+            };
             //将插件的默认参数及用户定义的参数合并到一个新的obj里
             this.settings = $.extend({}, $.fn.bhStar.defaults, setting);
             space.options = this.settings;
             //将dom jquery对象赋值给插件，方便后续调用
             this.$element = $(element);
             space.dom = this.$element;
-            init();
+            init(this);
         }
-        //获取评分方法
+        /**
+         * 获取评分
+         * @inner
+         * @method  getScore
+         * @memberOf module:bhStar
+         * @return {Number} 当前评分值
+         * @example
+         * $('#starDiv').bhStar('getScore');
+         */
         Plugin.prototype.getScore = function() {
-            return space.options.score;
+            return this.space.options.score;
         };
         return Plugin;
 
     })();
 
-    function init(){
-        var html = getStarHtml();
+    function init(instance){
+        var html = getStarHtml(instance);
         var $html = $(html);
-        space.dom.append($html);
+        instance.space.dom.append($html);
 
-        eventListen($html);
+        eventListen($html, instance);
     }
 
-    function getStarHtml(){
+    function getStarHtml(instance){
+        var space = instance.space;
+
         var score = parseInt(space.options.score, 10);
         var starItemStyle = '';
         if(space.options.size){
             starItemStyle = 'font-size: '+space.options.size+'px';
         }
+
         var starHtml = '<i class="iconfont icon-star" style="'+starItemStyle+'"></i><i class="iconfont icon-staroutline" style="'+starItemStyle+'"></i>';
         var html = '';
         for(var i=0; i<5; i++){
             if(i + 1 <= score){
                 html += '<div class="bh-star-item bh-active">'+starHtml+'</div>';
-            }else{
+            } else {
                 html += '<div class="bh-star-item">'+starHtml+'</div>';
             }
         }
@@ -66,25 +84,28 @@
         if(space.options.isShowNum){
             scoreNumHtml = '<div class="bh-star-num '+space.options.textClass+'"><span bh-star-role="number">'+score+'</span><span>'+space.options.text+'</span></div>';
         }
+
         return '<div class="bh-star" bh-star-role="bhStar">'+ html + scoreNumHtml +'</div>';
     }
 
-    function eventListen($starDom){
+    function eventListen($starDom, instance){
+        var space = instance.space;
+
         //点击星星的处理
         $starDom.on('click', '.bh-star-item', function(){
             var index = $(this).index() + 1;
             space.options.score = index;
-            setStar4Hover($starDom, index);
+            setStar4Hover($starDom, index, space);
         });
         //鼠标hover到星星的处理
         $starDom.on('mouseover', '.bh-star-item', function(){
             var index = $(this).index() + 1;
-            setStar4Hover($starDom, index);
+            setStar4Hover($starDom, index, space);
         });
         //鼠标离开星星的处理
         $starDom.on('mouseout','.bh-star-list' ,function(){
             var index = parseInt(space.options.score, 10);
-            setStar4Hover($starDom, index);
+            setStar4Hover($starDom, index, space);
         });
     }
 
@@ -93,7 +114,7 @@
      * @param $dom
      * @param index 选中星级的序号
      */
-    function setStar4Hover($dom, index){
+    function setStar4Hover($dom, index, space){
         $dom.find('div.bh-star-item').each(function(i){
             if(i < index){
                 $(this).addClass('bh-active');
@@ -136,7 +157,16 @@
     };
 
     /**
-     * 插件的默认值
+     * 组件初始化时设置的参数
+     * @memberOf module:bhStar
+     * @alias settings
+     * @inner
+     * @property {Number} [score=0] 分值
+     * @property {Number} [size=0] 设置星的大小，单位按像素计算
+     * @property {Boolean} [isShowNum=true] 是否显示数字
+     * @property {String} [text=分] 在分数后面显示的文字
+     * @property {String} [textClass] 给分数的父层添加样式类
+     * @property {String} [starClass] 给星星的父层添加样式类
      */
     $.fn.bhStar.defaults = {
         score: 0, //可选，设置初始化分数，默认是0
